@@ -36,6 +36,7 @@ async def on_message(message):
     
     global titi
     global scrip
+    global timetble
 
 
 
