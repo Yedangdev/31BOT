@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import re
 from random import *
 import asyncio
-import os
 
 
 client = discord.Client()
@@ -299,15 +298,6 @@ async def on_message(message):
             await asyncio.sleep(0.7)
             await message.channel.send(f"{sorry}") #삼일이는 농담을 매우 못한답니다..
             
-     if message.content.startswith("츄르"):
-     	await message.channel.send("냐옹?")
-     	await asyncio.sleep(0.7)
-     	await message.channel.send("{}님, 이스터에그를 찾으셨습니다!" .format(message.author.mention))
-     	
-     	
-     	
-     
-            
         
             
         
@@ -318,6 +308,12 @@ async def on_message(message):
 
 
         
+    
+        
+
+
+
+
     
         
 
