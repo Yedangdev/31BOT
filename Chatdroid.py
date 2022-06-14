@@ -29,6 +29,10 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    
+    global titi
+    global scrip
+
     if message.content.startswith('!제목'):
 		await message.channel.purge(limit=1)
 		titi = message.content[4:]
