@@ -74,7 +74,7 @@ async def on_message(message):
     if message.content.startswith('!공쥐해'):
         await message.channel.send('베타기능이에요')
         await message.channel.purge(limit=2)
-        embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color = 0x62c1cc)
+        embed = discord.Embed(title=f"{titi}", description=f"{scrip}")
 
         await message.channel.send(embed=embed)
 
@@ -150,7 +150,7 @@ async def on_message(message):
         if i is True:
             await message.channel.purge(limit=1)
             show = message.content[4:]
-            embed = discord.Embed(title="공지사항!", description=f"{show}", color=0x000000)
+            embed = discord.Embed(title="공지사항!", description=f"{show}", color=0x62c1cc)
             await message.channel.send(embed=embed)
  
         if i is False:
