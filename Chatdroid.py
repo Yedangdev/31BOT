@@ -57,6 +57,7 @@ async def on_message(message):
         elif wday == 6:
             timetble = '놀기'
 
+        embed.set_image(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
         embed = discord.Embed(title="오늘의 시간표!", description=f"{timetble}", color = 0x62c1cc)
         await message.channel.send(embed=embed)
 
