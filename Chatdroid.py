@@ -4,8 +4,9 @@ from bs4 import BeautifulSoup
 import re
 from random import *
 import asyncio
+import os
 
-token = 'OTg0NzQ3ODcyMDUyNDU3NDgy.G46yiQ.4-3I24FSXxiihidV0iQsCNzF2vMkQ9VMR4fEIo'
+
 client = discord.Client()
 @client.event
 async def on_ready():
@@ -321,9 +322,9 @@ async def on_message(message):
         
 
 
+access_token = environ["BOT_TOKEN"]
 
-
-client.run(token)
+client.run(access_token)
 
 
 
