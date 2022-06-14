@@ -340,7 +340,7 @@ async def on_message(message):
             setence = "논술일반전형 논술70 + 학생부30 \n최저 없음"
             
         else:
-            setence = "논술전형을 실시하는 대학이 아니거나, 존재하지 않는 대학입니다.\n\n\n오타를 확인해보세요\n\n\n검색요령: ex) /'한양대학교 에리카 검색시/' ------> !논술 한양대(에리카)\n\n!논술과 대학이름사이에 공백이 있어야 검색이 가능합니다.\n\n\n\n\n\n\n정보가 누락되었거나, 오류는 제보해주세요"
+            setence = "논술전형을 실시하는 대학이 아니거나, 존재하지 않는 대학입니다.\n\n\n오타를 확인해보세요\n\n\n검색요령: ex) '한양대학교 에리카 검색시' ------> !논술 한양대(에리카)\n\n!논술과 대학이름사이에 공백이 있어야 검색이 가능합니다.\n\n\n\n\n\n\n정보가 누락되었거나, 오류는 제보해주세요"
             
         embed=discord.Embed(color=0xff22, title= f"{index}", description= f"{setence}", timestamp=message.created_at)
         await message.channel.send(embed=embed) #출력
@@ -361,7 +361,7 @@ async def on_message(message):
     if message.content.startswith('!안내'):
         await message.channel.purge(limit=1) 
         
-        noti = "안녕하세요 학급도우미 삼일이에요!!!\n\n\n<명령어 기능>\n\n\!논술+대학이름 --> 해당 대학 논술전형\n\n!급식 --> 급식조회가능\n\n!운세 --> 운을 봐드림\n\n!공지+공지내용 --> 공지가능(관리자만)\n\n!청소+숫자 --> 메세지 숫자만큼 삭제(관리자만)\n\n!농담해줘 --> 농담을 해드려요..하고싶진 않지만!\n\n개인서버에 초대해서 명령을 내릴 수 있습니다\n(단 봇에 관리자권한이 있어야합니다)\n\n!시간표 --> 오늘 시간표를 알려드립니다\n\n!시험범위+과목명 --> 해당 과목의 시험범위를 알려드립니다."
+        noti = "안녕하세요 학급도우미 삼일이에요!!!\n\n\n<명령어 기능>\n\n\!논술+대학이름 --> 해당 대학 논술전형\n\n!급식 --> 급식조회가능\n\n!운세 --> 운을 봐드림\n\n!공지+공지내용 --> 공지가능(관리자만)\n\n!청소+숫자 --> 메세지 숫자만큼 삭제(관리자만)\n\n!농담해줘 --> 농담을 해드려요..하고싶진 않지만!\n\n!시간표 --> 오늘 시간표를 알려드립니다\n\n!시험범위+과목명 --> 해당 과목의 시험범위를 알려드립니다.\n\n\n<커뮤니티기능>\n임베드로 자신의 문자메시지를 강조해보세요!\n\n이용방법\n\n!제목 --> 임베드의 제목을 정해요\n\n!내용 --> 임베드의 내용을 정해요\n\n!공쥐해 --> 임베드를 출력해요"
         
         embed=discord.Embed(color=0xff00, title= "안내", description= f"{noti}", timestamp=message.created_at)
         await message.channel.send(embed=embed)
