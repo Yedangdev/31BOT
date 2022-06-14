@@ -30,6 +30,8 @@ async def on_ready():
 @client.event
 async def on_message(message):
     
+    global result
+    
 
     
     if message.content.startswith('!안녕'):
@@ -222,19 +224,19 @@ async def on_message(message):
             setence = "논술일반전형 논술70 + 학생부30 \n최저 없음"
             
         else:
-            setence = "논술전형을 실시하는 대학이 아니거나, 존재하지 않는 대학입니다.\n\n\n오타를 확인해보세요\n\n\n검색요령: ex) /'한양대학교 에리카 검색시/' ------> !논술 한양대(에리카)\n\n!논술과 대학이름사이에 공백이 있어야 검색이 가능합니다.\n\n\n\n\n\n\n정보가 누락되었거나, 오류는 제보해주세요"
+            setence = "논술전형을 실시하는 대학이 아니거나, 존재하지 않는 대학입니다.\n\n\n오타를 확인해보세요\n\n\n검색요령: ex) '한양대학교 에리카 검색시' ------> !논술 한양대(에리카)\n\n!논술과 대학이름사이에 공백이 있어야 검색이 가능합니다.\n\n\n\n\n\n\n정보가 누락되었거나, 오류는 제보해주세요"
             
         embed=discord.Embed(color=0xff22, title= f"{index}", description= f"{setence}", timestamp=message.created_at)
         await message.channel.send(embed=embed) #출력
         
         
     if message.content.startswith('!운세'):
-        a = randrange(1,4)
-        if a == 1:
+        a = randint(1,100)
+        if 1 <= a < 35:
             await message.channel.send('{}님은 오늘은 일이 잘풀릴거에요!'.format(message.author.mention))
-        if a == 2:
+        if 35 <= a < 70:
             await message.channel.send('그럭저럭!!')
-        if a == 3:
+        if 70 <= a <100:
             await message.channel.send('{}님, 오늘은 조심하는게 좋겠어요..'.format(message.author.mention))
             
     if message.content.startswith('!논술대학리스트'):
