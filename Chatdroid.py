@@ -30,30 +30,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     
-    global titi
-    global scrip
 
-    if message.content.startswith('!제목'):
-		await message.channel.purge(limit=1)
-		titi = message.content[4:]
-		await message.channel.send('제목이 할당되었습니다')
-		
-		
-    if message.content.startswith('!내용'):
-		await message.channel.purge(limit=1)
-		scrip = message.content[4:]
-		await message.channel.send('내용이 할당되었습니다')
-		
-    if message.content.startswith('!공쥐해'):
-		await message.channel.send('베타기능이에요')
-		await message.channel.purge(limit=2)
-		embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color = 0x62c1cc)
-		
-		await message.channel.send(embed=embed)
-
-    
-    
-    
     
     if message.content.startswith('!안녕'):
         a = randrange(1,4)
