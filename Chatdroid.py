@@ -30,9 +30,106 @@ async def on_ready():
 @client.event
 async def on_message(message):
     
-    global result
+ 
     
+    
+    global titi
+    global scrip
 
+
+
+    if message.content.startswith('!시간표'):
+        wday = time.localtime().tm_wday
+        if wday == 0:
+            timetble = '프로\n기하\n미적\n논술\n영독작\n물리2\n생명2'
+        elif wday == 1:
+            timetble = '기하\n미적\n여지\n심국\n영독작\n생명2\n프로'
+        elif wday == 2:
+            timetble = '여지\n영독작\n프로\n미적\n생명2\n물리2\n논술'
+        elif wday == 3:
+            timetble = '여지\n스포\n심국\n진로\n영독작\n물리2\n미적'
+        elif wday == 4:
+            timetble = '자율3\n심국\n스포\n기하\n자봉\n동아'
+        elif wday == 5:
+            timetble = '놀기'
+        elif wday == 6:
+            timetble = '놀기'
+
+        embed = discord.Embed(title="오늘의 시간표!", description=f"{timetble}", color = 0x62c1cc)
+        await message.channel.send(embed=embed)
+
+
+    if message.content.startswith('!제목'):
+        await message.channel.purge(limit=1)
+        titi = message.content[4:]
+        await message.channel.send('제목이 할당되었습니다')
+
+
+    if message.content.startswith('!내용'):
+        await message.channel.purge(limit=1)
+        scrip = message.content[4:]
+        await message.channel.send('내용이 할당되었습니다')
+
+    if message.content.startswith('!공쥐해'):
+        await message.channel.send('베타기능이에요')
+        await message.channel.purge(limit=2)
+        embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color = 0x62c1cc)
+
+        await message.channel.send(embed=embed)
+
+
+    if message.content.startswith('!시험범위'):    #매크로로 쓴거다. 내가 직접 쓰지 않았음.
+        index = message.content[6:]
+        
+        
+        if index == "기하":
+            setence = "1단원 ~ 3단원"
+
+        elif index == "미적분":
+            setence = "추가 예정"
+
+        elif index == "화작":
+            setence = "추가 예정"
+
+        elif index == "프로그래밍":
+            setence = "추가 예정"
+
+        elif index == "지식재산일반":
+            setence = "추가 예정"
+
+        elif index == "생활과학":
+            setence = "추가 예정"
+
+        elif index == "영독작":
+            setence = "추가 예정"
+
+        elif index == "여행지리":
+            setence = "추가 예정"
+
+        elif index == "물리2":
+            setence = "추가 예정"
+
+        elif index == "화학2":
+            setence = "추가 예정"
+
+        elif index == "생명2":
+            setence = "추가 예정"
+
+        elif index == "심화국어":
+            setence = "추가 예정"
+
+        elif index == "영어권문화":
+            setence = "추가 예정"
+
+        else:
+            setence = "!시험범위 + 기하, 미적분, 화작, 프로그래밍, 지식재산일반, 생활과학, 영독작, 여행지리, 물리2, 화학2, 생명2, 심화국어, 영어권문화 중 택1"
+            
+        embed=discord.Embed(color=0xff22, title= f"{index}", description= f"{setence}", timestamp=message.created_at)
+        await message.channel.send(embed=embed) #출력
+            
+
+    
+    
     
     if message.content.startswith('!안녕'):
         a = randrange(1,4)
@@ -42,7 +139,25 @@ async def on_message(message):
             await message.channel.send('안녕하세요, {}님 Chatdroid에요'.format(message.author.mention))
         if a == 3:
             await message.channel.send('Hello, World!!')
+
+
+
+
+    if message.content.startswith ("!공지"):
+        i = (message.author.guild_permissions.administrator)
+
+        if i is True:
+            await message.channel.purge(limit=1)
+            show = message.content[4:]
+            embed = discord.Embed(title="공지사항!", description=f"{show}", color=0x000000)
+            await message.channel.send(embed=embed)
+ 
+        if i is False:
+
+            await message.channel.purge(limit=1)
+            await message.channel.send("{}님은 명령어를 사용할 수 있는 권한이없습니다".format(message.author.mention))
         
+    
         
     if message.content.startswith('!잘가'):
         a = randrange(1,4)
@@ -224,35 +339,41 @@ async def on_message(message):
             setence = "논술일반전형 논술70 + 학생부30 \n최저 없음"
             
         else:
-            setence = "논술전형을 실시하는 대학이 아니거나, 존재하지 않는 대학입니다.\n\n\n오타를 확인해보세요\n\n\n검색요령: ex) '한양대학교 에리카 검색시' ------> !논술 한양대(에리카)\n\n!논술과 대학이름사이에 공백이 있어야 검색이 가능합니다.\n\n\n\n\n\n\n정보가 누락되었거나, 오류는 제보해주세요"
+            setence = "논술전형을 실시하는 대학이 아니거나, 존재하지 않는 대학입니다.\n\n\n오타를 확인해보세요\n\n\n검색요령: ex) /'한양대학교 에리카 검색시/' ------> !논술 한양대(에리카)\n\n!논술과 대학이름사이에 공백이 있어야 검색이 가능합니다.\n\n\n\n\n\n\n정보가 누락되었거나, 오류는 제보해주세요"
             
         embed=discord.Embed(color=0xff22, title= f"{index}", description= f"{setence}", timestamp=message.created_at)
         await message.channel.send(embed=embed) #출력
         
         
     if message.content.startswith('!운세'):
-        a = randint(1,100)
-        if 1 <= a < 35:
+        a = randrange(1,4)
+        if a == 1:
             await message.channel.send('{}님은 오늘은 일이 잘풀릴거에요!'.format(message.author.mention))
-        if 35 <= a < 70:
+        if a == 2:
             await message.channel.send('그럭저럭!!')
-        if 70 <= a <100:
+        if a == 3:
             await message.channel.send('{}님, 오늘은 조심하는게 좋겠어요..'.format(message.author.mention))
             
-    if message.content.startswith('!논술대학리스트'):
-        await message.channel.send("추후 업데이트 예정")
-        
-    if message.content.startswith('\안내'):
+
+
+
+    if message.content.startswith('!안내'):
         await message.channel.purge(limit=1) 
         
-        noti = "안녕하세요 학급도우미 삼일이에요!!!\n\n\n<명령어 기능>\n\n\!논술+대학이름 --> 해당 대학 논술전형\n\n!급식 --> 급식조회가능\n\n!운세 --> 운을 봐드림\n\n!공지+공지내용 --> 공지가능(관리자만)\n\n!청소+숫자 --> 메세지 숫자만큼 삭제(관리자만)\n\n!농담해줘 --> 농담을 해드려요..하고싶진 않지만!\n\n개인서버에 초대해서 명령을 내릴 수 있습니다\n(단 봇에 관리자권한이 있어야합니다)."
+        noti = "안녕하세요 학급도우미 삼일이에요!!!\n\n\n<명령어 기능>\n\n\!논술+대학이름 --> 해당 대학 논술전형\n\n!급식 --> 급식조회가능\n\n!운세 --> 운을 봐드림\n\n!공지+공지내용 --> 공지가능(관리자만)\n\n!청소+숫자 --> 메세지 숫자만큼 삭제(관리자만)\n\n!농담해줘 --> 농담을 해드려요..하고싶진 않지만!\n\n개인서버에 초대해서 명령을 내릴 수 있습니다\n(단 봇에 관리자권한이 있어야합니다)\n\n!시간표 --> 오늘 시간표를 알려드립니다\n\n!시험범위+과목명 --> 해당 과목의 시험범위를 알려드립니다."
         
         embed=discord.Embed(color=0xff00, title= "안내", description= f"{noti}", timestamp=message.created_at)
         await message.channel.send(embed=embed)
         
+
+
+
     if message.content.startswith('!help'):
-        await message.channel.send("<도움말>\n\n\!논술+대학이름 --> 해당 대학 논술전형\n\n!급식 --> 급식조회가능\n\n!운세 --> 운을 봐드림\n\n!공지+공지내용 --> 공지가능(관리자만)\n\n!청소+숫자 --> 메세지 숫자만큼 삭제(관리자만)\n\n!농담해줘 --> 농담을 해드려요개인서버에 초대해서 명령을 내릴 수 있습니다\n(단 봇에 관리자권한이 있어야합니다).")
+        await message.channel.send("<도움말>\n\n\!논술+대학이름 --> 해당 대학 논술전형\n\n!급식 --> 급식조회가능\n\n!운세 --> 운을 봐드림\n\n!공지+공지내용 --> 공지가능(관리자만)\n\n!청소+숫자 --> 메세지 숫자만큼 삭제(관리자만)\n\n!농담해줘 --> 농담을 해드려요..하고싶진 않지만!\n\n개인서버에 초대해서 명령을 내릴 수 있습니다\n(단 봇에 관리자권한이 있어야합니다)\n\n!시간표 --> 오늘 시간표를 알려드립니다\n\n!시험범위+과목명 --> 해당 과목의 시험범위를 알려드립니다.")
         
+
+
+
     if message.content.startswith('!농담'):
         que = ["오리가 얼면? ", "딸기가 직장을 잃으면?", "세상에서 가장 억울한 도형은?", "아몬드가 죽으면?", "토끼가 쓰는 빗은?", "토끼가 강한 이유는?", "삶은?", "11월에 뱀이랑 벌이 없는 이유는?", "가장 폭력적인 동물은?", "스님이 못가는 대학교는?"]
         ans = ["언덕", "딸기시럽", "원통", "다이아몬드", "레빗", "깡과 총이 있어서", "계란", "노뱀벌", "팬다", "중앙대"]
@@ -300,26 +421,14 @@ async def on_message(message):
             await message.channel.send(f"{wow}")
             await asyncio.sleep(0.7)
             await message.channel.send(f"{sorry}") #삼일이는 농담을 매우 못한답니다..
-
-
             
         
             
         
-            
-            
-        
-        
+  
+client.run(token)
 
 
-        
-    
-        
-
-
-
-
-    
         
 
 
