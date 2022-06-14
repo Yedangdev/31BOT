@@ -2,4 +2,4 @@ discord.py==1.7.3
 bs4
 lxml
 requests
-BeautifulSoup==4.9.3
+BeautifulSoup4
