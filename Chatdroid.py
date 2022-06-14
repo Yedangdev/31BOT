@@ -1,6 +1,6 @@
 import discord
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup4
 import re
 from random import *
 import asyncio
