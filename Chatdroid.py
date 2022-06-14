@@ -174,25 +174,25 @@ async def on_message(message):
         await message.channel.send('저는 파이썬 기반으로 만들어졌어요!')
         
         
-    if message.content.startswith('!급식'):
-        await message.channel.send('시간이 약간 걸릴수 있어요..')
-        url = "https://hiyedang.hs.kr/"
+    #if message.content.startswith('!급식'):
+        #await message.channel.send('시간이 약간 걸릴수 있어요..')
+        #url = "https://hiyedang.hs.kr/"
 
-        res = requests.get(url,timeout = 40)    #학교 급식게시판 파싱
-        res.raise_for_status()
-        soup = BeautifulSoup(res.text, "lxml") 
+        #res = requests.get(url,timeout = 40)    #학교 급식게시판 파싱
+        #res.raise_for_status()
+        #soup = BeautifulSoup(res.text, "lxml") 
 
-        diet = soup.find_all("div", attrs={"class":"menu"})  #가져올 요소
-        for diets in diet:
-            result = diets.get_text() #텍스트만 추출
+        #diet = soup.find_all("div", attrs={"class":"menu"})  #가져올 요소
+        #for diets in diet:
+            #result = diets.get_text() #텍스트만 추출
             
-            await message.channel.purge(limit=1)
+            #await message.channel.purge(limit=1)
             
         
         #await message.channel.send(f"{result}/n오늘의 급식입니다!!")
-        embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{result}", timestamp=message.created_at)
-        embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
-        await message.channel.send(embed=embed)
+        #embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{result}", timestamp=message.created_at)
+        #embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
+        #await message.channel.send(embed=embed)
         
     
     if message.content.startswith ("!청소"):
