@@ -372,11 +372,25 @@ async def on_message(message):
 
 
 
-    if message.content.startswith('!help'):
+   if message.content.startswith('!help'):
         await message.channel.send("<도움말>\n\n\!논술+대학이름 --> 해당 대학 논술전형\n\n!운세 --> 운을 봐드림\n\n!공지+공지내용 --> 공지가능(관리자만)\n\n!청소+숫자 --> 메세지 숫자만큼 삭제(관리자만)\n\n!농담해줘 --> 농담을 해드려요..하고싶진 않지만!\n\n!시간표 --> 오늘 시간표를 알려드립니다\n\n!시험범위+과목명 --> 해당 과목의 시험범위를 알려드립니다.")
         
 
+    if message.content.startswith('!한국어'):
+         s = message.content[5:]
+         hangul = re.compile('[^ ㄱ-ㅣ가-힣+]') # 한글과 띄어쓰기를 제외한 모든 글자
 
+    # hangul = re.compile('[^ \u3131-\u3163\uac00-\ud7a3]+')  # 위와 동일
+
+         result = hangul.sub('', s) # 한글과 띄어쓰기를 제외한 모든 부분을 제거
+
+         await message.channel.send(s)
+
+    
+
+s='韓子는 싫고, 한글은 nice하다. English 쵝오 -_-ㅋㅑㅋㅑ ./?!'
+
+출처: https://codingspooning.tistory.com/138 [코딩하는 금융인:티스토리]
 
     if message.content.startswith('!농담'):
         que = ["오리가 얼면? ", "딸기가 직장을 잃으면?", "세상에서 가장 억울한 도형은?", "아몬드가 죽으면?", "토끼가 쓰는 빗은?", "토끼가 강한 이유는?", "삶은?", "11월에 뱀이랑 벌이 없는 이유는?", "가장 폭력적인 동물은?", "스님이 못가는 대학교는?"]
@@ -425,6 +439,8 @@ async def on_message(message):
             await message.channel.send(f"{wow}")
             await asyncio.sleep(0.7)
             await message.channel.send(f"{sorry}") #삼일이는 농담을 매우 못한답니다..
+            
+            
             
         
             
