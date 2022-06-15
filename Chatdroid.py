@@ -30,15 +30,15 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('/est'):
-        embed = discord.Embed(title="이스터에그?!?", description = "Chatdroid", color=0xfaf4c0)
+    if message.content.startswith('!312안녕'):
+        embed = discord.Embed(title="EasterEgg_file_load_process", description = "Chatdroid_memory", color=0xfaf4c0)
         #embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986281059345924167")
         await message.channel.send(embed=embed)
-        await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/986639756333043753/Easter_egg_312_2.jpg\nhttps://media.discordapp.net/attachments/986620556675776532/986638305724620800/Easter_egg_312_1.jpg\n삼일이는 고양이였습니다...라는 어이없는 이스터에그")
+        await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/986638305724620800/Easter_egg_312_1.jpg\nhttps://media.discordapp.net/attachments/986620556675776532/986639756333043753/Easter_egg_312_2.jpg")
         
     
     if message.content.startswith('!TOKEN'):  #토큰 해킹에 대한 약간의 보안조치
-        embed = discord.Embed(title="보안경고", description = "승인되지 않은 유저가 봇 토큰에 대해 접근합니다.\n\nsol:reset token", color=0xfaf4c0)
+        embed = discord.Embed(title="보안경고", description = "승인되지 않은 유저가 봇 토큰에 대해 접근의도를 보입니다.\n\nsol:reset token", color=0xfaf4c0)
         #embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986281059345924167")
         await message.channel.send(embed=embed)
 
