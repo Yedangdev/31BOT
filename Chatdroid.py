@@ -46,7 +46,7 @@ async def on_message(message):
     if message.content.startswith('!d6'):  
         await message.channel.send("{}님이 주사위를 굴렸어요!" .format(message.author.mention))
         dice = randint(1,6)
-        embed = discord.Embed(title="주사위 결과", description = f"🎲{dice}이 나왔습니다!", color=0xfaf4c0)
+        embed = discord.Embed(title="주사위 결과", description = f"🎲{dice}이(가) 나왔습니다!", color=0xfaf4c0)
         await message.channel.send(embed=embed)
 
 
