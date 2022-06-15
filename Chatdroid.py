@@ -192,7 +192,7 @@ async def on_message(message):
             #await message.channel.purge(limit=1)
             
         
-        await message.channel.send("최적화 문제로 서비스를 잠시 중단합니다.")
+        await message.channel.send("최적화 문제로 서비스를 잠시 중단합니다.\n오전 시간대에 보조 챗봇을 이용해 공지해드립니다.")
         #embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{result}", timestamp=message.created_at)
         #embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         #await message.channel.send(embed=embed)
@@ -364,7 +364,7 @@ async def on_message(message):
     if message.content.startswith('!안내'):
         await message.channel.purge(limit=1) 
         
-        noti = "안녕하세요 학급도우미 삼일이에요!!!\n\n\n<명령어 기능>\n\n\!논술+대학이름 --> 해당 대학 논술전형\n\n!급식 --> 급식조회가능\n\n!운세 --> 운을 봐드림\n\n!공지+공지내용 --> 공지가능(관리자만)\n\n!청소+숫자 --> 메세지 숫자만큼 삭제(관리자만)\n\n!농담해줘 --> 농담을 해드려요..하고싶진 않지만!\n\n!시간표 --> 오늘 시간표를 알려드립니다\n\n!시험범위+과목명 --> 해당 과목의 시험범위를 알려드립니다.\n\n\n<커뮤니티기능>\n임베드로 자신의 문자메시지를 강조해보세요!\n\n이용방법\n\n!제목 --> 임베드의 제목을 정해요\n\n!내용 --> 임베드의 내용을 정해요\n\n!공쥐해 --> 임베드를 출력해요"
+        noti = "안녕하세요 학급도우미 삼일이에요!!!\n\n\n<명령어 기능>\n\n\!논술+대학이름 --> 해당 대학 논술전형\n\n!운세 --> 운을 봐드림\n\n!공지+공지내용 --> 공지가능(관리자만)\n\n!청소+숫자 --> 메세지 숫자만큼 삭제(관리자만)\n\n!농담해줘 --> 농담을 해드려요..하고싶진 않지만!\n\n!시간표 --> 오늘 시간표를 알려드립니다\n\n!시험범위+과목명 --> 해당 과목의 시험범위를 알려드립니다.\n\n\n<베타기능>\n임베드로 자신의 문자메시지를 강조하거나, 효과적인 공지사항을 제작하세요!!(정식기능으로 도입시 관리자만 이용가능 합니다.)\n\n이용방법\n\n!제목 --> 임베드의 제목을 정해요\n\n!내용 --> 임베드의 내용을 정해요\n\n!공쥐해 --> 임베드를 출력해요"
         
         embed=discord.Embed(color=0xff00, title= "안내", description= f"{noti}", timestamp=message.created_at)
         await message.channel.send(embed=embed)
@@ -373,7 +373,7 @@ async def on_message(message):
 
 
     if message.content.startswith('!help'):
-        await message.channel.send("<도움말>\n\n\!논술+대학이름 --> 해당 대학 논술전형\n\n!급식 --> 급식조회가능\n\n!운세 --> 운을 봐드림\n\n!공지+공지내용 --> 공지가능(관리자만)\n\n!청소+숫자 --> 메세지 숫자만큼 삭제(관리자만)\n\n!농담해줘 --> 농담을 해드려요..하고싶진 않지만!\n\n개인서버에 초대해서 명령을 내릴 수 있습니다\n(단 봇에 관리자권한이 있어야합니다)\n\n!시간표 --> 오늘 시간표를 알려드립니다\n\n!시험범위+과목명 --> 해당 과목의 시험범위를 알려드립니다.")
+        await message.channel.send("<도움말>\n\n\!논술+대학이름 --> 해당 대학 논술전형\n\n!운세 --> 운을 봐드림\n\n!공지+공지내용 --> 공지가능(관리자만)\n\n!청소+숫자 --> 메세지 숫자만큼 삭제(관리자만)\n\n!농담해줘 --> 농담을 해드려요..하고싶진 않지만!\n\n!시간표 --> 오늘 시간표를 알려드립니다\n\n!시험범위+과목명 --> 해당 과목의 시험범위를 알려드립니다.")
         
 
 
@@ -390,8 +390,8 @@ async def on_message(message):
             await message.channel.send("(그렇게 믿어주세요 제발)")
             
         if 10<= yn < 40:
-            hate = randint(0,3)
-            nongdam = ["급식 알려주는", "공지 해주는", "논술전형 정보 알려주는", "운세 봐주는"]
+            hate = randint(0,5)
+            nongdam = ["급식 알려주는", "공지 해주는", "논술전형 정보 알려주는", "운세 봐주는", "시간표 알려주는", "시험범위 알려주는"]
             angry = nongdam[hate]      #농담 대신 다른걸 해보죠^^ (부글부글)
             await message.channel.send("농담이 뭐죠?")
             await asyncio.sleep(0.7)
