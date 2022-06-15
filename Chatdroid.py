@@ -22,7 +22,7 @@ async def on_ready():
     #await client.change_presence(status=discord.Status.dnd) #다른용무
     #await client.change_presence(status=discord.Status.offline) #오프라인
     
-    await client.change_presence(activity=discord.Game(name="!명령어 대기"))
+    await client.change_presence(activity=discord.Game(name="!help 대기"))
 
     
 
@@ -90,13 +90,13 @@ async def on_message(message):
             await message.channel.purge(limit=1)
             await message.channel.send("{}님은 명령어를 사용할 수 있는 권한이없습니다".format(message.author.mention))
 
-    if message.content.startswith('!공쥐해'):
+    if message.content.startswith('!공지'):
         i = (message.author.guild_permissions.administrator)
         if i is True:
             
             await message.channel.send('베타기능이에요')
             await message.channel.purge(limit=2)
-            embed = discord.Embed(title=f"{titi}", description=f"{scrip}")
+            embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color=0x62c1cc)
 
             await message.channel.send(embed=embed)
         
@@ -171,19 +171,17 @@ async def on_message(message):
 
 
 
-    if message.content.startswith ("!공지"):
-        i = (message.author.guild_permissions.administrator)
-
-        if i is True:
-            await message.channel.purge(limit=1)
-            show = message.content[4:]
-            embed = discord.Embed(title="공지사항!", description=f"{show}", color=0x62c1cc)
-            await message.channel.send(embed=embed)
+    if message.content.startswith ("!"):
+       
+        await message.channel.purge(limit=1)
+        show = message.content[4:]
+        embed = discord.Embed(description=f"{show}", color=0x72c1cc)
+        await message.channel.send(embed=embed)
  
-        if i is False:
 
-            await message.channel.purge(limit=1)
-            await message.channel.send("{}님은 명령어를 사용할 수 있는 권한이없습니다".format(message.author.mention))
+
+            
+            
         
     
         
@@ -363,7 +361,7 @@ async def on_message(message):
         elif index == "홍익대(세종)":
             setence = "논술전형 논술90 + 학생부10 \n[인문] 미실시 \n[자연] 국,수(미/기),영,과(1) 중 1개 4"
             
-        elif index == "한국기술교대":
+        elif index == "한기대":
             setence = "논술일반전형 논술70 + 학생부30 \n최저 없음"
             
         else:
@@ -374,13 +372,20 @@ async def on_message(message):
         
         
     if message.content.startswith('!운세'):
-        a = randrange(1,4)
-        if a == 1:
+        a = randint(1, 100)
+        if 1 <= a < 40:
             await message.channel.send('{}님은 오늘은 일이 잘풀릴거에요!'.format(message.author.mention))
-        if a == 2:
-            await message.channel.send('그럭저럭!!')
-        if a == 3:
+        if 40 <= a < 75:
+            await message.channel.send('{}님의 운세는... 그럭저럭!!'.format(message.author.mention))
+        if 75 <= a <= 99:
             await message.channel.send('{}님, 오늘은 조심하는게 좋겠어요..'.format(message.author.mention))
+        if 99 < a <= 100:
+            #이스터에그
+            embed=discord.Embed(color=0xff22, title= "이스터에그!", description= "행운이란 준비와 기회를 만났을 때 나타난다", timestamp=message.created_at)
+            await asyncio.sleep(1)
+            await message.channel.send('{}님, 1%의 확률에 당첨되셨습니다!!!'.format(message.author.mention))
+            
+            
             
 
 
@@ -388,7 +393,7 @@ async def on_message(message):
     if message.content.startswith('!안내'):
         await message.channel.purge(limit=1) 
         
-        noti = "안녕하세요 학급도우미 삼일이에요!!!\n\n\n<명령어 기능>\n\n\!논술+대학이름 --> 해당 대학 논술전형\n\n!운세 --> 운을 봐드림\n\n!공지+공지내용 --> 공지가능(관리자만)\n\n!청소+숫자 --> 메세지 숫자만큼 삭제(관리자만)\n\n!농담해줘 --> 농담을 해드려요..하고싶진 않지만!\n\n!시간표 --> 오늘 시간표를 알려드립니다\n\n!시험범위+과목명 --> 해당 과목의 시험범위를 알려드립니다.\n\n\n<베타기능>\n임베드로 자신의 문자메시지를 강조하거나, 효과적인 공지사항을 제작하세요!!(정식기능으로 도입시 관리자만 이용가능 합니다.)\n\n이용방법\n\n!제목 --> 임베드의 제목을 정해요\n\n!내용 --> 임베드의 내용을 정해요\n\n!공쥐해 --> 임베드를 출력해요"
+        noti = "안녕하세요 학급도우미 삼일이에요!!!\n\n\n<명령어 기능>\n\n\!논술+대학이름 --> 해당 대학 논술전형\n\n!운세 --> 운을 봐드림\n\n!강조+문자내용 --> 메세지를 강조해드립니다\n\n!청소+숫자 --> 메세지 숫자만큼 삭제(관리자만)\n\n!농담해줘 --> 농담을 해드려요..하고싶진 않지만!\n\n!시간표 --> 오늘 시간표를 알려드립니다\n\n!시험범위+과목명 --> 해당 과목의 시험범위를 알려드립니다.\n\n\n<베타기능>\n임베드로 자신의 문자메시지를 강조하거나, 효과적인 공지사항을 제작하세요!!(정식기능으로 도입시 관리자만 이용가능 합니다.)\n\n이용방법\n\n!제목 --> 임베드의 제목을 정해요\n\n!내용 --> 임베드의 내용을 정해요\n\n!공지 --> 임베드를 출력해요"
         
         embed=discord.Embed(color=0xff00, title= "안내", description= f"{noti}", timestamp=message.created_at)
         await message.channel.send(embed=embed)
