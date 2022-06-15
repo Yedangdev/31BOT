@@ -78,7 +78,7 @@ async def on_message(message):
         elif wday == 6:
             timetble = '놀기'
 
-        embed = discord.Embed(title="오늘의 시간표!", description=f"{timetble}", color = 0x62c1cc)
+        embed = discord.Embed(title="📝오늘의 시간표!", description=f"{timetble}", color = 0x62c1cc)
         embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
         await message.channel.send(embed=embed)
         await message.channel.send("오전 9시에 시간표가 갱신됩니다")
@@ -395,7 +395,7 @@ async def on_message(message):
         else:
             setence = "논술전형을 실시하는 대학이 아니거나, 존재하지 않는 대학입니다.\n\n\n오타를 확인해보세요\n\n\n검색요령: ex) '한양대학교 에리카 검색시' ------> !논술 한양대(에리카)\n\n!논술과 대학이름사이에 공백이 있어야 검색이 가능합니다.\n\n\n\n\n\n\n정보가 누락되었거나, 오류는 제보해주세요"
             
-        embed=discord.Embed(color=0xff22, title= f"{index}", description= f"{setence}", timestamp=message.created_at)
+        embed=discord.Embed(color=0xff22, title= f"🏫{index}", description= f"{setence}", timestamp=message.created_at)
         await message.channel.send(embed=embed) #출력
         
         
@@ -425,7 +425,7 @@ async def on_message(message):
         
         noti = "\n\n\n안녕하세요 학급도우미 삼일이에요!!!\n\n\n<명령어 기능>\n\n\!논술+대학이름 --> 23년도 모든 논술실시대학의 논술전형정보를 제공합니다\n\n!운세 --> 간단하게 오늘의 운을 시험해보세요!\n\n!강조+문자내용 --> 메세지를 강조해드립니다, 설문조사홍보나 홍보활동을 강조해보세요!\n\n!청소+숫자 --> 입력한 숫자만큼 메시지를 삭제합니다.(관리자만) 효과적으로 방을 관리하세요.\n\n!d6 --> 주사위를 굴려요\n\n!농담해줘 --> 농담을 해드려요, 단, 봇이 거절할 수도 있어요!\n\n!시간표 --> 오늘 시간표를 알려드립니다(오전9시에 업데이트됩니다.)\n\n!시험범위+과목명 --> 해당 과목의 시험범위를 알려드립니다.\n\n\n<베타기능>\n임베드로 공지사항을 강조해 효과적인 공지사항을 제작하세요(관리자 전용)!!\n\n이용방법\n\n!제목 --> 임베드의 제목을 정해요\n\n!내용 --> 임베드의 내용을 정해요\n\n!공지 --> 임베드를 출력해요\n\n\n\n개인서버에서 초대해 쓰고싶으면 지빈#1638으로 갠디코 주세요\n\n\n\n\n31BOT.ver.beta.4"
         
-        embed=discord.Embed(color=0xff00, title= "안내", description= f"{noti}", timestamp=message.created_at)
+        embed=discord.Embed(color=0xff00, title= "📌안내", description= f"{noti}", timestamp=message.created_at)
         await message.channel.send(embed=embed)
         
 
