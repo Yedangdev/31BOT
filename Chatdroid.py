@@ -64,22 +64,46 @@ async def on_message(message):
 
 
     if message.content.startswith('!제목'):
-        await message.channel.purge(limit=1)
-        titi = message.content[4:]
-        await message.channel.send('제목이 할당되었습니다')
+        i = (message.author.guild_permissions.administrator)
+        if i is True:
+            
+            await message.channel.purge(limit=1)
+            titi = message.content[4:]
+            await message.channel.send('제목이 할당되었습니다')
+            
+        if i is False:
+
+            await message.channel.purge(limit=1)
+            await message.channel.send("{}님은 명령어를 사용할 수 있는 권한이없습니다".format(message.author.mention))
 
 
     if message.content.startswith('!내용'):
-        await message.channel.purge(limit=1)
-        scrip = message.content[4:]
-        await message.channel.send('내용이 할당되었습니다')
+        i = (message.author.guild_permissions.administrator)
+        if i is True:
+            
+            await message.channel.purge(limit=1)
+            scrip = message.content[4:]
+            await message.channel.send('내용이 할당되었습니다')
+            
+        if i is False:
+
+            await message.channel.purge(limit=1)
+            await message.channel.send("{}님은 명령어를 사용할 수 있는 권한이없습니다".format(message.author.mention))
 
     if message.content.startswith('!공쥐해'):
-        await message.channel.send('베타기능이에요')
-        await message.channel.purge(limit=2)
-        embed = discord.Embed(title=f"{titi}", description=f"{scrip}")
+        i = (message.author.guild_permissions.administrator)
+        if i is True:
+            
+            await message.channel.send('베타기능이에요')
+            await message.channel.purge(limit=2)
+            embed = discord.Embed(title=f"{titi}", description=f"{scrip}")
 
-        await message.channel.send(embed=embed)
+            await message.channel.send(embed=embed)
+        
+        if i is False:
+
+            await message.channel.purge(limit=1)
+            await message.channel.send("{}님은 명령어를 사용할 수 있는 권한이없습니다".format(message.author.mention))
 
 
     if message.content.startswith('!시험범위'):    #매크로로 쓴거다. 내가 직접 쓰지 않았음.
