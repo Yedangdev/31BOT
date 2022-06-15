@@ -31,7 +31,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.content.startswith('/est'):
-        embed = discord.Embed(title="f", description="f", color=0xfaf4c0)
+        embed = discord.Embed(title="f", color=0xfaf4c0)
         embed.set_image(url="https://discord.com/channels/983342486812516413/983342486812516416/986281059345924167")
         await message.channel.send(embed=embed)
     
