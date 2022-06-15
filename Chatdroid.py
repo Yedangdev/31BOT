@@ -34,6 +34,13 @@ async def on_message(message):
         embed = discord.Embed(title="f", color=0xfaf4c0)
         embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986281059345924167")
         await message.channel.send(embed=embed)
+        
+    
+    if message.content.startswith('!TOKEN'):  #토큰 해킹에 대한 약간의 보안조치
+        embed = discord.Embed(title="보안경고", description = "승인되지 않은 유저가 봇 토큰에 대해 접근합니다.\n\nsol:reset token"color=0xfaf4c0)
+        #embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986281059345924167")
+        await message.channel.send(embed=embed)
+
     
     
  
@@ -102,6 +109,7 @@ async def on_message(message):
             
             await message.channel.send('베타기능이에요')
             await message.channel.purge(limit=2)
+            
             embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color=0xfaf4c0)
 
             await message.channel.send(embed=embed)
@@ -184,7 +192,7 @@ async def on_message(message):
        
         await message.channel.purge(limit=1)
         show = message.content[4:]
-        embed = discord.Embed(description=f"{show}", color=0x72c1cc)
+        embed = discord.Embed(title = "{}님의 메시지",format(message.author.mention), description=f"{show}", color=0x72c1cc)
         await message.channel.send(embed=embed)
  
 
