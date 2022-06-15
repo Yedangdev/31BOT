@@ -161,7 +161,7 @@ async def on_message(message):
     
     
     if message.content.startswith('!안녕'):
-        a = randint(0,100)
+        a = randint(1,100)
         if 1 <= a < 30:
             await message.channel.send('안녕하세요!!, {}님!'.format(message.author.mention))
         if 30 <= a < 60:
@@ -171,7 +171,7 @@ async def on_message(message):
         if 90 <= a < 100:
             await message.channel.send("??")
             embed.set_thumbnail(url='https://discord.com/channels/983342486812516413/983342486812516416/986588543616962591')
-            embed=discord.Embed(color=0xff22, title= "이스터에그", description= "1%의 확률로 등장합니다", timestamp=message.created_at)
+            embed=discord.Embed(color=0xff22, title= "이스터에그", description= "10%의 확률로 등장합니다", timestamp=message.created_at)
             
             
 
@@ -193,7 +193,7 @@ async def on_message(message):
     
         
     if message.content.startswith('!잘가'):
-        a = randrange(1,4)
+        a = randint(1,4)
         if a == 1:
             await message.channel.send('다음에 또 만나요!!')
         if a == 2:
