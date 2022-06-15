@@ -37,7 +37,7 @@ async def on_message(message):
         
     
     if message.content.startswith('!TOKEN'):  #토큰 해킹에 대한 약간의 보안조치
-        embed = discord.Embed(title="보안경고", description = "승인되지 않은 유저가 봇 토큰에 대해 접근합니다.\n\nsol:reset token"color=0xfaf4c0)
+        embed = discord.Embed(title="보안경고", description = "승인되지 않은 유저가 봇 토큰에 대해 접근합니다.\n\nsol:reset token", color=0xfaf4c0)
         #embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986281059345924167")
         await message.channel.send(embed=embed)
 
