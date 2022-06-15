@@ -31,7 +31,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.content.startswith('/est'):
-        embed = discord.Embed(title="이스터에그?!?", description = "https://media.discordapp.net/attachments/986620556675776532/986638305724620800/Easter_egg_312_1.jpg" color=0xfaf4c0)
+        embed = discord.Embed(title="이스터에그?!?", description = "https://media.discordapp.net/attachments/986620556675776532/986638305724620800/Easter_egg_312_1.jpg", color=0xfaf4c0)
         #embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986281059345924167")
         await message.channel.send(embed=embed)
         await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/986639756333043753/Easter_egg_312_2.jpg\n\n삼일이는 고양이였습니다...라는 어이없는 이스터에그")
