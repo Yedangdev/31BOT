@@ -161,13 +161,19 @@ async def on_message(message):
     
     
     if message.content.startswith('!안녕'):
-        a = randrange(1,4)
-        if a == 1:
+        a = randint(0,100)
+        if 1 <= a < 30:
             await message.channel.send('안녕하세요!!, {}님!'.format(message.author.mention))
-        if a == 2:
+        if 30 <= a < 60:
             await message.channel.send('안녕하세요, {}님 Chatdroid에요'.format(message.author.mention))
-        if a == 3:
+        if 60 <= a < 90:
             await message.channel.send('Hello, World!!')
+        if 90 <= a < 100:
+            await message.channel.send("??")
+            embed.set_thumbnail(url='https://discord.com/channels/983342486812516413/983342486812516416/986588543616962591')
+            embed=discord.Embed(color=0xff22, title= "이스터에그", description= "1%의 확률로 등장합니다", timestamp=message.created_at)
+            
+            
 
 
 
@@ -194,6 +200,11 @@ async def on_message(message):
             await message.channel.send('안녕!!')
         if a == 3:
             await message.channel.send('bye!')
+        if a == 4:
+            await message.channel.send("??")
+            embed.set_thumbnail(url='https://discord.com/channels/983342486812516413/983342486812516416/986587818723770408')
+            embed=discord.Embed(color=0xff22, title= "이스터에그", description= "첫 이스터에그!, 숨겨져 있는 나머지 이스터에그를 찾아보세요!", timestamp=message.created_at)
+            await message.channel.send(embed=embed)
         
 
     if message.content.startswith('!작성언어'):
@@ -383,6 +394,8 @@ async def on_message(message):
         if 99 < a <= 100:
             #이스터에그
             embed=discord.Embed(color=0xff22, title= "이스터에그!", description= "행운이란 준비와 기회를 만났을 때 나타난다", timestamp=message.created_at)
+            embed.set_thumbnail(url='https://discord.com/channels/983342486812516413/983342486812516416/986588559253319730')
+            await message.channel.send(embed=embed)
             await asyncio.sleep(1)
             await message.channel.send('{}님, 1%의 확률에 당첨되셨습니다!!!'.format(message.author.mention))
             
@@ -414,12 +427,20 @@ async def on_message(message):
         yn = randint(1, 100)
         shy = randint(1, 4)
         
-        if 1<= yn < 10:
+        if 1<= yn < 9:
             await message.channel.send("시스템 오류!")
             await asyncio.sleep(0.7)
             await message.channel.send("(그렇게 믿어주세요 제발)")
             
-        if 10<= yn < 40:
+        if 9 <= yn <=10:
+            await message.channel.send("??")
+            embed=discord.Embed(color=0xff22, title= "이스터에그", description= "1%의 확률로 등장합니다", timestamp=message.created_at)
+            embed.set_thumbnail(url='https://discord.com/channels/983342486812516413/983342486812516416/986588582212956191')
+            await message.channel.send(embed=embed)
+            
+            
+            
+        if 10< yn < 40:
             hate = randint(0,5)
             nongdam = ["급식 알려주는", "공지 해주는", "논술전형 정보 알려주는", "운세 봐주는", "시간표 알려주는", "시험범위 알려주는"]
             angry = nongdam[hate]      #농담 대신 다른걸 해보죠^^ (부글부글)
