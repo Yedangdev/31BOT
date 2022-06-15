@@ -171,7 +171,7 @@ async def on_message(message):
 
 
 
-    if message.content.startswith ("!"):
+    if message.content.startswith ("!강조"):
        
         await message.channel.purge(limit=1)
         show = message.content[4:]
