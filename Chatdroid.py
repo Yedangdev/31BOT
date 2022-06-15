@@ -32,7 +32,7 @@ async def on_ready():
 async def on_message(message):
     if message.content.startswith('/est'):
         embed = discord.Embed(title="f", color=0xfaf4c0)
-        embed.set_image(url="https://discord.com/channels/983342486812516413/983342486812516416/986281059345924167")
+        embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986281059345924167")
         await message.channel.send(embed=embed)
     
     
@@ -63,7 +63,7 @@ async def on_message(message):
             timetble = '놀기'
 
         embed = discord.Embed(title="오늘의 시간표!", description=f"{timetble}", color = 0x62c1cc)
-        embed.set_image(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
+        embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
         await message.channel.send(embed=embed)
         await message.channel.send("오전 9시에 시간표가 갱신됩니다")
         
