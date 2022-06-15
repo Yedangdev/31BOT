@@ -60,6 +60,7 @@ async def on_message(message):
         embed = discord.Embed(title="오늘의 시간표!", description=f"{timetble}", color = 0x62c1cc)
         embed.set_image(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
         await message.channel.send(embed=embed)
+        await message.channel.send("오전 9시에 시간표가 갱신됩니다")
         
 
 
@@ -69,7 +70,7 @@ async def on_message(message):
             
             await message.channel.purge(limit=1)
             titi = message.content[4:]
-            await message.channel.send('제목이 할당되었습니다')
+            await message.channel.send('제목이 할당되었습니다!')
             
         if i is False:
 
@@ -83,7 +84,7 @@ async def on_message(message):
             
             await message.channel.purge(limit=1)
             scrip = message.content[4:]
-            await message.channel.send('내용이 할당되었습니다')
+            await message.channel.send('내용이 할당되었습니다!')
             
         if i is False:
 
@@ -96,7 +97,7 @@ async def on_message(message):
             
             await message.channel.send('베타기능이에요')
             await message.channel.purge(limit=2)
-            embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color=0x62c1cc)
+            embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color=0xfaf4c0)
 
             await message.channel.send(embed=embed)
         
