@@ -192,7 +192,7 @@ async def on_message(message):
             #await message.channel.purge(limit=1)
             
         
-        await message.channel.send("비동기 방식으로 리뉴얼예정입니다.")
+        await message.channel.send("최적화 문제로 서비스를 잠시 중단합니다.")
         #embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{result}", timestamp=message.created_at)
         #embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         #await message.channel.send(embed=embed)
