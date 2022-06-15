@@ -192,7 +192,7 @@ async def on_message(message):
        
         await message.channel.purge(limit=1)
         show = message.content[4:]
-        embed = discord.Embed(title = "{}님의 메시지",format(message.author.mention), description=f"{show}", color=0x72c1cc)
+        embed = discord.Embed(title = "{}님의 메시지".format(message.author.mention), description=f"{show}", color=0x72c1cc)
         await message.channel.send(embed=embed)
  
 
