@@ -6,9 +6,9 @@ from random import *
 import asyncio
 import os
 import time
-import googletrans
+#import googletrans
 
-from googletrans import Translator
+#from googletrans import Translator
 
 
 
@@ -33,23 +33,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.startswith('!영어번역'):
-
-		await message.channel.send("시간이 조금 걸려요..")
-
-		text = message.content[6:]
-
-		translator = Translator()
-
-		trans = translator.translate(text, dest='en')
-
-		embed=discord.Embed(color=0xff00, title= "번역결과", description= f"{trans.text}", timestamp=message.created_at)
-
-		embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
-
-		
-
-		await message.channel.send(embed=embed)
+    
     
     
     
