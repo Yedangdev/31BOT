@@ -36,8 +36,8 @@ async def on_message(message):
       text1 = message.content[4:]
       translator = Translator()
       trans1 = translator.translate(text1, src='ko', dest='en')
-      embed = discord.Embed(title="한국어를 영어로 번역했어요", description = "{}", color=0xfaf4c0 .format(trans1.text))
-      #await message.channel.send("Ko to En:{}" .format(trans1.text))
+      #embed = discord.Embed(title="한국어를 영어로 번역했어요", description = "{}", color=0xfaf4c0 .format(trans1.text))
+      await message.channel.send("번역결과:{}" .format(trans1.text))
     
     
     
