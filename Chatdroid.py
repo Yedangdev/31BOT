@@ -36,7 +36,7 @@ async def on_message(message):
       text1 = message.content[4:]
       translator = Translator()
       trans1 = translator.translate(text1, src='ko', dest='en')
-      await message.channel.send("Ko to En: ", trans1.text)
+      await message.channel.send("Ko to En:{}" .format(trans1.text))
     
     
     
