@@ -6,9 +6,8 @@ from random import *
 import asyncio
 import os
 import time
-#import googletrans
-
-#from googletrans import Translator
+import googletrans
+from googletrans import Translator
 
 
 
@@ -33,6 +32,14 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    if message.content.startswith("!한영"):
+      text1 = message.content[4:]
+      translator = Translator()
+      trans1 = translator.translate(text1, src='ko', dest='en')
+      await message.channel.send("Ko to En: ", trans1.text)
+    
+    
+    
     
     
     
