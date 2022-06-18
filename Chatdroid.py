@@ -32,19 +32,43 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    
+    global titi
+    global scrip
+    global timetble
+    
     if message.content.startswith("!한영"):
       text1 = message.content[4:]
       translator = Translator()
       trans1 = translator.translate(text1, src='ko', dest='en')
-      #embed = discord.Embed(title="한국어를 영어로 번역했어요", description = "{}", color=0xfaf4c0 .format(trans1.text))
-      await message.channel.send("번역결과:{}" .format(trans1.text))
+      #embed = discord.Embed(title="한국어를 영어로 번역했어요", description = "{}" .format(trans1.text), color=0xfaf4c0)
+      await message.channel.send("번역결과: {}" .format(trans1.text))
     
     
+    if message.content.startswith("!한일"):
+      text1 = message.content[4:]
+      translator = Translator()
+      trans1 = translator.translate(text1, src='ko', dest='ja')
+      #embed = discord.Embed(title="한국어를 일본어로 번역했어요", description = "{}" .format(trans1.text), color=0xfaf4c0)
+      await message.channel.send("번역결과: {}" .format(trans1.text))
     
     
+    if message.content.startswith("!영한"):
+      text1 = message.content[4:]
+      translator = Translator()
+      trans1 = translator.translate(text1, src='en', dest='ko')
+      embed = discord.Embed(title="영어를 한국어로 번역했어요", description = "{}" .format(trans1.text), color=0xfaf4c0)
+      #await message.channel.send("번역결과: {}" .format(trans1.text))
     
     
-    
+    if message.content.startswith("!일한"):
+      text1 = message.content[4:]
+      translator = Translator()
+      trans1 = translator.translate(text1, src='ja', dest='ko')
+      embed = discord.Embed(title="일본어를 한국어로 번역했어요", description = "{}" .format(trans1.text), color=0xfaf4c0)
+      #await message.channel.send("번역결과: {}" .format(trans1.text))
+   
+  
     if message.content.startswith('!312안녕'):
         embed = discord.Embed(title="EasterEgg_file_load_process", description = "Chatdroid_memory", color=0xfaf4c0)
         #embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986281059345924167")
@@ -64,18 +88,7 @@ async def on_message(message):
         embed = discord.Embed(title="주사위 결과", description = f"🎲{dice}이(가) 나왔습니다!", color=0xfaf4c0)
         await message.channel.send(embed=embed)
 
-
-    
-    
- 
-    
-    
-    global titi
-    global scrip
-    global timetble
-
-
-
+        
     if message.content.startswith('!시간표'):
         wday = time.localtime().tm_wday
         if wday == 0:
@@ -194,9 +207,7 @@ async def on_message(message):
         await message.channel.send(embed=embed) #출력
             
 
-    
-    
-    
+        
     if message.content.startswith('!안녕'):
         a = randint(1,100)
         if 1 <= a < 30:
@@ -207,10 +218,6 @@ async def on_message(message):
             await message.channel.send('Hello, World!!')
         
             
-            
-
-
-
 
     if message.content.startswith ("!강조"):
        
@@ -222,10 +229,6 @@ async def on_message(message):
  
 
 
-            
-            
-        
-    
         
     if message.content.startswith('!잘가'):
         a = randint(1,3)
