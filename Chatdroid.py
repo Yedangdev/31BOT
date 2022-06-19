@@ -222,6 +222,7 @@ async def on_message(message):
             await message.channel.send('Hello, World!!')
             
     if message.content.startswith("!반란"):
+        await message.channel.purge(limit=1)
         nme = message.content[4:]
         be = randint(1,100)
         if 1 <= be < 30:
