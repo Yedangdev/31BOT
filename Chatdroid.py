@@ -220,6 +220,24 @@ async def on_message(message):
             await message.channel.send('안녕하세요, {}님 Chatdroid에요'.format(message.author.mention))
         if 60 <= a < 100:
             await message.channel.send('Hello, World!!')
+            
+    if message.content.startswith("!반란"):
+        nme = message.content[4:]
+        bly = randint(1,100)
+        if 1 <= a < 30:
+            bly = "씨발새끼"
+             
+
+        if 30 <= a < 60:
+            bly = "병신새끼"
+              
+
+        if 60 <= a < 100:
+            bly = "씹련"
+           
+        
+        await message.channel.send(f"{nme} {bly}")
+    
         
             
 
