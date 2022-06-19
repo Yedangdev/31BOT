@@ -223,16 +223,16 @@ async def on_message(message):
             
     if message.content.startswith("!반란"):
         nme = message.content[4:]
-        bly = randint(1,100)
-        if 1 <= a < 30:
+        be = randint(1,100)
+        if 1 <= be < 30:
             bly = "씨발새끼"
              
 
-        if 30 <= a < 60:
+        if 30 <= be < 60:
             bly = "병신새끼"
               
 
-        if 60 <= a < 100:
+        if 60 <= be < 100:
             bly = "씹련"
            
         
