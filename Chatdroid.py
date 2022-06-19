@@ -264,7 +264,7 @@ async def on_message(message):
             #await message.channel.purge(limit=1)
             
         
-        await message.channel.send("최적화 문제로 서비스를 잠시 중단합니다.\n오전 시간대에 보조 챗봇을 이용해 공지해드립니다.")
+        await message.channel.send("어케 알아 씨발")
         #embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{result}", timestamp=message.created_at)
         #embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         #await message.channel.send(embed=embed)
