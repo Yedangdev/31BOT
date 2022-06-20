@@ -268,7 +268,7 @@ async def on_message(message):
         await message.channel.send('저는 파이썬 기반으로 만들어졌어요!')
         
         
-    if message.content.startswith('!급식'):
+    if #message.content.startswith('!급식'):
         #await message.channel.send('시간이 약간 걸릴수 있어요..')
         #url = "https://hiyedang.hs.kr/"
 
@@ -282,11 +282,11 @@ async def on_message(message):
             
             #await message.channel.purge(limit=1)
             
-        result = get_diet()
+        #result = get_diet()
         #await message.channel.send("어케 알아 씨발")
-        embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{result}", timestamp=message.created_at)
-        embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
-        await message.channel.send(embed=embed)
+        #embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{result}", timestamp=message.created_at)
+        #embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
+        #await message.channel.send(embed=embed)
         
     
     if message.content.startswith ("!청소"):
