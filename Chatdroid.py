@@ -224,8 +224,8 @@ async def on_message(message):
     if message.content.startswith("!반란"):
         await message.channel.purge(limit=1)
         nme = message.content[4:]
-        if nme == "지빈" or "최지빈":
-            nme = "아버지한테 어케 욕해"
+        #if nme == "지빈" or "최지빈":
+            #nme = "아버지한테 어케 욕해"
             
         be = randint(1,100)
         if 1 <= be < 30:
