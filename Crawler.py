@@ -58,4 +58,4 @@ def do_crawl(username):
         return TOTAL_INFO
     else: #접속 실패 시
         print(response.status_code)
-출처: https://j-ungry.tistory.com/284 [정구리의 우주정복:티스토리]
+#출처: https://j-ungry.tistory.com/284 [정구리의 우주정복:티스토리]
