@@ -29,6 +29,7 @@ async def on_ready():
     await client.change_presence(activity=discord.Game(name="!help 대기"))
 
     
+    
 
 
 
