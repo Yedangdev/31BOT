@@ -8,7 +8,9 @@ import os
 import time
 import googletrans
 from googletrans import Translator
-import crawler
+import Crawler
+import socket
+import ladders
 
 
 
@@ -253,25 +255,26 @@ async def on_message(message):
         
         
     if message.content.startswith('!급식'):
-        await message.channel.send('시간이 약간 걸릴수 있어요..')
-        headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}
-        url = "https://hiyedang.hs.kr:80"
+        
+        #await message.channel.send('시간이 약간 걸릴수 있어요..')
+        #headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}
+        #url = "https://hiyedang.hs.kr:80"
 
-        res = requests.get(url,timeout = 25)    #학교 급식게시판 파싱
-        res.raise_for_status()
-        soup = BeautifulSoup(res.text, "lxml") 
+        #res = requests.get(url,timeout = 25)    #학교 급식게시판 파싱
+        #res.raise_for_status()
+        #soup = BeautifulSoup(res.text, "lxml") 
 
-        diet = soup.find_all("div", attrs={"class":"menu"})  #가져올 요소
-        for diets in diet:
-            result = diets.get_text() #텍스트만 추출
+        #diet = soup.find_all("div", attrs={"class":"menu"})  #가져올 요소
+        #for diets in diet:
+            #result = diets.get_text() #텍스트만 추출
             
             await message.channel.purge(limit=1)
             
-        result = get_diet()
+        #result = get_diet()
         #await message.channel.send(" ")
-        embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{result}", timestamp=message.created_at)
-        embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
-        await message.channel.send(embed=embed)
+        #embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{result}", timestamp=message.created_at)
+        #embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
+        #await message.channel.send(embed=embed)
         
     
     if message.content.startswith ("!청소"):
@@ -462,7 +465,45 @@ async def on_message(message):
         
 
 
+    if message.content.startswith('!전적'):
+        username = message.content[4:len(message.content)]
+        if username =="":
+            await message.channel.send("닉네임을 입력해주세요")
 
+        else:
+            username = username.replace(" ","")
+            TOTAL_INFO = crawling.do_crawl(username)
+            if type(TOTAL_INFO) == str: #존재하지 않는 사용자인 경우
+                await message.channel.send("존재하지 않는 사용자입니다 ! 닉네임을 확인해주세요")
+            else: #존재하는 사용자인 경우
+                if TOTAL_INFO[1] =="NONE": #솔랭 기록 없는경우
+                    if TOTAL_INFO[2]=="NONE":
+                        await message.channel.send(str(TOTAL_INFO[0][0])+"님의 랭크게임 기록이 존재하지 않습니다.")
+                    if TOTAL_INFO[2] != "NONE": #자랭 기록이 있는 경우
+                        tear_embed = discord.Embed(title="",description="",color=0xFFB6C1)
+                        tear_embed.set_author(name=TOTAL_INFO[0][0],url="https://www.op.gg/summoner/userName="+str(username),icon_url=TOTAL_INFO[0][1])
+                        tear_embed.set_thumbnail(url=TOTAL_INFO[2][0])
+                        tear_embed.add_field(name="자유랭크  "+str(TOTAL_INFO[2][1]),value=str(TOTAL_INFO[2][2])+' '+str(TOTAL_INFO[2][3]))
+                        await message.channel.send(embed=tear_embed)
+                else:
+                    if TOTAL_INFO[2]=="NONE": #솔랭은 하고 자랭은 안하는 경우:
+                        tear_embed = discord.Embed(title="",description="",color=0xFFB6C1)
+                        tear_embed.set_author(name=TOTAL_INFO[0][0],url="https://www.op.gg/summoner/userName="+str(username),icon_url=TOTAL_INFO[0][1])
+                        tear_embed.set_thumbnail(url=TOTAL_INFO[1][0])
+                        tear_embed.add_field(name="솔로랭크  "+str(TOTAL_INFO[1][1])+"  "+str(TOTAL_INFO[1][2]),value=str(TOTAL_INFO[1][3])+' '+str(TOTAL_INFO[1][4])+' '+str(TOTAL_INFO[1][5]))
+                        await message.channel.send(embed=tear_embed)
+                    else:
+                        tear_embed = discord.Embed(title="",description="",color=0xFFB6C1)
+                        tear_embed.set_author(name=TOTAL_INFO[0][0],url="https://www.op.gg/summoner/userName="+str(username),icon_url=TOTAL_INFO[0][1])
+                        tear_embed.set_thumbnail(url=TOTAL_INFO[1][0])
+                        tear_embed.add_field(name="솔로랭크  "+str(TOTAL_INFO[1][1])+"  "+str(TOTAL_INFO[1][2]),value=str(TOTAL_INFO[1][3])+' '+str(TOTAL_INFO[1][4])+' '+str(TOTAL_INFO[1][5]))
+                        tear_embed.add_field(name="자유랭크  "+str(TOTAL_INFO[2][1]),value=str(TOTAL_INFO[2][2])+' '+str(TOTAL_INFO[2][3]))
+                        await message.channel.send(embed=tear_embed)
+
+    
+    
+    
+    
     if message.content.startswith('!농담'):
         que = ["오리가 얼면? ", "딸기가 직장을 잃으면?", "세상에서 가장 억울한 도형은?", "아몬드가 죽으면?", "토끼가 쓰는 빗은?", "토끼가 강한 이유는?", "삶은?", "11월에 뱀이랑 벌이 없는 이유는?", "가장 폭력적인 동물은?", "스님이 못가는 대학교는?"]
         ans = ["언덕", "딸기시럽", "원통", "다이아몬드", "레빗", "깡과 총이 있어서", "계란", "노뱀벌", "팬다", "중앙대"]
@@ -514,7 +555,11 @@ async def on_message(message):
             await asyncio.sleep(0.7)
             await message.channel.send(f"{sorry}") #삼일이는 농담을 매우 못한답니다..
             
-        
+            
+            
+            
+                        
+    if         
             
         
  
