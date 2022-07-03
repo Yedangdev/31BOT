@@ -8,7 +8,7 @@ import os
 import time
 import googletrans
 from googletrans import Translator
-#import Crawler
+import Crawler
 
 
 
@@ -463,7 +463,7 @@ async def on_message(message):
         await message.channel.send("<도움말>\n\n\n\!한영+한국어문장 --> 한국어를 영어로 번역\n\n!논술+대학이름 --> 해당 대학 논술전형\n\n!운세 --> 운을 봐드림\n\n!강조+하고싶은말 --> 메시지강조\n\n!청소+숫자 --> 입력한 숫자만큼 메시지 삭제(관리자만)\n\n!d6 --> 주사위를 굴려드림\n\n!농담해줘 --> 농담을 해드려요\n\n!시간표 --> 오늘 시간표를 알려드립니다\n\n!시험범위+과목명 --> 해당 과목의 시험범위를 알려드립니다.\n\n<관리자용 공지기능>\n\n먼저 !제목+원하는 제목으로 공지할 내용의 제목을 설정하세요(ex)!제목 수행안내\n\n!내용+공지내용을 통해 공지할 내용을 설정하세요!(ex)!내용 미적분수행\n\n!공지를 통해 공지를 하면 됩니다.")
         
 
-'''
+
     if message.content.startswith('!전적'):
         username = message.content[4:len(message.content)]
         if username =="":
@@ -499,7 +499,7 @@ async def on_message(message):
                         tear_embed.add_field(name="자유랭크  "+str(TOTAL_INFO[2][1]),value=str(TOTAL_INFO[2][2])+' '+str(TOTAL_INFO[2][3]))
                         await message.channel.send(embed=tear_embed)
 
-'''    
+   
     
     
     
