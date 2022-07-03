@@ -253,9 +253,9 @@ async def on_message(message):
         
     if message.content.startswith('!급식'):
         await message.channel.send('시간이 약간 걸릴수 있어요..')
-        url = "https://hiyedang.hs.kr/"
+        url = "https://hiyedang.hs.kr:80"
 
-        res = requests.get(url,timeout = 10)    #학교 급식게시판 파싱
+        res = requests.get(url,timeout = 25)    #학교 급식게시판 파싱
         res.raise_for_status()
         soup = BeautifulSoup(res.text, "lxml") 
 
