@@ -1,6 +1,22 @@
 import requests
 from bs4 import BeautifulSoup
 
+
+#headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}
+#url = "https://hiyedang.hs.kr:80"
+
+#res = requests.get(url,timeout = 25)    #학교 급식게시판 파싱
+#res.raise_for_status()
+#soup = BeautifulSoup(res.text, "lxml") 
+
+#diet = soup.find_all("div", attrs={"class":"menu"})  #가져올 요소
+#for diets in diet:
+    #result = diets.get_text() #텍스트만 추출
+
+
+
+
+
 def get_UserInfo(soup): #유저 정보 가져오는 코드 (Try Except)
     try:
         #유저 정보 (이름 , 소환사 아이콘)
