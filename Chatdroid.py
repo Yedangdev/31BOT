@@ -9,8 +9,7 @@ import time
 import googletrans
 from googletrans import Translator
 import Crawler
-import socket
-import ladders
+
 
 
 
