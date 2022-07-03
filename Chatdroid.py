@@ -255,7 +255,7 @@ async def on_message(message):
         
     if message.content.startswith('!급식'):
         
-        #await message.channel.send('시간이 약간 걸릴수 있어요..')
+        await message.channel.send('시간이 약간 걸릴수 있어요..')
         #headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}
         #url = "https://hiyedang.hs.kr:80"
 
@@ -267,7 +267,7 @@ async def on_message(message):
         #for diets in diet:
             #result = diets.get_text() #텍스트만 추출
             
-            await message.channel.purge(limit=1)
+        await message.channel.purge(limit=1)
             
         #result = get_diet()
         
