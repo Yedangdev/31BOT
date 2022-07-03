@@ -472,7 +472,7 @@ async def on_message(message):
 
         else:
             username = username.replace(" ","")
-            TOTAL_INFO = crawling.do_crawl(username)
+            TOTAL_INFO = Crawler.do_crawl(username)
             if type(TOTAL_INFO) == str: #존재하지 않는 사용자인 경우
                 await message.channel.send("존재하지 않는 사용자입니다 ! 닉네임을 확인해주세요")
             else: #존재하는 사용자인 경우
