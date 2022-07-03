@@ -466,8 +466,8 @@ async def on_message(message):
 
 
     if message.content.startswith('!전적'):
-        await message.send("개귀차나")
-'''       
+        #await message.send("개귀차나")
+       
         username = message.content[4:len(message.content)]
         if username =="":
             await message.channel.send("닉네임을 입력해주세요")
@@ -501,7 +501,7 @@ async def on_message(message):
                         tear_embed.add_field(name="솔로랭크  "+str(TOTAL_INFO[1][1])+"  "+str(TOTAL_INFO[1][2]),value=str(TOTAL_INFO[1][3])+' '+str(TOTAL_INFO[1][4])+' '+str(TOTAL_INFO[1][5]))
                         tear_embed.add_field(name="자유랭크  "+str(TOTAL_INFO[2][1]),value=str(TOTAL_INFO[2][2])+' '+str(TOTAL_INFO[2][3]))
                         await message.channel.send(embed=tear_embed)
-'''
+
    
     
     
