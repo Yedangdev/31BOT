@@ -8,6 +8,7 @@ import os
 import time
 import googletrans
 from googletrans import Translator
+import crawler
 
 
 
