@@ -221,30 +221,7 @@ async def on_message(message):
         if 60 <= a < 100:
             await message.channel.send('Hello, World!!')
             
-    if message.content.startswith("!반란"):
-        await message.channel.purge(limit=1)
-        nme = message.content[4:]
-        #if nme == "지빈" or "최지빈":
-            #nme = "아버지한테 어케 욕해"
-            
-        be = randint(1,100)
-        if 1 <= be < 30:
-            bly = "씨발새끼야"
-             
-
-        if 30 <= be < 60:
-            bly = "병신새끼야"
-              
-
-        if 60 <= be < 100:
-            bly = "씹련아"
-            
-        #if be == 100:
-            #bly = "불가"
-           
-        
-        await message.channel.send(f"{nme} {bly}")
-    
+   
         
             
 
@@ -289,7 +266,7 @@ async def on_message(message):
             await message.channel.purge(limit=1)
             
         result = get_diet()
-        #await message.channel.send("어케 알아 씨발")
+        #await message.channel.send(" ")
         embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{result}", timestamp=message.created_at)
         embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
