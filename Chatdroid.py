@@ -168,50 +168,90 @@ async def on_message(message):
         index = message.content[6:]
         
         
-        if index == "기하":
-            setence = "1단원 ~ 3단원"
+        start = time.time()
+    
 
-        elif index == "미적분":
-            setence = "추가 예정"
+        Name = message.content[4:len(message.content)]
+        Final_Name = Name.replace(" ","+")
+    
+        api_key = "RGAPI-0a697f88-03ce-48a0-a641-e5915bf2a0f7"
 
-        elif index == "화작":
-            setence = "추가 예정"
+        URL = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"+Final_Name #0.8초 소요
+        res = requests.get(URL, headers={"X-Riot-Token": api_key})
+        print(res.text)
 
-        elif index == "프로그래밍":
-            setence = "추가 예정"
 
-        elif index == "지식재산일반":
-            setence = "추가 예정"
+        if res.status_code == 200:
+            #코드가 200일때
+            resobj = json.loads(res.text)
+            URL = "https://kr.api.riotgames.com/lol/league/v4/entries/by-summoner/"+resobj["id"]
+            player_icon = str(resobj["profileIconId"])
+            player_id = str(resobj["id"])
+            res = requests.get(URL, headers={"X-Riot-Token": api_key})
+            rankinfo = json.loads(res.text) #list class
 
-        elif index == "생활과학":
-            setence = "추가 예정"
 
-        elif index == "영독작":
-            setence = "추가 예정"
+            if len(rankinfo) == 0:
+                await message.channel.send("소환사의 랭크 정보가 없습니다")
+            print(time.time()-start)
 
-        elif index == "여행지리":
-            setence = "추가 예정"
 
-        elif index == "물리2":
-            setence = "추가 예정"
+            for i in rankinfo:
+                if i["queueType"] == "RANKED_SOLO_5x5":
+                    rank = str(i["rank"])
+                    tier = str(i["tier"])
+                    leaguepoints = str(i["leaguePoints"])
+                    wins = str(i["wins"])
+                    losses = str(i["losses"])
+                    ratio = str(round(int(wins)*100/(int(wins)+int(losses)), 1))
 
-        elif index == "화학2":
-            setence = "추가 예정"
+                    print(rank)
+                    print(tier)
 
-        elif index == "생명2":
-            setence = "추가 예정"
+                    URL = "https://kr.api.riotgames.com/lol/champion-mastery/v4/champion-masteries/by-summoner/"+player_id
+                    res = requests.get(URL, headers={"X-Riot-Token": api_key})
+                    player_mastery = json.loads(res.text) # player mastery : list class
 
-        elif index == "심화국어":
-            setence = "추가 예정"
+                    print(time.time()-start)
 
-        elif index == "영어권문화":
-            setence = "추가 예정"
+                    for i in player_mastery: # i : dictionary class
+                        most_champion_id = int(i["championId"])
+                        most_champion_points = str(i["championPoints"])
+
+                        URL = "http://ddragon.leagueoflegends.com/cdn/10.25.1/data/ko_KR/champion.json"
+                        res = requests.get(URL)
+                        print(time.time()-start)
+                        champion_name = json.loads(res.text)
+                        #print(champion_name)
+
+                        champion_name_list = champion_name["data"] #champion_name : dictionary class / list : dict class
+                        print(type(champion_name_list))
+
+                        global most_champion_name
+                        for i in champion_name_list: #key 값은 str class
+                            if(champion_name["data"][i]["key"]) == str(most_champion_id):
+                                most_champion_name = champion_name["data"][i]["name"]
+                                break
+
+                        print(most_champion_name)
+                        print(most_champion_points)
+                        print(time.time()-start)
+                        
+                    
+                        embed = discord.Embed(title="", description="", color=0xd5d5d5)
+                        embed.set_author(name=Final_Name  +"님의 전적 검색", url="http://www.op.gg/summoner/userName="+Final_Name, icon_url="http://ddragon.leagueoflegends.com/cdn/10.25.1/img/profileicon/"+player_icon+".png")
+                        embed.add_field(name=tier+" "+rank+" | "+leaguepoints+" LP", value=wins+"승"+" "+losses +"패"+" | "+ratio+"%", inline=False)
+                        embed.add_field(name="가장 높은 숙련도",value= most_champion_name +" "+ most_champion_points +" 점 ", inline= False)
+                        embed.set_footer(text='CuriHuS LAB')
+                        embed.set_thumbnail(url="http://z.fow.kr/img/emblem/"+tier.lower()+".png")
+                        await message.channel.send(embed=embed)
+                        break
+                    
+
 
         else:
-            setence = "!시험범위 + 기하, 미적분, 화작, 프로그래밍, 지식재산일반, 생활과학, 영독작, 여행지리, 물리2, 화학2, 생명2, 심화국어, 영어권문화 중 택1"
-            
-        embed=discord.Embed(color=0xff22, title= f"{index}", description= f"{setence}", timestamp=message.created_at)
-        await message.channel.send(embed=embed) #출력
+            await message.channel.send("소환사가 존재하지 않습니다")
+
             
 
         
