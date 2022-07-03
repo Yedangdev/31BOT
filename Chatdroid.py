@@ -270,7 +270,7 @@ async def on_message(message):
             await message.channel.purge(limit=1)
             
         #result = get_diet()
-        await message.channel.send(" ")
+        
         embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{result}", timestamp=message.created_at)
         embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
