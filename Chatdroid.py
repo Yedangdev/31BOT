@@ -534,7 +534,7 @@ async def on_message(message):
         #await message.send(f"https://www.op.gg/summoners/kr/{summn}")
         
 
-        embed=discord.Embed(color=0xff00, title= "🎮f"{summn}의 전적!", description= f"https://www.op.gg/summoners/kr/{summn}", timestamp=message.created_at)
+        embed=discord.Embed(color=0xff00, title= f"🎮{summn}의 전적!", description= f"https://www.op.gg/summoners/kr/{summn}", timestamp=message.created_at)
         await message.channel.send(embed=embed)
         
     
