@@ -531,7 +531,7 @@ async def on_message(message):
 
     if message.content.startswith('!전적'):
         summn = message.content[4:]
-        #await message.send("https://www.op.gg/summoners/kr/f{summn}")
+        #await message.send(f"https://www.op.gg/summoners/kr/{summn}")
         
 
         embed=discord.Embed(color=0xff00, title= "🎮f"{summn}의 전적!", description= f"https://www.op.gg/summoners/kr/{summn}", timestamp=message.created_at)
