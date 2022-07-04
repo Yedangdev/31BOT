@@ -530,44 +530,13 @@ async def on_message(message):
 
 
     if message.content.startswith('!전적'):
-        #await message.send("개귀차나")
-       
-        username = message.content[4:len(message.content)]
-        if username =="":
-            await message.channel.send("닉네임을 입력해주세요")
+        summn = message.content[4:]
+        #await message.send("https://www.op.gg/summoners/kr/f{summn}")
+        
 
-        else:
-            username = username.replace(" ","")
-            TOTAL_INFO = Crawler.do_crawl(username)
-            if type(TOTAL_INFO) == str: #존재하지 않는 사용자인 경우
-                await message.channel.send("존재하지 않는 사용자입니다 ! 닉네임을 확인해주세요")
-            else: #존재하는 사용자인 경우
-                if TOTAL_INFO[1] =="NONE": #솔랭 기록 없는경우
-                    if TOTAL_INFO[2]=="NONE":
-                        await message.channel.send(str(TOTAL_INFO[0][0])+"님의 랭크게임 기록이 존재하지 않습니다.")
-                    if TOTAL_INFO[2] != "NONE": #자랭 기록이 있는 경우
-                        tear_embed = discord.Embed(title="",description="",color=0xFFB6C1)
-                        tear_embed.set_author(name=TOTAL_INFO[0][0],url="https://www.op.gg/summoner/userName="+str(username),icon_url=TOTAL_INFO[0][1])
-                        tear_embed.set_thumbnail(url=TOTAL_INFO[2][0])
-                        tear_embed.add_field(name="자유랭크  "+str(TOTAL_INFO[2][1]),value=str(TOTAL_INFO[2][2])+' '+str(TOTAL_INFO[2][3]))
-                        await message.channel.send(embed=tear_embed)
-                else:
-                    if TOTAL_INFO[2]=="NONE": #솔랭은 하고 자랭은 안하는 경우:
-                        tear_embed = discord.Embed(title="",description="",color=0xFFB6C1)
-                        tear_embed.set_author(name=TOTAL_INFO[0][0],url="https://www.op.gg/summoner/userName="+str(username),icon_url=TOTAL_INFO[0][1])
-                        tear_embed.set_thumbnail(url=TOTAL_INFO[1][0])
-                        tear_embed.add_field(name="솔로랭크  "+str(TOTAL_INFO[1][1])+"  "+str(TOTAL_INFO[1][2]),value=str(TOTAL_INFO[1][3])+' '+str(TOTAL_INFO[1][4])+' '+str(TOTAL_INFO[1][5]))
-                        await message.channel.send(embed=tear_embed)
-                    else:
-                        tear_embed = discord.Embed(title="",description="",color=0xFFB6C1)
-                        tear_embed.set_author(name=TOTAL_INFO[0][0],url="https://www.op.gg/summoner/userName="+str(username),icon_url=TOTAL_INFO[0][1])
-                        tear_embed.set_thumbnail(url=TOTAL_INFO[1][0])
-                        tear_embed.add_field(name="솔로랭크  "+str(TOTAL_INFO[1][1])+"  "+str(TOTAL_INFO[1][2]),value=str(TOTAL_INFO[1][3])+' '+str(TOTAL_INFO[1][4])+' '+str(TOTAL_INFO[1][5]))
-                        tear_embed.add_field(name="자유랭크  "+str(TOTAL_INFO[2][1]),value=str(TOTAL_INFO[2][2])+' '+str(TOTAL_INFO[2][3]))
-                        await message.channel.send(embed=tear_embed)
-
-   
-    
+        embed=discord.Embed(color=0xff00, title= "🎮f"{summn}의 전적!", description= f"https://www.op.gg/summoners/kr/{summn}", timestamp=message.created_at)
+        await message.channel.send(embed=embed)
+        
     
     
     if message.content.startswith('!농담'):
