@@ -539,62 +539,7 @@ async def on_message(message):
         
     
     
-    if message.content.startswith('!농담'):
-        que = ["오리가 얼면? ", "딸기가 직장을 잃으면?", "세상에서 가장 억울한 도형은?", "아몬드가 죽으면?", "토끼가 쓰는 빗은?", "토끼가 강한 이유는?", "삶은?", "11월에 뱀이랑 벌이 없는 이유는?", "가장 폭력적인 동물은?", "스님이 못가는 대학교는?"]
-        ans = ["언덕", "딸기시럽", "원통", "다이아몬드", "레빗", "깡과 총이 있어서", "계란", "노뱀벌", "팬다", "중앙대"]
-        yn = randint(1, 100)
-        shy = randint(1, 4)
-        
-        if 1 <= yn < 10:
-            await message.channel.send("시스템 오류!")
-            await asyncio.sleep(0.7)
-            await message.channel.send("(그렇게 믿어주세요 제발)")
-            
-       
-            
-            
-        if 10 <= yn < 40:
-            hate = randint(0,5)
-            nongdam = ["급식 알려주는", "공지 해주는", "논술전형 정보 알려주는", "운세 봐주는", "시간표 알려주는", "시험범위 알려주는"]
-            angry = nongdam[hate]      #농담 대신 다른걸 해보죠^^ (부글부글)
-            await message.channel.send("농담이 뭐죠?")
-            await asyncio.sleep(0.7)
-            await message.channel.send(f"대신 {angry}건 잘할것 같은데?")
-            
-        if 40 <= yn < 50:
-            await message.channel.send("로봇은...농담을 못한답니다!")
-            await message.channel.send("^^::")
-        
-        if 50 <= yn <= 100:
-            x = randint(0, 9)
-            oops = que[x]
-            wow = ans[x]
-            
-            
-            if shy == 1:
-                sorry = "잘...했나요...?"
-        
-            if shy == 2:
-                sorry = "(분위기가 얼어버린듯 하다)"
-            
-            if shy == 3:
-                sorry = "다시는 안할거에요!! 으악!"
-            
-            if shy == 4:
-                sorry = "죄송해요...못본걸로 해주세요..."
-                
-                
-            await message.channel.send(f"{oops}")
-            await asyncio.sleep(2)
-            await message.channel.send(f"{wow}")
-            await asyncio.sleep(0.7)
-            await message.channel.send(f"{sorry}") #삼일이는 농담을 매우 못한답니다..
-            
-            
-            
-            
-                        
-        
+    
             
         
  
