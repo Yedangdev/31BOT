@@ -40,6 +40,10 @@ async def on_message(message):
     global scrip
     global timetble
     
+    if message.content.startswith("!패션파괴자"):
+      await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/993748385859387412/20220705_141646.jpg")
+    
+    
     if message.content.startswith("!반란"):
         await message.channel.purge(limit=1)
         nme = message.content[4:]
