@@ -338,7 +338,7 @@ async def on_message(message):
             #result = diets.get_text() #텍스트만 추출
             
         await message.channel.purge(limit=1)
-        errnote = "https://hiyedang.hs.kr/lunch.lunch_list"
+        errnote = "https://school.koreacharts.com/school/meals/B000012592/contents.html"
             
         #result = get_diet()
         
