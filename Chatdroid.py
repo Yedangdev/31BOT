@@ -51,7 +51,7 @@ async def on_message(message):
         await asyncio.sleep(0.2)
         #await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
         embed = discord.Embed(title="소라고둥은 대답했다!", description = f"{sorare}", color=0xfaf4c0)
-        embed.set_thumbnail(url="https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
+        embed.set_image(url="https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
         await message.channel.send(embed=embed)
         
         
