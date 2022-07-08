@@ -26,7 +26,7 @@ async def on_ready():
     #await client.change_presence(status=discord.Status.dnd) #다른용무
     #await client.change_presence(status=discord.Status.offline) #오프라인
     
-    await client.change_presence(activity=discord.Game(name="!help 대기"))
+    await client.change_presence(activity=discord.Game(name="!help"))
 
     
     
@@ -610,8 +610,38 @@ async def on_message(message):
         embed=discord.Embed(color=0xff00, title= f"🎮{summn}의 전적!", description= f"https://www.op.gg/summoners/kr/{summn}", timestamp=message.created_at)
         await message.channel.send(embed=embed)
         
-    else:
-        await message.channel.send("존재하지 않는 명령어입니다.")
+    if message.content.startswith("!endprtcl"):
+        await message.channel.send("서비스 종료일자네요..")
+        await message.channel.send("!312안녕")
+        await message.channel.send(!)
+        await asyncio sleep(0.4)
+        await message.channel.send("종료 프로토콜 가동")
+        await message.channel.send("5")
+        await asyncio sleep(1)
+        await message.channel.send("4")
+        await asyncio sleep(1)
+        await message.channel.send("3")
+        await asyncio sleep(1)
+        await message.channel.send("2")
+        await asyncio sleep(1)
+        await message.channel.send("1")
+        await asyncio sleep(1)
+        await message.channel.send("0")
+        await asyncio sleep(1)
+        await message.content("모두 안녕!")
+        #await client.change_presence(status=discord.Status.offline)
+        #headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}
+        #url = "https://hiyedang.hs.kr:80"
+
+        #res = requests.get(url,timeout = 25)    
+        #res.raise_for_status()
+        #soup = BeautifulSoup(res.text, "lxml") 
+
+        #diet = soup.find_all("div", attrs={"class":"menu"})  
+        #for diets in diet:
+            #result = diets.get_text() 
+        
+        
         
     
     
