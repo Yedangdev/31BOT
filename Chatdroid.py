@@ -613,9 +613,9 @@ async def on_message(message):
     if message.content.startswith("!endprtcl"):
         await message.channel.send("서비스 종료일자네요..")
         await message.channel.send("!312안녕")
-        await message.channel.send(!)
-        await asyncio sleep(0.4)
-        await message.channel.send("종료 프로토콜 가동")
+        await message.channel.send("숨겨진 이스터에그랍니다")
+        await asyncio sleep(0.5)
+        await message.channel.send("종료 프로토콜을 가동합니다")
         await message.channel.send("5")
         await asyncio sleep(1)
         await message.channel.send("4")
