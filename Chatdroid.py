@@ -41,7 +41,7 @@ async def on_message(message):
     global timetble
     
     if message.content.startswith("!ping"):
-        latancy = bot.latency
+        latancy = client.latency
         
         await message.channel.send(f"Pong! {round(latancy * 1000)}ms") 
     
