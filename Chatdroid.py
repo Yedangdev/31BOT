@@ -54,7 +54,7 @@ async def on_message(message):
         except KeyError:   #key값이 존재하지 않는다면
             univres = "오타를 확인해보세요.\n정보누락, 오류는 제보해주세요\n" #key값이 없음을 알리기
         
-        embed = discord.Embed(title=f"{founddict}의 수능최저정보", description = f"{univres}" color=0xfaf4c0)
+        embed = discord.Embed(title=f"{founddict}의 수능최저정보", description = f"{univres}", color=0xfaf4c0)
         await message.channel.send(embed=embed)
         
 
