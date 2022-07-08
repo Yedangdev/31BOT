@@ -43,13 +43,14 @@ async def on_message(message):
     if message.content,startswith("!마법의 소라고둥님"):
         words = ["돼.", "안돼.", "포기해.", "다시 한 번 물어봐.", "허락할게", "당장 시작해.", "나중에 해.", "안.돼.", "하지마.", "그래.", "가만히 있어.", "그것도 안 돼.", "아니.", "응.", "하고 싶은 대로 해.", "그것도 하지마.", "맘대로 해.","꿈도 꾸지 마.","기다려.","왜?."]
         sora = random.randrange(0,19)
+        sorare = words[sora]
         
         say = message.content[1:]
         await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
         await message.channel.send(f"{say}?")
-        await asyncio.sleep(0.2)
+        #await asyncio.sleep(0.2)
         #await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
-        embed = discord.Embed(title="소라고둥은 대답했다!", description = f"{words[sora]}", color=0xfaf4c0)
+        embed = discord.Embed(title="소라고둥은 대답했다!", description = f"{sorare}", color=0xfaf4c0)
         await message.channel.send(embed=embed)
         
         
