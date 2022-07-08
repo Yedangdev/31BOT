@@ -42,7 +42,7 @@ async def on_message(message):
     
     if message.content.startswith("!패치노트"):
         await message.channel.purge(limit=1)
-        ver = "1.3.2"
+        ver = "1.4.2"
         fix = "\n\n!농담, !시험범위, !안내 의 기능은 더 이상 지원되지 않습니다.\n\n!급식 기능은 파싱오류 발생시 링크를 대신 제공합니다.\n\n<새로 추가된 기능>\n\n!전적\n!반란\n!마법의 소라고둥님\n!수시\n\n<앞으로 업데이트계획>\n기능추가에 대한 패치는 이제 진행하지 않습니다.\n오류수정,기능개선에 대한 패치만 이루어질 예정입니다.\n\n<운영계획>\n2023년 1월 말까지 제공예정이며, discord.py의 서비스 종료시 자동으로 운영이 중단될 예정입니다."
         embed = discord.Embed(title=f"{ver} 패치노트", description = f"{fix}", color=0xfaf4c0)
         await message.channel.send(embed=embed)
