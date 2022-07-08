@@ -51,7 +51,7 @@ async def on_message(message):
     if message.content.startswith("!new"):
         await message.channel.purge(limit=1)
         
-        newfx = "!수시+대학이름\n34개의 인서울권 대학의 수시정보를 보여줍니다\n(송성훈을 갈아만들었습니다.)\n\n!반란+욕하고 싶은 사람\n봇이 욕을 대신해줍니다!\n\n!한일,!한영,!일한,!영한+번역하고자하는 내용\n번역을 해드립니다.\n\n\n추가하고 싶은 기능이 있으면 지빈#1638 갠디코로ㄱ"
+        newfx = "!수시+대학이름\n34개의 인서울권 대학의 수시정보를 보여줍니다\n(송성훈을 갈아만들었습니다.)\n\n!반란+욕하고 싶은 사람\n봇이 욕을 대신해줍니다!\n\n!한일,!한영,!일한,!영한+번역하고자하는 내용\n번역을 해드립니다.!ping\n봇의 레이턴시정보를 제공합니다\n\n\n추가하고 싶은 기능이 있으면 지빈#1638 갠디코로ㄱ"
         
         embed = discord.Embed(title="새로운 기능!", description = f"{newfx}", color=0xfaf4c0)
         await message.channel.send(embed=embed)
