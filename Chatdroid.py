@@ -45,6 +45,7 @@ async def on_message(message):
       king = "👑지빈#1638"
       pons = "♟️eden01010#3983\n♟️이서진#5397\n♟️윤달#7075"
       embed = discord.Embed(title="🌿🏆명예의 전당🏆🌿", description = f"{king}\n\n{pons}\n\n진심으로 감사드립니다.🙏", color=0xff00)
+      await message.channel.send(embed=embed)
     
     
     if message.content.startswith("!마법의 소라고둥님"):
