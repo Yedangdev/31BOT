@@ -628,7 +628,7 @@ async def on_message(message):
         await asyncio.sleep(1)
         await message.channel.send("0")
         await asyncio.sleep(1)
-        await message.content("모두 안녕!")
+        await message.channel.send("모두 안녕!")
         #await client.change_presence(status=discord.Status.offline)
         #headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}
         #url = "https://hiyedang.hs.kr:80"
