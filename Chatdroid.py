@@ -571,9 +571,9 @@ async def on_message(message):
             await message.channel.send('{}님은 오늘은 일이 잘풀릴거에요!'.format(message.author.mention))
         if 40 <= a < 75:
             await message.channel.send('{}님의 운세는... 그럭저럭!!'.format(message.author.mention))
-        if 75 <= a <= 99:
+        if 75 <= a <= 85:
             await message.channel.send('{}님, 오늘은 조심하는게 좋겠어요..'.format(message.author.mention))
-        if 99 < a <= 100:
+        if 85 < a <= 100:
             #이스터에그
             embed=discord.Embed(color=0xff22, title= "이스터에그!", description= "행운이란 준비와 기회를 만났을 때 나타난다", timestamp=message.created_at)
           
@@ -605,10 +605,13 @@ async def on_message(message):
     if message.content.startswith('!전적'):
         summn = message.content[4:]
         #await message.send(f"https://www.op.gg/summoners/kr/{summn}")
-        
 
         embed=discord.Embed(color=0xff00, title= f"🎮{summn}의 전적!", description= f"https://www.op.gg/summoners/kr/{summn}", timestamp=message.created_at)
         await message.channel.send(embed=embed)
+    
+    if message.content.startswith("!onprtcl"):
+        await client.change_presence(status=discord.Status.online)
+
         
     if message.content.startswith("!endprtcl"):
         await message.channel.send("서비스 종료일자네요..")
@@ -629,7 +632,7 @@ async def on_message(message):
         await message.channel.send("0")
         await asyncio.sleep(1)
         await message.channel.send("모두 안녕!")
-        #await client.change_presence(status=discord.Status.offline)
+        await client.change_presence(status=discord.Status.offline)
         #headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}
         #url = "https://hiyedang.hs.kr:80"
 
