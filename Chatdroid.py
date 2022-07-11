@@ -617,7 +617,7 @@ async def on_message(message):
     if message.content.startswith("!점검이"):
         await message.channel.send("dnd mode")
         await client.change_presence(status=discord.Status.dnd)
-        await client.change_presence(activity=discord.Game(name="봇 점검중!"))
+        await client.change_presence(activity=discord.Game(name="봇 점검중"))
 
         
     if message.content.startswith("!endprtcl"):
