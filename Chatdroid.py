@@ -8,7 +8,7 @@ import os
 import time
 import googletrans
 from googletrans import Translator
-import Crawler
+from Crawler import *
 
 
 
@@ -618,7 +618,9 @@ async def on_message(message):
         await message.channel.send("dnd mode")
         await client.change_presence(status=discord.Status.dnd)
         await client.change_presence(activity=discord.Game(name="봇 점검중"))
-
+        
+    #if message.content.startswith("!diet"):
+        #await message.channel.send(result)
         
     if message.content.startswith("!endprtcl"):
         #await message.channel.send("서비스 종료일자네요..")
