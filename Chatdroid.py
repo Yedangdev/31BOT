@@ -571,6 +571,9 @@ async def on_message(message):
         
         b = message.content[4:]
         if b == ".":
+            
+            await message.channel.purge(limit=1)
+            
             embed=discord.Embed(color=0xff22, title= "이스터에그!", description= "행운이란 준비와 기회를 만났을 때 나타난다", timestamp=message.created_at)
           
             await message.channel.send(embed=embed)
