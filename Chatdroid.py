@@ -573,9 +573,9 @@ async def on_message(message):
             await message.channel.send('{}님은 오늘은 일이 잘풀릴거에요!'.format(message.author.mention))
         if 40 <= a < 75:
             await message.channel.send('{}님의 운세는... 그럭저럭!!'.format(message.author.mention))
-        if 75 <= a <= 85:
+        if 75 <= a <= 99:
             await message.channel.send('{}님, 오늘은 조심하는게 좋겠어요..'.format(message.author.mention))
-        if 85 < a <= 100:
+        if 99 < a <= 100:
             #이스터에그
             embed=discord.Embed(color=0xff22, title= "이스터에그!", description= "행운이란 준비와 기회를 만났을 때 나타난다", timestamp=message.created_at)
           
