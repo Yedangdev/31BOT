@@ -570,7 +570,7 @@ async def on_message(message):
     if message.content.startswith('!운세'):
         
         b = message.content[4:]
-        if b == " ":
+        if b == ".":
             embed=discord.Embed(color=0xff22, title= "이스터에그!", description= "행운이란 준비와 기회를 만났을 때 나타난다", timestamp=message.created_at)
           
             await message.channel.send(embed=embed)
