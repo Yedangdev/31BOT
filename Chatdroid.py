@@ -81,6 +81,7 @@ async def on_message(message):
         await message.channel.send(f"Pong! {round(latancy * 1000)}ms") 
     
     if message.content.startswith("!섹스"):
+      await message.channel.purge(limit = 1)
       #await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/993748385859387412/20220705_141646.jpg")
       await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/996276963645861958/8451dd637d6d35947cec8b2a9cab2c17.jpg")
       await message.channel.send("미사일 한발 뺌")
