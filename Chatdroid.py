@@ -48,16 +48,6 @@ async def on_message(message):
         await message.channel.send(embed=embed)
         
 
-    if message.content.startswith("!p"):
-        if message.author.id == 833697465319948361:
-            await message.channel.purge(limit=1)
-            ver = "소규모 패치"
-            fix = message.content[3:]        
-            embed = discord.Embed(title=f"{ver}", description = f"{fix}", color=0xfaf4c0)
-            await message.channel.send(embed=embed)
-        else:
-            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
-            await message.channel.send(embed=embed)
         
        
     
@@ -675,23 +665,38 @@ async def on_message(message):
 
         embed=discord.Embed(color=0xff00, title= f"🎮{summn}의 전적!", description= f"https://www.op.gg/summoners/kr/{summn}", timestamp=message.created_at)
         await message.channel.send(embed=embed)
-    
+    #dev func
     #Bot presence set
     if message.content.startswith("!onprtcl"):
-        await message.channel.send("online set")
-        await client.change_presence(status=discord.Status.online)
-        await client.change_presence(activity=discord.Game(name="!도움말"))
+        if message.author.id == 833697465319948361:
+        
+            await message.channel.send("online set")
+            await client.change_presence(status=discord.Status.online)
+            await client.change_presence(activity=discord.Game(name="!도움말"))
+        else:
+            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+            await message.channel.send(embed=embed)
         
     if message.content.startswith("!dndprtcl"):
-        await message.channel.send("dnd set")
-        await client.change_presence(status=discord.Status.dnd)
-        await client.change_presence(activity=discord.Game(name="봇 점검"))
+        if message.author.id == 833697465319948361:
+        
+            await message.channel.send("dnd set")
+            await client.change_presence(status=discord.Status.dnd)
+            await client.change_presence(activity=discord.Game(name="봇 점검"))
+        else:
+            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+            await message.channel.send(embed=embed)
         
         
     if message.content.startswith("!upprtcl"):
-        #await message.channel_presence(status=discord.Status.idle)
-        await client.change_presence(activity=discord.Game(name="봇 업뎃"))
-        await message.channel.send("update mode")
+        if message.author.id == 833697465319948361:
+        
+            #await message.channel_presence(status=discord.Status.idle)
+            await client.change_presence(activity=discord.Game(name="봇 업뎃"))
+            await message.channel.send("update mode")
+        else:
+            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+            await message.channel.send(embed=embed)
         
     if message.content.startswith("삼일아 잘가!"):
         #await message.channel.send("서비스 종료일자네요..")
@@ -715,8 +720,47 @@ async def on_message(message):
         await client.change_presence(status=discord.Status.offline)
         #await asyncio.sleep(1000000)
         
+    if message.content.startswith("!p"):
+        if message.author.id == 833697465319948361:
+            await message.channel.purge(limit=1)
+            ver = "소규모 패치"
+            fix = message.content[3:]        
+            embed = discord.Embed(title=f"{ver}", description = f"{fix}", color=0xfaf4c0)
+            await message.channel.send(embed=embed)
+        else:
+            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+            await message.channel.send(embed=embed)
+    
+    if message.content.startswith("!cls"):
+        if message.author.id == 833697465319948361:
+            amount = message.content[4:]
+            await message.channel.purge(limit=1)
+            await message.channel.purge(limit=int(amount))
+
+            embed = discord.Embed(title="메시지 삭제 알림", description="최근 디스코드 채팅 {}개가\n관리자 {}님의 요청으로 인해 정상 삭제 조치 되었습니다".format(amount, message.author), color=0x000000)
+            embed.set_footer(text="Chatdeletebot", icon_url="https://discordapp.com/channels/691615852620939274/703908401381376000/711859989177958410")
+            await message.channel.send(embed=embed)
+         
+         else:
+            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+            await message.channel.send(embed=embed)
+       
+        
+     if message.content.startswith('!devnoti'):
+        if message.author.id == 833697465319948361:
+        
+            
+            #await message.channel.send('베타기능이에요')
+            await message.channel.purge(limit=1)
+            
+            embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color=0xfaf4c0)
+
+            await message.channel.send(embed=embed)
         
         
+         else:
+            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+            await message.channel.send(embed=embed)
     
     
     
