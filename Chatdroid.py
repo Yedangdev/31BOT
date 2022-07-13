@@ -125,19 +125,19 @@ async def on_message(message):
         if 60 <= be < 100:
             bly = "씹련아"
         if nme == "지빈":
-            bly = f"{nme} 보호"
+            bly = f"{nme}에게 욕을 할 수 없습니다."
             nme = message.author.mention
         
         if nme == "최지빈":
-            bly = f"{nme} 보호"
+            bly = f"{nme}에게 욕을 할 수 없습니다."
             nme = message.author.mention
         
         if nme == "장혁진":
-            bly = f"{nme} 보호"
+            bly = f"{nme}에게 욕을 할 수 없습니다."
             nme = message.author.mention
         
         if nme == "혁진":
-            bly = f"{nme} 보호"
+            bly = f"{nme}에게 욕을 할 수 없습니다."
             nme = message.author.mention
  
  
