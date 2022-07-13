@@ -146,6 +146,9 @@ async def on_message(message):
             bly = "병신새끼야"              
         if 60 <= be < 100:
             bly = "씹련아"
+        if message.author.id = "714351331464314932":
+            bly = "사용할 수 없습니다."
+            nme = f"{message.author.mention}"는
         if nme == "지빈":
             bly = f"{nme}에게 욕을 할 수 없습니다."
             nme = message.author.mention
