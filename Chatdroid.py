@@ -740,9 +740,9 @@ async def on_message(message):
             embed.set_footer(text="Chatdeletebot", icon_url="https://discordapp.com/channels/691615852620939274/703908401381376000/711859989177958410")
             await message.channel.send(embed=embed)
          
-         else:
-            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
-            await message.channel.send(embed=embed)
+        else:
+           embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+           await message.channel.send(embed=embed)
        
     
     if message.content.startswith('!devnoti'):
@@ -750,17 +750,16 @@ async def on_message(message):
        if message.author.id == 833697465319948361:
         
             
-            #await message.channel.send('베타기능이에요')
+           #await message.channel.send('베타기능이에요')
            await message.channel.purge(limit=1)
             
            embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color=0xfaf4c0)
-
            await message.channel.send(embed=embed)
         
         
-         else:
-            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
-            await message.channel.send(embed=embed)
+       else:
+          embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+          await message.channel.send(embed=embed)
     
     
             
