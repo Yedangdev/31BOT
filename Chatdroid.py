@@ -603,7 +603,7 @@ async def on_message(message):
 
 
     if message.content.startswith('!도움말'):
-        await message.channel.purge(limit=1)
+        #await message.channel.purge(limit=1)
         if message.author.dm_channel is None:
 
             channel = await message.author.create_dm()
@@ -611,7 +611,7 @@ async def on_message(message):
         
             embed=discord.Embed(color=0xff00, title= "📌도움말", description= f"{noti}", timestamp=message.created_at)
             await message.author.dm_channel.send(embed=embed)
-            await message.channel.send("DM을 확인해주세요!")
+            await message.channel.send("💌")
         
 
 
