@@ -120,12 +120,15 @@ async def on_message(message):
             
             nme = "욕을 할 수 있는"
             bly = "대상이 아닙니다"
+            await message.channel.send(f"{nme} {bly}")
+            break
         
         if nme == "최지빈":
         
             nme = "욕을 할 수 있는"
-            bly = " 대상이 아닙니다"
-            
+            bly = "대상이 아닙니다"
+            await message.channel.send(f"{nme} {bly}")
+            break
             
         else:    
             be = randint(1,100)
