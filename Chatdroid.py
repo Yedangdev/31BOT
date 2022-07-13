@@ -116,45 +116,19 @@ async def on_message(message):
     if message.content.startswith("!반란"):
         await message.channel.purge(limit=1)
         nme = message.content[4:]
-        if nme == "312":
-            nme = "욕을 할 수 있는"
-            bly = "대상이 아닙니다"
-            await message.channel.send(f"{nme} {bly}")
-            
-            
         
+        be = randint(1,100)
+        if 1 <= be < 30:
+            bly = "씨발새끼야"                    
+        if 30 <= be < 60:
+            bly = "병신새끼야"              
+        if 60 <= be < 100:
+            bly = "씹련아"
         if nme == "지빈":
+            bly = "불가능"
+            nme = "욕"
             
-            nme = "욕을 할 수 있는"
-            bly = "대상이 아닙니다"
-            await message.channel.send(f"{nme} {bly}")
-            #break
-        
-        if nme == "최지빈":
-        
-            nme = "욕을 할 수 있는"
-            bly = "대상이 아닙니다"
-            await message.channel.send(f"{nme} {bly}")
-            #break
-            
-        else:
-            nme = message.content[4:]
-            be = randint(1,100)
-            if 1 <= be < 30:
-                bly = "씨발새끼야"
-             
-
-            
-            if 30 <= be < 60:
-                bly = "병신새끼야"
-              
-
-            if 60 <= be < 100:
-                bly = "씹련아"
-            
-        
-        
-            await message.channel.send(f"{nme} {bly}")
+        await message.channel.send(f"{nme} {bly}")
     
     if message.content.startswith("!한영"):
       text1 = message.content[4:]
