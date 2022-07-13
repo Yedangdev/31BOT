@@ -116,13 +116,18 @@ async def on_message(message):
     if message.content.startswith("!반란"):
         await message.channel.purge(limit=1)
         nme = message.content[4:]
+        if nme == "312":
+            nme = "욕을 할 수 있는"
+            bly = "대상이 아닙니다"
+            await message.channel.send(f"{nme} {bly}")
+            
+            
+        
         if nme == "지빈":
             
             nme = "욕을 할 수 있는"
             bly = "대상이 아닙니다"
             await message.channel.send(f"{nme} {bly}")
-            await asyncio.sleep(0.3)
-            await message.channel.purge(limit=1)
             #break
         
         if nme == "최지빈":
