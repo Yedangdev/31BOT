@@ -26,7 +26,7 @@ async def on_ready():
     #await client.change_presence(status=discord.Status.dnd) #다른용무
     #await client.change_presence(status=discord.Status.offline) #오프라인
     
-    await client.change_presence(activity=discord.Game(name="!help"))
+    await client.change_presence(activity=discord.Game(name="!명령어"))
 
     
     
@@ -602,7 +602,7 @@ async def on_message(message):
 
 
 
-    if message.content.startswith('!help'):
+    if message.content.startswith('!도움말'):
         await message.channel.purge(limit=1)
         if message.author.dm_channel is None:
 
@@ -628,37 +628,41 @@ async def on_message(message):
         embed=discord.Embed(color=0xff00, title= f"🎮{summn}의 전적!", description= f"https://www.op.gg/summoners/kr/{summn}", timestamp=message.created_at)
         await message.channel.send(embed=embed)
     
-    if message.content.startswith("!on"):
-        await message.channel.send("bot online")
+    #Bot presence set
+    if message.content.startswith("!onprtcl"):
+        await message.channel.send("online set")
         await client.change_presence(status=discord.Status.online)
         await client.change_presence(activity=discord.Game(name="!help"))
         
-    if message.content.startswith("!점검이"):
-        await message.channel.send("dnd mode")
+    if message.content.startswith("!dndprtcl"):
+        await message.channel.send("dnd set")
         await client.change_presence(status=discord.Status.dnd)
-        await client.change_presence(activity=discord.Game(name="봇 점검중"))
+        await client.change_presence(activity=discord.Game(name="봇 점검"))
         
-    #if message.content.startswith("!diet"):
-        #await message.channel.send(result)
         
-    if message.content.startswith("!endprtcl"):
+    if message.content.startswith("!idleprtcl"):
+        await message.channel_presence(status=discord.Status.idle)
+        await client.change_presence(activity=discord.Game(name="봇 업뎃"))
+        await message.channel.send("idle mode")
+        
+    if message.content.startswith("!offprtcl"):
         #await message.channel.send("서비스 종료일자네요..")
         #await message.channel.send("!312안녕")
         #await message.channel.send("숨겨진 이스터에그랍니다")
-        await asyncio.sleep(0.5)
-        await message.channel.send("종료 프로토콜을 가동합니다")
-        await message.channel.send("5")
-        await asyncio.sleep(1)
-        await message.channel.send("4")
-        await asyncio.sleep(1)
-        await message.channel.send("3")
-        await asyncio.sleep(1)
-        await message.channel.send("2")
-        await asyncio.sleep(1)
-        await message.channel.send("1")
-        await asyncio.sleep(1)
-        await message.channel.send("0")
-        await asyncio.sleep(1)
+        #await asyncio.sleep(0.5)
+        await message.channel.send("offline set")
+        #await message.channel.send("5")
+        #await asyncio.sleep(1)
+        #await message.channel.send("4")
+        #await asyncio.sleep(1)
+        #await message.channel.send("3")
+        #await asyncio.sleep(1)
+        #await message.channel.send("2")
+        #await asyncio.sleep(1)
+        #await message.channel.send("1")
+        #await asyncio.sleep(1)
+        #await message.channel.send("0")
+        #await asyncio.sleep(1)
         #await message.channel.send("모두 안녕!")
         await client.change_presence(status=discord.Status.offline)
         #headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}
