@@ -640,10 +640,10 @@ async def on_message(message):
         await client.change_presence(activity=discord.Game(name="봇 점검"))
         
         
-    if message.content.startswith("!idleprtcl"):
+    if message.content.startswith("!upprtcl"):
         await message.channel_presence(status=discord.Status.idle)
         await client.change_presence(activity=discord.Game(name="봇 업뎃"))
-        await message.channel.send("idle mode")
+        await message.channel.send("update mode")
         
     if message.content.startswith("!offprtcl"):
         #await message.channel.send("서비스 종료일자네요..")
