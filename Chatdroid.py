@@ -26,7 +26,7 @@ async def on_ready():
     #await client.change_presence(status=discord.Status.dnd) #다른용무
     #await client.change_presence(status=discord.Status.offline) #오프라인
     
-    await client.change_presence(activity=discord.Game(name="!명령어"))
+    await client.change_presence(activity=discord.Game(name="!도움말"))
 
     
     
@@ -632,7 +632,7 @@ async def on_message(message):
     if message.content.startswith("!onprtcl"):
         await message.channel.send("online set")
         await client.change_presence(status=discord.Status.online)
-        await client.change_presence(activity=discord.Game(name="!help"))
+        await client.change_presence(activity=discord.Game(name="!도움말"))
         
     if message.content.startswith("!dndprtcl"):
         await message.channel.send("dnd set")
