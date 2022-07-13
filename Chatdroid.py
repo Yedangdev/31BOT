@@ -116,9 +116,16 @@ async def on_message(message):
     if message.content.startswith("!반란"):
         await message.channel.purge(limit=1)
         nme = message.content[4:]
-        if nme == "지빈" or "최지빈":
-            nme = "아버지한테"
-            bly = "어케 욕해"
+        if nme == "지빈":
+            
+            nme = "욕을 할 수 있는"
+            bly = "대상이 아닙니다"
+        
+        if nme == "최지빈":
+        
+            nme = "욕을 할 수 있는"
+            bly = " 대상이 아닙니다"
+            
             
         else:    
             be = randint(1,100)
@@ -126,6 +133,7 @@ async def on_message(message):
                 bly = "씨발새끼야"
              
 
+            
             if 30 <= be < 60:
                 bly = "병신새끼야"
               
