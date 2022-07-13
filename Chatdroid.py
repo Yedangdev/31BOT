@@ -121,8 +121,8 @@ async def on_message(message):
             nme = "욕을 할 수 있는"
             bly = "대상이 아닙니다"
             await message.channel.send(f"{nme} {bly}")
+            await asyncio.sleep(0.3)
             await message.channel.purge(limit=1)
-            await asyncio.sleep(0.1)
             #break
         
         if nme == "최지빈":
