@@ -641,7 +641,7 @@ async def on_message(message):
         
         
     if message.content.startswith("!upprtcl"):
-        await message.channel_presence(status=discord.Status.idle)
+        #await message.channel_presence(status=discord.Status.idle)
         await client.change_presence(activity=discord.Game(name="봇 업뎃"))
         await message.channel.send("update mode")
         
