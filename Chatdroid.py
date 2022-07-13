@@ -736,7 +736,6 @@ async def on_message(message):
             amount = message.content[4:]
             await message.channel.purge(limit=1)
             await message.channel.purge(limit=int(amount))
-
             embed = discord.Embed(title="메시지 삭제 알림", description="최근 디스코드 채팅 {}개가\n관리자 {}님의 요청으로 인해 정상 삭제 조치 되었습니다".format(amount, message.author), color=0x000000)
             embed.set_footer(text="Chatdeletebot", icon_url="https://discordapp.com/channels/691615852620939274/703908401381376000/711859989177958410")
             await message.channel.send(embed=embed)
@@ -745,23 +744,23 @@ async def on_message(message):
             embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
             await message.channel.send(embed=embed)
        
+    
+    if message.content.startswith('!devnoti'):
         
-     if message.content.startswith('!devnoti'):
-        if message.author.id == 833697465319948361:
+       if message.author.id == 833697465319948361:
         
             
             #await message.channel.send('베타기능이에요')
-            await message.channel.purge(limit=1)
+           await message.channel.purge(limit=1)
             
-            embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color=0xfaf4c0)
+           embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color=0xfaf4c0)
 
-            await message.channel.send(embed=embed)
+           await message.channel.send(embed=embed)
         
         
          else:
             embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
             await message.channel.send(embed=embed)
-    
     
     
             
