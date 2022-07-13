@@ -88,7 +88,7 @@ async def on_message(message):
         
         say = message.content[3:]
         #await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
-        await message.channel.send(f"마법의 {say}?")
+        await message.channel.send(f"마법의 소라고둥님 {say}?")
         await asyncio.sleep(0.2)
         #await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
         embed = discord.Embed(title="🐚마법의 소라고둥은 대답했다!", description = f"\n\n{sorare}\n\n{message.author.mention}은 깨달음을 얻었다🤔", color=0xfaf4c0)
@@ -674,7 +674,7 @@ async def on_message(message):
             await client.change_presence(status=discord.Status.online)
             await client.change_presence(activity=discord.Game(name="!도움말"))
         else:
-            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+            embed = discord.Embed(title="unauthenticated user error", description = "Invalid user", color=0xfaf4c0)
             await message.channel.send(embed=embed)
         
     if message.content.startswith("!dndprtcl"):
@@ -684,7 +684,7 @@ async def on_message(message):
             await client.change_presence(status=discord.Status.dnd)
             await client.change_presence(activity=discord.Game(name="봇 점검"))
         else:
-            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+            embed = discord.Embed(title="unauthenticated user error", description = "Invalid user", color=0xfaf4c0)
             await message.channel.send(embed=embed)
         
         
@@ -692,10 +692,10 @@ async def on_message(message):
         if message.author.id == 833697465319948361:
         
             #await message.channel_presence(status=discord.Status.idle)
-            await client.change_presence(activity=discord.Game(name="봇 업뎃"))
+            await client.change_presence(activity=discord.Game(name="봇 업데이트"))
             await message.channel.send("update mode")
         else:
-            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+            embed = discord.Embed(title="unauthenticated user error", description = "Invalid user", color=0xfaf4c0)
             await message.channel.send(embed=embed)
         
     if message.content.startswith("삼일아 잘가!"):
@@ -724,11 +724,11 @@ async def on_message(message):
         if message.author.id == 833697465319948361:
             await message.channel.purge(limit=1)
             ver = "소규모 패치"
-            fix = message.content[3:]        
+            fix = message.content[5:]        
             embed = discord.Embed(title=f"{ver}", description = f"{fix}", color=0xfaf4c0)
             await message.channel.send(embed=embed)
         else:
-            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+            embed = discord.Embed(title="unauthenticated user error", description = "Invalid user", color=0xfaf4c0)
             await message.channel.send(embed=embed)
     
     if message.content.startswith("!cls"):
@@ -736,12 +736,12 @@ async def on_message(message):
             amount = message.content[4:]
             await message.channel.purge(limit=1)
             await message.channel.purge(limit=int(amount))
-            embed = discord.Embed(title="메시지 삭제 알림", description="최근 디스코드 채팅 {}개가 개발자권한을 통해 삭제 조치 되었습니다".format(amount), color=0x000000)
-            embed.set_footer(text="Chatdeletebot", icon_url="https://discordapp.com/channels/691615852620939274/703908401381376000/711859989177958410")
+            embed = discord.Embed(title="메시지 삭제 알림", description="최근 디스코드 채팅 {}개가 DAA prtcl를 통해 삭제 조치 되었습니다".format(amount), color=0x000000)
+            embed.set_footer(text="DevAccessAdminPrtcl", icon_url = message.author.avatar_url)
             await message.channel.send(embed=embed)
          
         else:
-           embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+           embed = discord.Embed(title="unauthenticated user error", description = "Invalid user", color=0xfaf4c0)
            await message.channel.send(embed=embed)
        
     
@@ -750,7 +750,7 @@ async def on_message(message):
        if message.author.id == 833697465319948361:
         
             
-           await message.channel.send('개발자가 감지되었습니다')
+           await message.channel.send('dev verified')
            await message.channel.send(message.author)
            await asyncio.sleep(0.2)
            await message.channel.purge(limit=2)
@@ -760,7 +760,7 @@ async def on_message(message):
         
         
        else:
-          embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+          embed = discord.Embed(title="unauthenticated user error", description = "Invalid user", color=0xfaf4c0)
           await message.channel.send(embed=embed)
     
     
@@ -768,23 +768,27 @@ async def on_message(message):
         if message.author.id == 833697465319948361:
             if message.author.dm_channel:
                 await message.channel.purge(limit=1)
-                dvti = "dvcl list"
+                dvti = "DevAccessAdminPrtcl dvcl lst"
                 clst = "!onprtcl\n!dndprtcl\n!offprtcl\n!upprtcl\n!pnt\n!cls\n!devnoti"        
                 embed = discord.Embed(title=f"{dvti}", description = f"{clst}", color=0xfaf4c0)
-                await message.channel.send(embed=embed)
+                await message.author.dm_channel.send(embed=embed)
+                await message.channel.send("dev verified")
+        
             
             if message.author.dm_channel is None:
                 channel = await message.author.create_dm()
                 await message.channel.purge(limit=1)
-                dvti = "dvcl list"
+                dvti = "DevAccessAdminPrtcl dvcl lst"
                 clst = "!onprtcl\n!dndprtcl\n!offprtcl\n!upprtcl\n!pnt\n!cls\n!devnoti"        
                 embed = discord.Embed(title=f"{dvti}", description = f"{clst}", color=0xfaf4c0)
-                await message.channel.send(embed=embed)
+                await message.author.dm_channel.send(embed=embed)
+                await message.channel.send("dev verified")
+        
             
             
         
         else:
-            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+            embed = discord.Embed(title="unauthenticated user error", description = "Invalid user", color=0xfaf4c0)
             await message.channel.send(embed=embed)
             
         
