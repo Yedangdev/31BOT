@@ -772,6 +772,17 @@ async def on_message(message):
                 clst = "!onprtcl\n!dndprtcl\n!offprtcl\n!upprtcl\n!pnt\n!cls\n!devnoti"        
                 embed = discord.Embed(title=f"{dvti}", description = f"{clst}", color=0xfaf4c0)
                 await message.channel.send(embed=embed)
+            
+            if message.author.dm_channel is None:
+                channel = await message.author.create_dm()
+                await message.channel.purge(limit=1)
+                dvti = "dvcl list"
+                clst = "!onprtcl\n!dndprtcl\n!offprtcl\n!upprtcl\n!pnt\n!cls\n!devnoti"        
+                embed = discord.Embed(title=f"{dvti}", description = f"{clst}", color=0xfaf4c0)
+                await message.channel.send(embed=embed)
+            
+            
+        
         else:
             embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
             await message.channel.send(embed=embed)
