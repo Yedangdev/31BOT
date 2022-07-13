@@ -121,16 +121,17 @@ async def on_message(message):
             nme = "욕을 할 수 있는"
             bly = "대상이 아닙니다"
             await message.channel.send(f"{nme} {bly}")
-            break
+            #break
         
         if nme == "최지빈":
         
             nme = "욕을 할 수 있는"
             bly = "대상이 아닙니다"
             await message.channel.send(f"{nme} {bly}")
-            break
+            #break
             
-        else:    
+        else:
+            nme = message.content[4:]
             be = randint(1,100)
             if 1 <= be < 30:
                 bly = "씨발새끼야"
@@ -146,7 +147,7 @@ async def on_message(message):
             
         
         
-        await message.channel.send(f"{nme} {bly}")
+            await message.channel.send(f"{nme} {bly}")
     
     if message.content.startswith("!한영"):
       text1 = message.content[4:]
