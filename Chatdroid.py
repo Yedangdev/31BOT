@@ -46,6 +46,19 @@ async def on_message(message):
         fix = "\n\n!농담, !시험범위, !안내 의 기능은 더 이상 지원되지 않습니다.\n\n!급식 기능은 파싱오류 발생시 링크를 대신 제공합니다.\n\n<새로 추가된 기능>\n\n!전적\n!반란\n!마법의 소라고둥님\n!수시\n\n<앞으로 업데이트계획>\n기능추가에 대한 패치는 이제 진행하지 않습니다.\n오류수정,기능개선에 대한 패치만 이루어질 예정입니다.\n\n<운영계획>\n2023년 1월 말까지 제공예정이며, discord.py의 서비스 종료시 자동으로 운영이 중단될 예정입니다."
         embed = discord.Embed(title=f"{ver} 패치노트", description = f"{fix}", color=0xfaf4c0)
         await message.channel.send(embed=embed)
+        
+
+    if message.content.startswith("!p"):
+        if message author == "지빈#1638":
+            await message.channel.purge(limit=1)
+            ver = "소규모 패치"
+            fix = message.content[3:]        
+            embed = discord.Embed(title=f"{ver}", description = f"{fix}", color=0xfaf4c0)
+            await message.channel.send(embed=embed)
+        else:
+            embed = discord.Embed(title="개발자 외의 유저감지", description = "개발자만 접근가능한 명령어입니다", color=0xfaf4c0)
+            await message.channel.send(embed=embed)
+        
        
     
     if message.content.startswith("!명예개발자"):
@@ -56,7 +69,7 @@ async def on_message(message):
       await message.channel.send(embed=embed)
     
     
-    if message.content.startswith("!마법의 소라고둥님" or "!s"):
+    if message.content.startswith("!마법의 소라고둥님"):
         
         await message.channel.purge(limit=1)
         words = ["돼.", "안돼.", "포기해.", "다시 한 번 물어봐.", "허락할게", "당장 시작해.", "나중에 해.", "안.돼.", "하지마.", "그래.", "가만히 있어.", "그것도 안 돼.", "아니.", "응.", "하고 싶은 대로 해.", "그것도 하지마.", "맘대로 해.","꿈도 꾸지 마.","기다려.","왜?."]
@@ -67,6 +80,25 @@ async def on_message(message):
         say = message.content[1:]
         #await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
         await message.channel.send(f"{say}?")
+        await asyncio.sleep(0.2)
+        #await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
+        embed = discord.Embed(title="🐚마법의 소라고둥은 대답했다!", description = f"\n\n{sorare}\n\n{message.author.mention}은 깨달음을 얻었다🤔", color=0xfaf4c0)
+        embed.set_thumbnail(url="https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
+        await message.channel.send(embed=embed)
+        
+        
+    
+    if message.content.startswith("!s"):
+        
+        await message.channel.purge(limit=1)
+        words = ["돼.", "안돼.", "포기해.", "다시 한 번 물어봐.", "허락할게", "당장 시작해.", "나중에 해.", "안.돼.", "하지마.", "그래.", "가만히 있어.", "그것도 안 돼.", "아니.", "응.", "하고 싶은 대로 해.", "그것도 하지마.", "맘대로 해.","꿈도 꾸지 마.","기다려.","왜?."]
+        
+        sora = randrange(0,19)
+        sorare = words[sora]
+        
+        say = message.content[3:]
+        #await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
+        await message.channel.send(f"마법의 {say}?")
         await asyncio.sleep(0.2)
         #await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
         embed = discord.Embed(title="🐚마법의 소라고둥은 대답했다!", description = f"\n\n{sorare}\n\n{message.author.mention}은 깨달음을 얻었다🤔", color=0xfaf4c0)
