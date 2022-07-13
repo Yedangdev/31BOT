@@ -645,7 +645,7 @@ async def on_message(message):
         await client.change_presence(activity=discord.Game(name="봇 업뎃"))
         await message.channel.send("update mode")
         
-    if message.content.startswith("!offprtcl"):
+    if message.content.startswith("삼일아 잘가!"):
         #await message.channel.send("서비스 종료일자네요..")
         #await message.channel.send("!312안녕")
         #await message.channel.send("숨겨진 이스터에그랍니다")
@@ -663,18 +663,9 @@ async def on_message(message):
         #await asyncio.sleep(1)
         #await message.channel.send("0")
         #await asyncio.sleep(1)
-        #await message.channel.send("모두 안녕!")
+        await message.channel.send("모두 안녕!")
         await client.change_presence(status=discord.Status.offline)
-        #headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}
-        #url = "https://hiyedang.hs.kr:80"
-
-        #res = requests.get(url,timeout = 25)    
-        #res.raise_for_status()
-        #soup = BeautifulSoup(res.text, "lxml") 
-
-        #diet = soup.find_all("div", attrs={"class":"menu"})  
-        #for diets in diet:
-            #result = diets.get_text() 
+        #await asyncio.sleep(1000000)
         
         
         
