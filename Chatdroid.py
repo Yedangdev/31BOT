@@ -49,7 +49,7 @@ async def on_message(message):
         
 
     if message.content.startswith("!p"):
-        if message.author == "지빈#1638":
+        if message.author.id == 833697465319948361:
             await message.channel.purge(limit=1)
             ver = "소규모 패치"
             fix = message.content[3:]        
