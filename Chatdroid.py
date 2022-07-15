@@ -198,12 +198,13 @@ async def on_message(message):
       text1 = message.content[4:]
       translator = Translator()
       await message.channel.send("언어감지완료")
-      await message.channel.send(translator.detect(f"{text1}"))
+      #await message.channel.send(translator.detect(f"{text1}"))
       
       trans3 = translator.translate(text1, dest='ko')
       tran3 = trans3.text
       embed = discord.Embed(title="번역결과", description = f"{tran3}" , color=0xfaf4c0)
       embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/986620628687798282/997323776809246900")
+      embed.set_footer(text = translator.detect(f"{text1}"), icon_url=message.author.avatar_url)
       await message.channel.send(embed=embed)
       #await message.channel.send("번역결과: {}" .format(trans3.text))
       
