@@ -177,6 +177,7 @@ async def on_message(message):
       tran1 = trans1.text
       
       embed = discord.Embed(title="한국어를 영어로 번역했어요", description = f"{tran1}", color=0xfaf4c0)
+      embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/986620628687798282/997323776809246900")
       await message.channel.send(embed=embed)
       #await message.channel.send("번역결과: {}" .format(trans1.text))
 
@@ -188,6 +189,7 @@ async def on_message(message):
       tran2 = trans2.text
       
       embed = discord.Embed(title="한국어를 일본어로 번역했어요", description = f"{tran2}" ,color=0xfaf4c0)
+      embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/986620628687798282/997323776809246900")  
       await message.channel.send(embed=embed)
       #await message.channel.send("번역결과: {}" .format(trans2.text))
       
@@ -195,11 +197,13 @@ async def on_message(message):
     if message.content.startswith("!번역"):
       text1 = message.content[4:]
       translator = Translator()
+      await message.channel.send("언어감지완료")
       await message.channel.send(translator.detect(f"{text1}"))
       
       trans3 = translator.translate(text1, dest='ko')
       tran3 = trans3.text
       embed = discord.Embed(title="번역결과", description = f"{tran3}" , color=0xfaf4c0)
+      embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/986620628687798282/997323776809246900")
       await message.channel.send(embed=embed)
       #await message.channel.send("번역결과: {}" .format(trans3.text))
       
