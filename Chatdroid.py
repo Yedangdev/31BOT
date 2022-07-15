@@ -174,37 +174,36 @@ async def on_message(message):
       text1 = message.content[4:]
       translator = Translator()
       trans1 = translator.translate(text1, src='ko', dest='en')
-      embed = discord.Embed(title="한국어를 영어로 번역했어요", color=0xfaf4c0)
+      tran1 = trans1.text
+      
+      embed = discord.Embed(title="한국어를 영어로 번역했어요", description = f"{tran1}", color=0xfaf4c0)
       await message.channel.send(embed=embed)
-      await message.channel.send("번역결과: {}" .format(trans1.text))
+      #await message.channel.send("번역결과: {}" .format(trans1.text))
 
     
     if message.content.startswith("!한일"):
       text1 = message.content[4:]
       translator = Translator()
       trans2 = translator.translate(text1, src='ko', dest='ja')
-      embed = discord.Embed(title="한국어를 일본어로 번역했어요", color=0xfaf4c0)
+      tran2 = trans2.text
+      
+      embed = discord.Embed(title="한국어를 일본어로 번역했어요", description = f"{tran2}" ,color=0xfaf4c0)
       await message.channel.send(embed=embed)
-      await message.channel.send("번역결과: {}" .format(trans2.text))
+      #await message.channel.send("번역결과: {}" .format(trans2.text))
       
     
-    if message.content.startswith("!영한"):
+    if message.content.startswith("!번역"):
       text1 = message.content[4:]
       translator = Translator()
-      trans3 = translator.translate(text1, src='en', dest='ko')
-      embed = discord.Embed(title="영어를 한국어로 번역했어요", color=0xfaf4c0)
+      await message.channel.send(translator.detect(f"{text1}"))
+      
+      trans3 = translator.translate(text1, dest='ko')
+      tran3 = trans3.text
+      embed = discord.Embed(title="번역결과", description = f"{tran3}" , color=0xfaf4c0)
       await message.channel.send(embed=embed)
-      await message.channel.send("번역결과: {}" .format(trans3.text))
+      #await message.channel.send("번역결과: {}" .format(trans3.text))
       
     
-    if message.content.startswith("!일한"):
-      text1 = message.content[4:]
-      translator = Translator()
-      trans4 = translator.translate(text1, src='ja', dest='ko')
-      embed = discord.Embed(title="일본어를 한국어로 번역했어요" ,color=0xfaf4c0)
-      await message.channel.send("번역결과: {}" .format(trans4.text))
-      await message.channel.send(embed=embed)
-   
   
     if message.content.startswith('!312안녕'):
         embed = discord.Embed(title="EasterEgg_file_load_process", description = "Chatdroid_memory", color=0xfaf4c0)
