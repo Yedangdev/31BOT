@@ -675,6 +675,7 @@ async def on_message(message):
       #await message.channel.purge(limit=2)
       
       msg = message.content[4:]
+      headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}  
       url = f"https://www.lolog.me/kr/user/{msg}?save=true"
 
       res = requests.get(url,timeout = 25)    
@@ -705,6 +706,7 @@ async def on_message(message):
       embed.add_field(name="전적사이트 바로가기!", value=f"https://www.op.gg/summoners/kr/{msg}", inline=false)
       embed.set_thumbnail(url=f"{img}")
       await message.channel.send(embed=embed)
+      await message.channel.send("beta")
 
     #dev func
     #Bot presence set
