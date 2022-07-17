@@ -671,7 +671,8 @@ async def on_message(message):
 
     if message.content.startswith('!전적'):
       
-      await message.channel.send("```python\n아직 베타기능이에요```")
+      await message.channel.send("```python\n시간이 조금 걸려요...```")
+      await asyncio.sleep(1)
       await message.channel.purge(limit=2)
       
       msg = message.content[4:]
@@ -694,7 +695,7 @@ async def on_message(message):
         cnt = rank2.get_text() #텍스트만 추출
 
       
-      soloRankResult = cnt[5:48]
+      soloRankResult = cnt[5:49]
 
 #소환사이미지      
       img = soup.find("div", attrs={"id":"user-profile-bio-img"}).find("img").get('src') #소환사이미지 가져오기
