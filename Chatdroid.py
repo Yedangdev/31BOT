@@ -694,7 +694,7 @@ async def on_message(message):
         cnt = rank2.get_text() #텍스트만 추출
 
       
-      soloRankResult = cnt[5:45]
+      soloRankResult = cnt[5:48]
 
 #소환사이미지      
       img = soup.find("div", attrs={"id":"user-profile-bio-img"}).find("img").get('src') #소환사이미지 가져오기
