@@ -671,7 +671,7 @@ async def on_message(message):
 
     if message.content.startswith('!전적'):
       
-      await message.channel.send("아직 베타에요")
+      await message.channel.send("아직 베타기능이에요")
       await message.channel.purge(limit=2)
       
       msg = message.content[4:]
@@ -702,7 +702,7 @@ async def on_message(message):
       embed = discord.Embed(title=f"{msg}의 전적!", color=0xfaf4c0)
       embed.add_field(name="솔랭", value=f"{soloRankResult}", inline=True)
       embed.add_field(name="자랭", value=f"{flexRankResult}", inline=True)
-      embed.add_field(name="전적사이트 바로가기!", value=f"https://www.op.gg/summoners/kr/{msg}", inline=True)
+      embed.add_field(name="전적사이트 바로가기!", value=f"https://www.op.gg/summoners/kr/{msg}", inline=false)
       embed.set_thumbnail(url=f"{img}")
       await message.channel.send(embed=embed)
 
