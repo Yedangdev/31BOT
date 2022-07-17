@@ -671,8 +671,8 @@ async def on_message(message):
 
     if message.content.startswith('!전적'):
       
-      await message.channel.send("아직 베타기능이에요")
-      await message.channel.purge(limit=2)
+      #await message.channel.send("아직 베타기능이에요")
+      #await message.channel.purge(limit=2)
       
       msg = message.content[4:]
       url = f"https://www.lolog.me/kr/user/{msg}?save=true"
@@ -699,7 +699,7 @@ async def on_message(message):
       img = soup.find("div", attrs={"id":"user-profile-bio-img"}).find("img").get('src') #소환사이미지 가져오기
       
       
-      embed = discord.Embed(title=f"{msg}의 전적!", color=0xfaf4c0)
+      embed = discord.Embed(title=f"{msg}의 전적!(beta)", color=0xfaf4c0)
       embed.add_field(name="솔랭", value=f"{soloRankResult}", inline=True)
       embed.add_field(name="자랭", value=f"{flexRankResult}", inline=True)
       embed.add_field(name="전적사이트 바로가기!", value=f"https://www.op.gg/summoners/kr/{msg}", inline=false)
