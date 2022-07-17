@@ -701,7 +701,7 @@ async def on_message(message):
       img = soup.find("div", attrs={"id":"user-profile-bio-img"}).find("img").get('src') #소환사이미지 가져오기
       
       
-      embed = discord.Embed(title=f"**{msg}**의 전적!🎮", description = f"**<op.gg바로가기>**\nhttps://www.op.gg/summoners/kr/{msg}", color=0xfaf4c0)
+      embed = discord.Embed(title=f"__***{msg}***__의 전적!🎮", description = f"***<OP.GG 바로가기>\nhttps://www.op.gg/summoners/kr/{msg}***", color=0xfaf4c0)
       embed.add_field(name="**<솔로랭크>**", value=f"```python\n{soloRankResult}```\n", inline=True)
       embed.add_field(name="**<자유랭크>**", value=f"```python\n{flexRankResult}```", inline=True)
       #embed.add_field(name="전적사이트 바로가기!", value=f"https://www.op.gg/summoners/kr/{msg}", inline=)
