@@ -701,8 +701,8 @@ async def on_message(message):
       
       
       embed = discord.Embed(title=f"{msg}의 전적!🎮", description = f"opgg바로가기\nhttps://www.op.gg/summoners/kr/{msg}", color=0xfaf4c0)
-      embed.add_field(name="<솔로랭크>", value=f"```{soloRankResult}```\n", inline=True)
-      embed.add_field(name="<자유랭크>", value=f"```{flexRankResult}```", inline=True)
+      embed.add_field(name="<솔로랭크>", value=f"```python\n{soloRankResult}```\n", inline=True)
+      embed.add_field(name="<자유랭크>", value=f"```python\n{flexRankResult}```", inline=True)
       #embed.add_field(name="전적사이트 바로가기!", value=f"https://www.op.gg/summoners/kr/{msg}", inline=)
       embed.set_thumbnail(url=f"{img}")
       embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
