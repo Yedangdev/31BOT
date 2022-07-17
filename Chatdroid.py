@@ -822,7 +822,7 @@ async def on_message(message):
             if message.author.dm_channel is None:
                 channel = await message.author.create_dm()
                 await message.channel.purge(limit=1)
-                dvti = "DevAccessAdminPrtcl dvcl lst"
+                dvti = "```DevAccessAdminPrtcl dvcl lst```"
                 clst = "!onprtcl\n!dndprtcl\n!offprtcl\n!upprtcl\n!pnt\n!cls\n!devnoti"        
                 embed = discord.Embed(title=f"{dvti}", description = f"{clst}", color=0xfaf4c0)
                 await message.author.dm_channel.send(embed=embed)
