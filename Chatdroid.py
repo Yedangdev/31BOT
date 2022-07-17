@@ -671,7 +671,7 @@ async def on_message(message):
 
     if message.content.startswith('!전적'):
       
-      await message.channel.send("아직 베타기능이에요")
+      await message.channel.send("```python\n아직 베타기능이에요```")
       await message.channel.purge(limit=2)
       
       msg = message.content[4:]
@@ -700,9 +700,9 @@ async def on_message(message):
       img = soup.find("div", attrs={"id":"user-profile-bio-img"}).find("img").get('src') #소환사이미지 가져오기
       
       
-      embed = discord.Embed(title=f"{msg}의 전적!🎮", description = f"opgg바로가기\nhttps://www.op.gg/summoners/kr/{msg}", color=0xfaf4c0)
-      embed.add_field(name="<솔로랭크>", value=f"```python\n{soloRankResult}```\n", inline=True)
-      embed.add_field(name="<자유랭크>", value=f"```python\n{flexRankResult}```", inline=True)
+      embed = discord.Embed(title=f"**{msg}**의 전적!🎮", description = f"**<op.gg바로가기>**\nhttps://www.op.gg/summoners/kr/{msg}", color=0xfaf4c0)
+      embed.add_field(name="**<솔로랭크>**", value=f"```python\n{soloRankResult}```\n", inline=True)
+      embed.add_field(name="**<자유랭크>**", value=f"```python\n{flexRankResult}```", inline=True)
       #embed.add_field(name="전적사이트 바로가기!", value=f"https://www.op.gg/summoners/kr/{msg}", inline=)
       embed.set_thumbnail(url=f"{img}")
       embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
