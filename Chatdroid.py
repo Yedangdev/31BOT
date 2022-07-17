@@ -670,11 +670,37 @@ async def on_message(message):
 
 
     if message.content.startswith('!전적'):
-        summn = message.content[4:]
-        #await message.send(f"https://www.op.gg/summoners/kr/{summn}")
+      msg = message.content[4:]
+      url = f"https://www.lolog.me/kr/user/{msg}?save=true"
 
-        embed=discord.Embed(color=0xff00, title= f"🎮{summn}의 전적!", description= f"https://www.op.gg/summoners/kr/{summn}", timestamp=message.created_at)
-        await message.channel.send(embed=embed)
+      res = requests.get(url,timeout = 25)    
+      res.raise_for_status()
+      soup = BeautifulSoup(res.text, "lxml") 
+
+#랭크정보
+      flexrank = soup.find_all("div", attrs={"class":"profile-rank"})  #가져올 요소
+
+      for rank1 in flexrank:
+        flexRankResult = rank1.get_text() #텍스트만 추출
+
+      solorank = soup.find_all("div", attrs={"id":"user-ranks"})
+      
+      for rank2 in solorank:
+        cnt = rank2.get_text() #텍스트만 추출
+
+      
+      soloRankResult = cnt[5:50]
+
+#소환사이미지      
+      img = soup.find("div", attrs={"id":"user-profile-bio-img"}).find("img").get('src') #소환사이미지 가져오기
+      
+      
+      embed = discord.Embed(title=f"{msg}의 전적!", color=0xfaf4c0)
+      embed.add_field(name="솔랭", value=f"{soloRankResult}", inline=True)
+      embed.add_field(name="자랭", value=f"{flexRankResult}", inline=True)
+      embed.set_thumbnail(url=f"{img}")
+      await message.channel.send(embed=embed)
+
     #dev func
     #Bot presence set
     if message.content.startswith("!onprtcl"):
