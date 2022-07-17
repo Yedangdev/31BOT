@@ -91,7 +91,7 @@ async def on_message(message):
         await message.channel.send(f"마법의 소라고둥님 {say}?")
         await asyncio.sleep(0.2)
         #await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
-        embed = discord.Embed(title="🐚마법의 소라고둥은 대답했다!", description = f"\n\n{sorare}\n\n{message.author.mention}은 깨달음을 얻었다🤔", color=0xfaf4c0)
+        embed = discord.Embed(title="🐚마법의 소라고둥은 대답했다!", description = f"\n\n**{sorare}**\n\n{message.author.mention}은 깨달음을 얻었다🤔", color=0xfaf4c0)
         embed.set_thumbnail(url="https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
         await message.channel.send(embed=embed)
         
@@ -100,7 +100,7 @@ async def on_message(message):
     if message.content.startswith("!ping"):
         latancy = client.latency
         
-        await message.channel.send(f"Pong! ```python\n{round(latancy * 1000)}ms```") 
+        await message.channel.send(f"```python\npong! {round(latancy * 1000)}ms```") 
     
     if message.content.startswith("!섹스"):
       await message.channel.purge(limit = 1)
@@ -168,7 +168,7 @@ async def on_message(message):
  
  
             
-        await message.channel.send(f"```python\n{nme} {bly}```")
+        await message.channel.send(f"**python\n{nme} {bly}**")
     
     if message.content.startswith("!한영"):
       text1 = message.content[4:]
@@ -701,7 +701,7 @@ async def on_message(message):
       img = soup.find("div", attrs={"id":"user-profile-bio-img"}).find("img").get('src') #소환사이미지 가져오기
       
       
-      embed = discord.Embed(title=f"**{msg}**의 전적!🎮", description = f"**<OP.GG 바로가기>**\__***nhttps://www.op.gg/summoners/kr/{msg}***__", color=0xfaf4c0)
+      embed = discord.Embed(title=f"**{msg}**의 전적!🎮", description = f"**<OP.GG 바로가기>**\n__***https://www.op.gg/summoners/kr/{msg}***__", color=0xfaf4c0)
       embed.add_field(name="**<솔로랭크>**", value=f"```python\n{soloRankResult}```\n", inline=True)
       embed.add_field(name="**<자유랭크>**", value=f"```python\n{flexRankResult}```", inline=True)
       #embed.add_field(name="전적사이트 바로가기!", value=f"https://www.op.gg/summoners/kr/{msg}", inline=)
