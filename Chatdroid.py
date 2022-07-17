@@ -100,7 +100,7 @@ async def on_message(message):
     if message.content.startswith("!ping"):
         latancy = client.latency
         
-        await message.channel.send(f"Pong! ```{round(latancy * 1000)}ms```") 
+        await message.channel.send(f"Pong! ```python\n{round(latancy * 1000)}ms```") 
     
     if message.content.startswith("!섹스"):
       await message.channel.purge(limit = 1)
@@ -168,7 +168,7 @@ async def on_message(message):
  
  
             
-        await message.channel.send(f"{nme} {bly}")
+        await message.channel.send(f"```python\n{nme} {bly}```")
     
     if message.content.startswith("!한영"):
       text1 = message.content[4:]
@@ -701,7 +701,7 @@ async def on_message(message):
       img = soup.find("div", attrs={"id":"user-profile-bio-img"}).find("img").get('src') #소환사이미지 가져오기
       
       
-      embed = discord.Embed(title=f"__***{msg}***__의 전적!🎮", description = f"***<OP.GG 바로가기>\nhttps://www.op.gg/summoners/kr/{msg}***", color=0xfaf4c0)
+      embed = discord.Embed(title=f"**{msg}**의 전적!🎮", description = f"**<OP.GG 바로가기>**\__***nhttps://www.op.gg/summoners/kr/{msg}***__", color=0xfaf4c0)
       embed.add_field(name="**<솔로랭크>**", value=f"```python\n{soloRankResult}```\n", inline=True)
       embed.add_field(name="**<자유랭크>**", value=f"```python\n{flexRankResult}```", inline=True)
       #embed.add_field(name="전적사이트 바로가기!", value=f"https://www.op.gg/summoners/kr/{msg}", inline=)
