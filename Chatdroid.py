@@ -772,7 +772,7 @@ async def on_message(message):
         await asyncio.sleep(0.7)
         await message.channel.purge(limit=2)      
               
-        url = f"https://lolchess.gg/profile/kr/{msg}"
+        url = f"https://lolchess.gg/profile/kr/{msg}?save=true"
         res = requests.get(url,timeout = 25)    #파싱
         res.raise_for_status()
         soup = BeautifulSoup(res.text, "lxml") 
