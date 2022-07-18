@@ -375,7 +375,7 @@ async def on_message(message):
         diet = soup.find_all("DDISH_NM")
 
         for diets in diet:
-			dietre = diets.get_text()
+            dietre = diets.get_text()
 
         dietre = dietre.replace("<br/>", "\n")
         
