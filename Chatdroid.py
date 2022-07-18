@@ -386,14 +386,14 @@ async def on_message(message):
             dietpr = dietre
         
         except NameError:
-            dietre = "급식이 존재하지 않거나, 년/월/일 기입에 오류가 있습니다."
+            dietre = "급식이 존재하지 않거나, 년/월/일 기입에 오류가 있습니다.\n오전 9시 마다 급식표가 갱신됩니다."
         
         dietpr = dietre.replace("<br/>", "\n")
         
-        embed=discord.Embed(color=0xff00, title= f"{dietdate[:4]}/{dietdate[5:6]}/{dietdate[6:]}급식표", description= f"{dietpr}", timestamp=message.created_at)
+        embed=discord.Embed(color=0xff00, title= f"{dietdate[:4]}/{dietdate[4:6]}/{dietdate[6:]}급식표", description= f"{dietpr}\n\n\n오전 9시에 급식표가 갱신됩니다!", timestamp=message.created_at)
         embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
-        await message.channel.send("오전 9시에 급식표가 갱신됩니다!")
+        #await message.channel.send("오전 9시에 급식표가 갱신됩니다!")
     
     if message.content.startswith ("!청소"):
         i = (message.author.guild_permissions.administrator)
