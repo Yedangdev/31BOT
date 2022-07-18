@@ -363,7 +363,7 @@ async def on_message(message):
         
     if message.content.startswith('!급식'):
         await message.channel.send('시간이 약간 소요됩니다....')
-        await asyncio.sleep(1.5)
+        await asyncio.sleep(2.5)
         await message.channel.purge(limit=2)
               
         dietdate = message.content[4:]
