@@ -769,7 +769,7 @@ async def on_message(message):
         chess = message.content[4:]
         
         await message.channel.send("```python\n시간이 조금 걸려요...```")
-        await asyncio.sleep(0.7)
+        await asyncio.sleep(1.5)
         await message.channel.purge(limit=2)
         
         headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}   
@@ -782,10 +782,14 @@ async def on_message(message):
         
         rank = soup.find("div", {"class":"profile__tier__icon"}).find("img").get("src")
         rank2 = soup.find("div", {"class":"profile__tier__icon"}).find("img").get("alt")
+        rank4 = soup.find_all("div", {"class":"tier-ranked-info__content"})        
+        
+        for rank4s in rank4:
+        	rank4re = rank4s.get_text()
         
         embed = discord.Embed(title=f"**{chess}**님의 전적!🎮", description = f"**<Lolchess.gg 바로가기>**\n**https://lolchess.gg/profile/kr/{chess}?save=true**", color=0xfaf4c0)
         embed.add_field(name="**<Tier info>**", value = f"**{rank2}**", inline=True)
-        #embed.add_field(name=f"**BETA**", value = "profile_blank", inline=True)
+        embed.add_field(name=f"**<더블업>**", value = f"{rank4re}", inline=True)
         embed.set_thumbnail(url=f"https:{rank}")
         await message.channel.send(embed=embed)
         
