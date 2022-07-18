@@ -364,7 +364,7 @@ async def on_message(message):
         await asyncio.sleep(1.5)
         await message.channel.purge(limit=2)
               
-        dietdate = message.content[4;]
+        dietdate = message.content[4:]
         headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}          
         url = f"https://open.neis.go.kr/hub/mealServiceDietInfo?ATPT_OFCDC_SC_CODE=J10&SD_SCHUL_CODE=7530849&MLSV_YMD={dietdate}"
         res = requests.get(url,timeout = 25)    #파싱
@@ -375,7 +375,7 @@ async def on_message(message):
         diet = soup.find_all("DDISH_NM")
 
         for diets in diet:
-	        dietre = diets.get_text()
+		dietre = diets.get_text()
 
         dietre = rankre.replace("<br/>", "\n")
         
