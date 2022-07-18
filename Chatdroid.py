@@ -379,7 +379,7 @@ async def on_message(message):
 
         dietre = dietre.replace("<br/>", "\n")
         
-        embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{dietre}", timestamp=message.created_at)
+        embed=discord.Embed(color=0xff00, title= "오늘의 급식!", description= f"{dietre}", timestamp=message.created_at)
         embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
         #await message.channel.send("파싱 오류 발생, 링크를 제공합니다.")
