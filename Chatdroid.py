@@ -782,8 +782,9 @@ async def on_message(message):
         
         rank = soup.find("div", {"class":"profile__tier__icon"}).find("img").get("src")
         rank2 = soup.find("div", {"class":"profile__tier__icon"}).find("img").get("alt")
+        embed.set_thumbnail(url=f"https:{rank}")
         embed = discord.Embed(title=f"**{chess}**님의 전적!🎮", description = f"**<Lolchess.gg 바로가기>**\n**https://lolchess.gg/profile/kr/{chess}?save=true**", color=0xfaf4c0)
-        embed.add_field(name="**<Tier info>**", value = f"https:{rank}\n**{rank2}**", inline=True)
+        embed.add_field(name="**<Tier info>**", value = f"**{rank2}**", inline=True)
         #embed.add_field(name=f"**{rank2}**", value = "info", inline=True)
         await message.channel.send(embed=embed)
         
