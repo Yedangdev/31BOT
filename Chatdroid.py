@@ -360,11 +360,11 @@ async def on_message(message):
         
         
     if message.content.startswith('!급식'):
-        '''
+        
         await message.channel.send('시간이 약간 걸릴수 있어요..')
         
         headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit 537.36 (KHTML, like Gecko) Chrome", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"}
-        url = "https://hiyedang.hs.kr:80"
+        url = "https://hiyedang.hs.kr/"
 
         res = requests.get(url,timeout = 25)    #학교 급식게시판 파싱
         res.raise_for_status()
@@ -375,14 +375,14 @@ async def on_message(message):
             result = diets.get_text() #텍스트만 추출'''
             
         await message.channel.purge(limit=1)
-        errnote = "https://school.koreacharts.com/school/meals/B000012592/contents.html"
+        #errnote = "https://school.koreacharts.com/school/meals/B000012592/contents.html"
             
-        #result = get_diet()
+        result = get_diet()
         
-        embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{errnote}", timestamp=message.created_at)
+        embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{result}", timestamp=message.created_at)
         embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
-        await message.channel.send("파싱 오류 발생, 링크를 제공합니다.")
+        #await message.channel.send("파싱 오류 발생, 링크를 제공합니다.")
     
     if message.content.startswith ("!청소"):
         i = (message.author.guild_permissions.administrator)
