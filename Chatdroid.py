@@ -778,9 +778,9 @@ async def on_message(message):
         soup = BeautifulSoup(res.text, "lxml") 
         rank = soup.find("div", {"class":"profile__tier__icon"}).find("img").get("src")
         rank2 = soup.find("div", {"class":"profile__tier__icon"}).find("img").get("alt")
-        embed = discord.Embed(title=f"**{chess}**님의 전적!🎮", description = f"**<Lolchess.gg 바로가기>**\n**https://lolchess.gg/profile/kr/{chess}**", color=0xfaf4c0)
-        embed.add_field(name=f"{rank}", value = "1", inline=True)
-        embed.add_field(name=f"**{rank2}**", value = "1", inline=True)
+        embed = discord.Embed(title=f"**{chess}**님의 전적!🎮", description = f"**<Lolchess.gg 바로가기>**\n**https://lolchess.gg/profile/kr/{chess}?save=true**", color=0xfaf4c0)
+        #embed.add_field(name=f"{rank}", value = "1", inline=True)
+        #embed.add_field(name=f"**{rank2}**", value = "1", inline=True)
         await message.channel.send(embed=embed)
         
 
