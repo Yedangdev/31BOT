@@ -393,7 +393,7 @@ async def on_message(message):
         embed=discord.Embed(color=0xff00, title= f"{dietdate} 급식표", description= f"{dietpr}", timestamp=message.created_at)
         embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
-        #await message.channel.send("파싱 오류 발생, 링크를 제공합니다.")
+        await message.channel.send("오전 9시에 급식표가 갱신됩니다!")
     
     if message.content.startswith ("!청소"):
         i = (message.author.guild_permissions.administrator)
