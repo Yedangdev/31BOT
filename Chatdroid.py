@@ -770,17 +770,21 @@ async def on_message(message):
         
         await message.channel.send("```python\n시간이 조금 걸려요...```")
         await asyncio.sleep(0.7)
-        await message.channel.purge(limit=2)      
-              
-        url = f"https://lolchess.gg/profile/kr/{msg}?save=true"
+        await message.channel.purge(limit=2)
+        
+        headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}   
+        
+        url = f"https://lolchess.gg/profile/kr/{chess}?save=true"
         res = requests.get(url,timeout = 25)    #파싱
         res.raise_for_status()
-        soup = BeautifulSoup(res.text, "lxml") 
+        
+        soup = BeautifulSoup(res.text, "lxml")
+        
         rank = soup.find("div", {"class":"profile__tier__icon"}).find("img").get("src")
         rank2 = soup.find("div", {"class":"profile__tier__icon"}).find("img").get("alt")
         embed = discord.Embed(title=f"**{chess}**님의 전적!🎮", description = f"**<Lolchess.gg 바로가기>**\n**https://lolchess.gg/profile/kr/{chess}?save=true**", color=0xfaf4c0)
-        #embed.add_field(name=f"{rank}", value = "1", inline=True)
-        #embed.add_field(name=f"**{rank2}**", value = "1", inline=True)
+        embed.add_field(name=f"{rank}", value = "1", inline=True)
+        embed.add_field(name=f"**{rank2}**", value = "1", inline=True)
         await message.channel.send(embed=embed)
         
 
