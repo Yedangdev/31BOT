@@ -358,7 +358,7 @@ async def on_message(message):
     if message.content.startswith('!작성언어'):
         await message.channel.send('저는 파이썬 기반으로 만들어졌어요!')
         
-        
+'''        
     if message.content.startswith('!급식'):
         await message.channel.send('시간이 약간 소요됩니다...')
         await asyncio.sleep(1.5)
@@ -383,7 +383,7 @@ async def on_message(message):
         embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
         #await message.channel.send("파싱 오류 발생, 링크를 제공합니다.")
-    
+ '''   
     if message.content.startswith ("!청소"):
         i = (message.author.guild_permissions.administrator)
 
