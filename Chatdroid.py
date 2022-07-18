@@ -360,26 +360,26 @@ async def on_message(message):
         
         
     if message.content.startswith('!급식'):
-        
-        await message.channel.send('시간이 약간 걸릴수 있어요..')
-        
-        headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit 537.36 (KHTML, like Gecko) Chrome", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"}
-        url = "https://hiyedang.hs.kr/"
-
-        res = requests.get(url,timeout = 25)    #학교 급식게시판 파싱
+        await message.channel.send('시간이 약간 소요됩니다...')
+        await asyncio.sleep(1.5)
+        await message.channel.purge(limit=2)
+              
+        dietdate = message.content[4;]
+        headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}          
+        url = f"https://open.neis.go.kr/hub/mealServiceDietInfo?ATPT_OFCDC_SC_CODE=J10&SD_SCHUL_CODE=7530849&MLSV_YMD={dietdate}"
+        res = requests.get(url,timeout = 25)    #파싱
         res.raise_for_status()
-        soup = BeautifulSoup(res.text, "lxml") 
-
-        diet = soup.find_all("div", attrs={"class":"menu"})  #가져올 요소
-        for diets in diet:
-            result = diets.get_text() #텍스트만 추출'''
-            
-        await message.channel.purge(limit=1)
-        #errnote = "https://school.koreacharts.com/school/meals/B000012592/contents.html"
-            
-        result = get_diet()
         
-        embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{result}", timestamp=message.created_at)
+        soup = BeautifulSoup(res.text, "xml")
+
+        diet = soup.find_all("DDISH_NM")
+
+        for diets in diet:
+	        dietre = diets.get_text()
+
+        dietre = rankre.replace("<br/>", "\n")
+        
+        embed=discord.Embed(color=0xff00, title= "오늘의 급식", description= f"{dietre}", timestamp=message.created_at)
         embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
         #await message.channel.send("파싱 오류 발생, 링크를 제공합니다.")
