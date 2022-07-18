@@ -765,16 +765,27 @@ async def on_message(message):
         await client.change_presence(status=discord.Status.offline)
         #await asyncio.sleep(1000000)
         
-    if message.content.startswith("!pnt"):
-        if message.author.id == 833697465319948361:
-            await message.channel.purge(limit=1)
-            ver = "소규모 패치"
-            fix = message.content[5:]        
-            embed = discord.Embed(title=f"{ver}", description = f"{fix}", color=0xfaf4c0)
-            await message.channel.send(embed=embed)
-        else:
-            embed = discord.Embed(title="unauthenticated user error", description = "Invalid user", color=0xfaf4c0)
-            await message.channel.send(embed=embed)
+    if message.content.startswith("!롤토"):
+        chess = message.content[4:]
+        
+        await message.channel.send("```python\n시간이 조금 걸려요...```")
+        await asyncio.sleep(0.7)
+        await message.channel.purge(limit=2)      
+              
+        url = f"https://lolchess.gg/profile/kr/{msg}?save=true"
+        res = requests.get(url,timeout = 25)    #파싱
+        res.raise_for_status()
+        soup = BeautifulSoup(res.text, "lxml") 
+        rank = soup.find("div", {"class":"profile__tier__icon"}).find("img").get("src")
+        rank2 = soup.find("div", {"class":"profile__tier__icon"}).find("img").get("alt")
+        embed = discord.Embed(title=f"**{chess}**님의 전적!🎮", description = f"**<Lolchess.gg 바로가기>**\n**https://lolchess.gg/profile/kr/{chess}**", color=0xfaf4c0)
+        embed.add_field(name=f"{rank}", inline=True)
+        embed.add_field(name=f"**{ranks}**", inline=True)
+        await message.channel.send(embed=embed)
+        
+
+     
+ 
     
     if message.content.startswith("!cls"):
         if message.author.id == 833697465319948361:
