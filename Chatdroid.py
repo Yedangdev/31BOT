@@ -361,7 +361,7 @@ async def on_message(message):
         
         dietpr = dietre.replace("<br/>", "\n")
         
-        if dietdate == dietdate = datetime.today().strftime("%Y%m%d"):
+        if dietdate == datetime.today().strftime("%Y%m%d"):
             titledate = "오늘의"
         
         else:
