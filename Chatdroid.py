@@ -237,11 +237,11 @@ async def on_message(message):
         elif wday == 4:
             timetble = '자율3\n심국\n스포\n기하\n자봉\n동아'
         elif wday == 5:
-            timetble = '놀기'
+            timetble = '오늘은 토요일입니다!'
         elif wday == 6:
-            timetble = '놀기'
+            timetble = '오늘은 일요일입니다!'
 
-        embed = discord.Embed(title="📝오늘의 시간표!", description=f"{timetble}\n\n\n오전 9시에 시간표가 갱신됩니다", color = 0x62c1cc)
+        embed = discord.Embed(title="📝오늘의 시간표!", description=f"{timetble}\n\n\n```python\n오전 9시에 시간표가 갱신됩니다```", color = 0x62c1cc)
         embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
         await message.channel.send(embed=embed)
         #await message.channel.send("오전 9시에 시간표가 갱신됩니다")
@@ -334,7 +334,7 @@ async def on_message(message):
     if message.content.startswith('!급식'):
         
         await message.channel.send('```python\nneis api 로딩중...\n예상처리시간:3초```')
-        await asyncio.sleep(3.5)
+        await asyncio.sleep(2.5)
         await message.channel.purge(limit=2)
               
         dietdate = message.content[4:]
@@ -630,7 +630,7 @@ async def on_message(message):
             await client.change_presence(status=discord.Status.online)
             await client.change_presence(activity=discord.Game(name="!도움말"))
         else:
-            embed = discord.Embed(title="unauthenticated user error", description = "Invalid user", color=0xfaf4c0)
+            embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xfaf4c0)
             await message.channel.send(embed=embed)
         
     if message.content.startswith("!dndprtcl"):
@@ -640,7 +640,7 @@ async def on_message(message):
             await client.change_presence(status=discord.Status.dnd)
             await client.change_presence(activity=discord.Game(name="봇 점검"))
         else:
-            embed = discord.Embed(title="unauthenticated user error", description = "Invalid user", color=0xfaf4c0)
+            embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xfaf4c0)
             await message.channel.send(embed=embed)
         
         
@@ -651,7 +651,7 @@ async def on_message(message):
             await client.change_presence(activity=discord.Game(name="봇 업데이트"))
             await message.channel.send("update mode")
         else:
-            embed = discord.Embed(title="unauthenticated user error", description = "Invalid user", color=0xfaf4c0)
+            embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xfaf4c0)
             await message.channel.send(embed=embed)
         
     if message.content.startswith("삼일아 잘가!"):
@@ -715,12 +715,15 @@ async def on_message(message):
             amount = message.content[4:]
             await message.channel.purge(limit=1)
             await message.channel.purge(limit=int(amount))
-            embed = discord.Embed(title="메시지 삭제 알림", description="```최근 디스코드 채팅 {}개가 valid_user를 통해 삭제되었습니다```".format(amount), color=0x000000)
-            embed.set_footer(text="DevAccessAdminPrtcl", icon_url = message.author.avatar_url)
+            embed = discord.Embed(title="Message_clean_cl", description="```메시지가 {message.author}에 의해 삭제되었습니다.\n이 메시지는 2초후 자동삭제 됩니다```" , color=0x000000)
+            embed.set_footer(text="```DevAccessAdminPrtcl```", icon_url = message.author.avatar_url)
             await message.channel.send(embed=embed)
+            await asyncio.sleep(2)
+            await message.channel.purge(limit=1)
+            
          
         else:
-           embed = discord.Embed(title="unauthenticated user error", description = "Invalid user", color=0xfaf4c0)
+           embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xfaf4c0)
            await message.channel.send(embed=embed)
        
     
@@ -739,7 +742,7 @@ async def on_message(message):
         
         
        else:
-          embed = discord.Embed(title="unauthenticated user error", description = "Invalid user", color=0xfaf4c0)
+          embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xfaf4c0)
           await message.channel.send(embed=embed)
     
     
@@ -767,7 +770,7 @@ async def on_message(message):
             
         
         else:
-            embed = discord.Embed(title="unauthenticated user error", description = "Invalid user", color=0xfaf4c0)
+            embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xfaf4c0)
             await message.channel.send(embed=embed)
             
         
