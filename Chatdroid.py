@@ -332,8 +332,9 @@ async def on_message(message):
         
         
     if message.content.startswith('!급식'):
-        await message.channel.send('시간이 약간 소요됩니다....')
-        await asyncio.sleep(2.5)
+        
+        await message.channel.send('```python\nneis api 로딩중...\n예상처리시간:3초```')
+        await asyncio.sleep(3.5)
         await message.channel.purge(limit=2)
               
         dietdate = message.content[4:]
@@ -567,7 +568,7 @@ async def on_message(message):
             
             embed=discord.Embed(color=0xff00, title= "📌도움말", description= f"{noti}", timestamp=message.created_at)
             await message.author.dm_channel.send(embed=embed)
-            await message.channel.send("💌")
+            await message.channel.send("```python\nCheck your DM!```")
             
         if message.author.dm_channel is None:
             channel = await message.author.create_dm()
@@ -575,7 +576,7 @@ async def on_message(message):
             
             embed=discord.Embed(color=0xff00, title= "📌도움말", description= f"{noti}", timestamp=message.created_at)
             await message.author.dm_channel.send(embed=embed)
-            await message.channel.send("💌")
+            await message.channel.send("```python\nCheck your DM!```")
                 
 
 
