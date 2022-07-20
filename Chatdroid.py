@@ -365,7 +365,7 @@ async def on_message(message):
             titledate = "오늘의"
         
         else:
-            titledate = f"dietdate[:4]}/{dietdate[4:6]}/{dietdate[6:]"
+            titledate = f"{dietdate[:4]}/{dietdate[4:6]}/{dietdate[6:]}"
         
         embed=discord.Embed(color=0xff00, title= f"🍽{titledate} 급식표!", description= f"{dietpr}\n\n\n```python\n오전 9시에 급식표가 갱신됩니다!```", timestamp=message.created_at)
         embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
