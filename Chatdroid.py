@@ -8,7 +8,6 @@ import os
 import time
 import googletrans
 from googletrans import Translator
-#from Crawler import *
 from datetime import datetime
 
 
@@ -17,7 +16,8 @@ from datetime import datetime
 client = discord.Client()
 @client.event
 async def on_ready():
-    print('로그인되었습니다!')
+    print('봇 온라인!')
+    print('업데이트에 성공하였습니다!')
     print(client.user.name)
     print(client.user.id)
     print('====================================')
@@ -47,8 +47,8 @@ async def on_message(message):
     if message.content.startswith("!패치노트"):
         await message.channel.purge(limit=1)
         ver = "2.0.0(최종)"
-        fix = "**<패치요약>**\n!전적, !급식 기능이 대폭 개선되었습니다!\n\n**<패치내용>**\n\n!전적+소환사명 입력시 간략한 랭크정보를 볼 수 있습니다.\n(랭크정보는 lolog.me라는 사이트에서 스크래핑되어 표현됩니다)\n\n!급식 기능은 더 이상 오류를 일으키지 않습니다!\n(이제는 학교사이트가 아닌 나이스api에서 실시간 호출하는 방식으로 변경해 안정성을 높였습니다)\n\n!급식+년/월/일을 입력하면 해당 날짜의 급식이 열람가능합니다!\n(사용방법:!급식 20220719)\n\n그냥 !급식을 치면 오늘 급식을 볼 수 있습니다.\n\n전적기능 개선 업데이트로 !롤토+소환사명 입력 시 롤토체스 전적을 볼 수 있습니다.\n(롤토체스의 랭크정보는 lolchess.gg에서 스크래핑하여 표현해줍니다.\n\n\n\n\n**<앞으로 업데이트 계획>**\n\nChatdroid의 유지보수에 큰 어려움이 있다고 판단하여 이번 2.0.0패치를 최종으로, 앞으로 어떠한 패치,업데이트도 없을 예정입니다."
-        embed = discord.Embed(title=f"{ver} 패치노트", description = f"{fix}", color=0xfaf4c0)
+        fix = "패치내역이 없습니다"   #"**<패치요약>**\n!전적, !급식 기능이 대폭 개선되었습니다!\n\n**<패치내용>**\n\n!전적+소환사명 입력시 간략한 랭크정보를 볼 수 있습니다.\n(랭크정보는 lolog.me라는 사이트에서 스크래핑되어 표현됩니다)\n\n!급식 기능은 더 이상 오류를 일으키지 않습니다!\n(이제는 학교사이트가 아닌 나이스api에서 실시간 호출하는 방식으로 변경해 안정성을 높였습니다)\n\n!급식+년/월/일을 입력하면 해당 날짜의 급식이 열람가능합니다!\n(사용방법:!급식 20220719)\n\n그냥 !급식을 치면 오늘 급식을 볼 수 있습니다.\n\n전적기능 개선 업데이트로 !롤토+소환사명 입력 시 롤토체스 전적을 볼 수 있습니다.\n(롤토체스의 랭크정보는 lolchess.gg에서 스크래핑하여 표현해줍니다.\n\n\n\n\n**<앞으로 업데이트 계획>**\n\nChatdroid의 유지보수에 큰 어려움이 있다고 판단하여 이번 2.0.0패치를 최종으로, 앞으로 어떠한 패치,업데이트도 없을 예정입니다."
+        embed = discord.Embed(title=f"{ver}", description = f"{fix}", color=0xfaf4c0)
         embed.set_thumbnail(url="https://media.discordapp.net/attachments/984777197506162748/985181219329294376/Screenshot_20220610-224533_Samsung_Notes-removebg-preview.jpg")
         await message.channel.send(embed=embed)
         
@@ -67,7 +67,7 @@ async def on_message(message):
     if message.content.startswith("!마법의 소라고둥님"):
         
         await message.channel.purge(limit=1)
-        words = ["돼.", "안돼.", "포기해.", "다시 한 번 물어봐.", "허락할게", "당장 시작해.", "나중에 해.", "안.돼.", "하지마.", "그래.", "가만히 있어.", "그것도 안 돼.", "아니.", "응.", "하고 싶은 대로 해.", "그것도 하지마.", "맘대로 해.","꿈도 꾸지 마.","기다려.","왜?."]
+        words = ["돼!", "안돼!", "포기해!", "다시 한 번 물어봐!", "허락할게!", "당장 시작해!", "나중에 해!", "안.돼.", "하지마!", "그래!", "가만히 있어!.", "그것도 안 돼!", "아니!", "응!", "하고 싶은 대로 해!", "그것도 하지마!", "맘대로 해!","꿈도 꾸지 마!","기다려!","왜?"]
         
         sora = randrange(0,19)
         sorare = words[sora]
@@ -77,7 +77,7 @@ async def on_message(message):
         await message.channel.send(f"{say}?")
         await asyncio.sleep(0.2)
         #await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
-        embed = discord.Embed(title="🐚마법의 소라고둥은 대답했다!", description = f"\n\n{sorare}\n\n{message.author.mention}은 깨달음을 얻었다🤔", color=0xfaf4c0)
+        embed = discord.Embed(title="🐚마법의 소라고둥은 대답했다!", description = f"\n\n**{sorare}**\n\n{message.author.mention}은 깨달음을 얻었다!🤔\n\n```!s```으로도 질문이 가능합니다!", color=0xfaf4c0)
         embed.set_thumbnail(url="https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
         await message.channel.send(embed=embed)
         
@@ -111,9 +111,9 @@ async def on_message(message):
     if message.content.startswith("!new"):
         await message.channel.purge(limit=1)
         
-        newfx = "!수시+대학이름\n34개의 인서울권 대학의 수시정보를 보여줍니다\n(송성훈을 갈아만들었습니다.)\n\n!반란+욕하고 싶은 사람\n봇이 욕을 대신해줍니다!\n\n!한일,!한영,!일한,!영한+번역하고자하는 내용\n번역을 해드립니다.\n\n!ping\n봇의 레이턴시정보를 제공합니다\n\n!전적+소환사이름\nopgg사이트 바로가기를 보여줍니다.\n\n!마법의 소라고둥님+하고싶은질문\n마법의 소라고둥이 질문에 대해 답해줍니다.\n소라고둥의 답은 깊은 뜻을 가지고 있습니다.\n(이서진을 갈아만들었습니다.)"
+        #newfx = "!수시+대학이름\n34개의 인서울권 대학의 수시정보를 보여줍니다\n(송성훈을 갈아만들었습니다.)\n\n!반란+욕하고 싶은 사람\n봇이 욕을 대신해줍니다!\n\n!한일,!한영,!일한,!영한+번역하고자하는 내용\n번역을 해드립니다.\n\n!ping\n봇의 레이턴시정보를 제공합니다\n\n!전적+소환사이름\nopgg사이트 바로가기를 보여줍니다.\n\n!마법의 소라고둥님+하고싶은질문\n마법의 소라고둥이 질문에 대해 답해줍니다.\n소라고둥의 답은 깊은 뜻을 가지고 있습니다.\n(이서진을 갈아만들었습니다.)"
         
-        embed = discord.Embed(title="새로운 기능!", description = f"{newfx}", color=0xfaf4c0)
+        embed = discord.Embed(title="새로운 기능!", description = f"**새로 추가된 기능이 없습니다**\n ```!도움말```로 명령어를 확인하세요!", color=0xfaf4c0)
         await message.channel.send(embed=embed)
         
     
