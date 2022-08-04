@@ -8,7 +8,7 @@ import os
 import time
 import googletrans
 from googletrans import Translator
-from Crawler import *
+#from Crawler import *
 from datetime import datetime
 
 
@@ -86,7 +86,7 @@ async def on_message(message):
     if message.content.startswith("!s"):
         
         await message.channel.purge(limit=1)
-        words = ["돼.", "안돼.", "포기해.", "다시 한 번 물어봐.", "허락할게", "당장 시작해.", "나중에 해.", "안.돼.", "하지마.", "그래.", "가만히 있어.", "그것도 안 돼.", "아니.", "응.", "하고 싶은 대로 해.", "그것도 하지마.", "맘대로 해.","꿈도 꾸지 마.","기다려.","왜?."]
+        words = ["돼!", "안돼!", "포기해!", "다시 한 번 물어봐!", "허락할게!", "당장 시작해!", "나중에 해!", "안.돼.", "하지마!", "그래!", "가만히 있어!.", "그것도 안 돼!", "아니!", "응!", "하고 싶은 대로 해!", "그것도 하지마!", "맘대로 해!","꿈도 꾸지 마!","기다려!","왜?"]
         
         sora = randrange(0,19)
         sorare = words[sora]
@@ -359,22 +359,22 @@ async def on_message(message):
             dietpr = dietre
         
         except NameError:
-            dietre = "급식이 존재하지 않거나, 년/월/일 기입에 오류가 있습니다.\n\n오타를 확인해보세요!\n검색요령ex) ```!급식 20220921``` --> 2022년09월21일의 급식정보"
+            dietre = "**검색에 실패하였습니다**\n\n**오타를 확인해보세요!**\n검색요령ex) ```!급식 20220921``` --> 2022년09월21일의 급식정보"
         
         dietpr = dietre.replace("<br/>", "\n")
         
         if dietdate == datetime.today().strftime("%Y%m%d"):
-            titledate = "🍴오늘의"
+            titledate = "🍴**오늘의**"
         
         else:
             titledate = f"🍴{dietdate[:4]}/{dietdate[4:6]}/{dietdate[6:]}"
         
         
-        if dietre == "급식이 존재하지 않거나, 년/월/일 기입에 오류가 있습니다.\n\n오타를 확인해보세요!\n검색요령ex) ```!급식 20220921``` --> 2022년09월21일의 급식정보":
-            titledate = "😵존재하지 않는"
+        if dietre == "**검색에 실패하였습니다**\n\n**오타를 확인해보세요!**\n검색요령ex) ```!급식 20220921``` --> 2022년09월21일의 급식정보":
+            titledate = "**⚠️존재하지 않는**"
         
-        embed=discord.Embed(color=0xff00, title= f"{titledate} 급식표", description= f"{dietpr}\n\n\n```python\n오전 9시에 급식표가 갱신됩니다!```", timestamp=message.created_at)
-        embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
+        embed=discord.Embed(color=0xff00, title= f"{titledate} **급식표**", description= f"{dietpr}\n\n\n```python\n오전 9시에 급식표가 갱신됩니다!```", timestamp=message.created_at)
+        #embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
     
     if message.content.startswith ("!청소"):
@@ -385,8 +385,8 @@ async def on_message(message):
             await message.channel.purge(limit=1)
             await message.channel.purge(limit=int(amount))
 
-            embed = discord.Embed(title="메시지 삭제 알림", description="```최근 디스코드 채팅 {}개가\n관리자 {}님의 요청으로 삭제되었습니다```".format(amount, message.author), color=0x000000)
-            embed.set_footer(text="Chatdeletebot", icon_url="https://discordapp.com/channels/691615852620939274/703908401381376000/711859989177958410")
+            embed = discord.Embed(title="메시지 삭제 알림", description="```디스코드 채팅 {}개가\n관리자 {}님의 요청으로 삭제되었습니다```".format(amount, message.author), color=0x000000)
+            embed.set_footer(text="관리자에 의한 메시지 삭제")
             await message.channel.send(embed=embed)
         
         if i is False:
@@ -659,25 +659,11 @@ async def on_message(message):
             embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xfaf4c0)
             await message.channel.send(embed=embed)
         
-    if message.content.startswith("삼일아 잘가!"):
-        #await message.channel.send("서비스 종료일자네요..")
-        #await message.channel.send("!312안녕")
-        #await message.channel.send("숨겨진 이스터에그랍니다")
-        #await asyncio.sleep(0.5)
-        await message.channel.send("offline set")
-        #await message.channel.send("5")
-        #await asyncio.sleep(1)
-        #await message.channel.send("4")
-        #await asyncio.sleep(1)
-        #await message.channel.send("3")
-        #await asyncio.sleep(1)
-        #await message.channel.send("2")
-        #await asyncio.sleep(1)
-        #await message.channel.send("1")
-        #await asyncio.sleep(1)
-        #await message.channel.send("0")
-        #await asyncio.sleep(1)
-        await message.channel.send("모두 안녕!")
+    if message.content.startswith("!killprtcl"):        
+        #await message.channel.send("```서비스 종료절차 실행```")
+        #await message.channel.send("```서비스 종료 5분전```")
+        #await asyncio.sleep(300)
+        #await message.channel.send("**서비스가 종료되었습니다**")
         await client.change_presence(status=discord.Status.offline)
         #await asyncio.sleep(1000000)
         
