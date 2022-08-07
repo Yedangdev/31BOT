@@ -125,14 +125,14 @@ async def on_message(message):
     
         try:   #존재하는 key값이라면
             univres = univdict[founddict]  #key값에 해당하는 value값을 가져와 출력
-            hexcdu = "0x7289da"
+            #hexcdu = "0x7289da"
         
         except KeyError:   #key값이 존재하지 않는다면
             univres = "```오타를 확인해보세요.\n정보누락, 오류는 제보해주세요```\n" #key값이 없음을 알리기
             founddict = "**검색에 실패했습니다**"
-            hexcdu = "0xff0000"
+            #hexcdu = "0xff0000"
         
-        embed = discord.Embed(title=f"🏫{founddict}", description = f"{univres}", color=f"{hexcdu}")
+        embed = discord.Embed(title=f"🏫{founddict}", description = f"{univres}", color = 0x7289da)
         await message.channel.send(embed=embed)
         
 
@@ -358,7 +358,7 @@ async def on_message(message):
             
         try:
             dietpr = dietre
-            hexcde = "0x7289da"
+            #hexcde = "0x7289da"
         
         except NameError:
             dietre = "**검색에 실패하였습니다**\n\n**오타를 확인해보세요!**\n검색요령ex) ```!급식 20220921``` --> 2022년09월21일의 급식정보"
@@ -374,9 +374,9 @@ async def on_message(message):
         
         if dietre == "**검색에 실패하였습니다**\n\n**오타를 확인해보세요!**\n검색요령ex) ```!급식 20220921``` --> 2022년09월21일의 급식정보":
             titledate = "**⚠️존재하지 않는**"
-            hexcde = "0x0xff0000"
+            #hexcde = "0x0xff0000"
         
-        embed=discord.Embed(color= f"{hexcde}", title= f"{titledate} **급식표**", description= f"{dietpr}\n\n\n```python\n오전 9시에 급식표가 갱신됩니다!```", timestamp=message.created_at)
+        embed=discord.Embed(color= 0x7289da, title= f"{titledate} **급식표**", description= f"{dietpr}\n\n\n```python\n오전 9시에 급식표가 갱신됩니다!```", timestamp=message.created_at)
         #embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
     
@@ -399,7 +399,7 @@ async def on_message(message):
 
     if message.content.startswith('!논술'):    #매크로로 쓴거다. 내가 직접 쓰지 않았음.
         index = message.content[4:]
-        hexcdr = "0x7289da"
+        #hexcdr = "0x7289da"
         
         
         if index == "부산대":
@@ -528,9 +528,9 @@ async def on_message(message):
         else:
             setence = "논술전형을 실시하는 대학이 아니거나, 존재하지 않는 대학입니다.\n\n\n오타를 확인해보세요\n\n\n검색요령: ex) '한양대학교 에리카 검색시' ------> ```!논술 한양대(에리카)```\n\n!논술과 대학이름사이에 공백이 있어야 검색이 가능합니다.\n\n\n\n\n\n\n정보가 누락되었거나, 오류는 제보해주세요"
             index = "**검색에 실패했습니다**"
-            hexcdr= "0xff0000"
+            #hexcdr= "0xff0000"
         
-        embed=discord.Embed(color=f"{hexcdr}", title= f"🏫{index}", description= f"{setence}", timestamp=message.created_at)
+        embed=discord.Embed(color= 0x7289da, title= f"🏫{index}", description= f"{setence}", timestamp=message.created_at)
         await message.channel.send(embed=embed) #출력
         
         
