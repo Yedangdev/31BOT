@@ -46,9 +46,9 @@ async def on_message(message):
     
     if message.content.startswith("!패치노트"):
         await message.channel.purge(limit=1)
-        ver = "2.0.0(최종)"
+        ver = "**2.0.0(최종)**"
         fix = "패치내역이 없습니다"   #"**<패치요약>**\n!전적, !급식 기능이 대폭 개선되었습니다!\n\n**<패치내용>**\n\n!전적+소환사명 입력시 간략한 랭크정보를 볼 수 있습니다.\n(랭크정보는 lolog.me라는 사이트에서 스크래핑되어 표현됩니다)\n\n!급식 기능은 더 이상 오류를 일으키지 않습니다!\n(이제는 학교사이트가 아닌 나이스api에서 실시간 호출하는 방식으로 변경해 안정성을 높였습니다)\n\n!급식+년/월/일을 입력하면 해당 날짜의 급식이 열람가능합니다!\n(사용방법:!급식 20220719)\n\n그냥 !급식을 치면 오늘 급식을 볼 수 있습니다.\n\n전적기능 개선 업데이트로 !롤토+소환사명 입력 시 롤토체스 전적을 볼 수 있습니다.\n(롤토체스의 랭크정보는 lolchess.gg에서 스크래핑하여 표현해줍니다.\n\n\n\n\n**<앞으로 업데이트 계획>**\n\nChatdroid의 유지보수에 큰 어려움이 있다고 판단하여 이번 2.0.0패치를 최종으로, 앞으로 어떠한 패치,업데이트도 없을 예정입니다."
-        embed = discord.Embed(title=f"{ver}", description = f"{fix}", color=0xfaf4c0)
+        embed = discord.Embed(title=f"{ver}", description = f"{fix}", color = 0xff00)
         embed.set_thumbnail(url="https://media.discordapp.net/attachments/984777197506162748/985181219329294376/Screenshot_20220610-224533_Samsung_Notes-removebg-preview.jpg")
         await message.channel.send(embed=embed)
         
@@ -60,7 +60,7 @@ async def on_message(message):
       await message.channel.purge(limit=1)
       king = "👑지빈#1638"
       pons = "♟️eden01010#3983\n♟️이서진#5397\n♟️윤달#7075"
-      embed = discord.Embed(title="🌿🏆명예의 전당🏆🌿", description = f"{king}\n\n{pons}\n\n진심으로 감사드립니다.🙏", color=0xff00)
+      embed = discord.Embed(title="**🌿🏆명예의 전당🏆🌿**", description = f"{king}\n\n{pons}\n\n진심으로 감사드립니다.🙏", color=0xff00)
       await message.channel.send(embed=embed)
     
     
@@ -77,7 +77,7 @@ async def on_message(message):
         await message.channel.send(f"{say}?")
         await asyncio.sleep(0.2)
         #await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
-        embed = discord.Embed(title="🐚마법의 소라고둥은 대답했다!", description = f"\n\n**{sorare}**\n\n{message.author.mention}은 깨달음을 얻었다!🤔\n\n```!s```으로도 질문이 가능합니다!", color=0xfaf4c0)
+        embed = discord.Embed(title="**🐚마법의 소라고둥은 대답했다!**", description = f"\n\n**{sorare}**\n\n{message.author.mention}은 깨달음을 얻었다!🤔\n\n```!s으로도 질문이 가능합니다!```", color=0x7289da)
         embed.set_thumbnail(url="https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
         await message.channel.send(embed=embed)
         
@@ -96,7 +96,7 @@ async def on_message(message):
         await message.channel.send(f"마법의 소라고둥님 {say}?")
         await asyncio.sleep(0.2)
         #await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
-        embed = discord.Embed(title="🐚마법의 소라고둥은 대답했다!", description = f"\n\n**{sorare}**\n\n{message.author.mention}은 깨달음을 얻었다🤔", color=0xfaf4c0)
+        embed = discord.Embed(title="**🐚마법의 소라고둥은 대답했다!**", description = f"\n\n**{sorare}**\n\n{message.author.mention}은 깨달음을 얻었다🤔", color=0x7289da)
         embed.set_thumbnail(url="https://media.discordapp.net/attachments/986620556675776532/994980964855992330/Screenshot_20220708-232742_Samsung_Notes.jpg")
         await message.channel.send(embed=embed)
         
@@ -113,7 +113,7 @@ async def on_message(message):
         
         #newfx = "!수시+대학이름\n34개의 인서울권 대학의 수시정보를 보여줍니다\n(송성훈을 갈아만들었습니다.)\n\n!반란+욕하고 싶은 사람\n봇이 욕을 대신해줍니다!\n\n!한일,!한영,!일한,!영한+번역하고자하는 내용\n번역을 해드립니다.\n\n!ping\n봇의 레이턴시정보를 제공합니다\n\n!전적+소환사이름\nopgg사이트 바로가기를 보여줍니다.\n\n!마법의 소라고둥님+하고싶은질문\n마법의 소라고둥이 질문에 대해 답해줍니다.\n소라고둥의 답은 깊은 뜻을 가지고 있습니다.\n(이서진을 갈아만들었습니다.)"
         
-        embed = discord.Embed(title="새로운 기능!", description = f"**새로 추가된 기능이 없습니다**\n ```!도움말```로 명령어를 확인하세요!", color=0xfaf4c0)
+        embed = discord.Embed(title="**새로운 기능!**", description = f"**새로 추가된 기능이 없습니다**\n ```!도움말```로 명령어를 확인하세요!", color=0x7289da)
         await message.channel.send(embed=embed)
         
     
@@ -129,9 +129,9 @@ async def on_message(message):
         
         except KeyError:   #key값이 존재하지 않는다면
             univres = "```오타를 확인해보세요.\n정보누락, 오류는 제보해주세요```\n" #key값이 없음을 알리기
-            founddict = "```검색에 실패했습니다```"
+            founddict = "**검색에 실패했습니다**"
         
-        embed = discord.Embed(title=f"🏫{founddict}", description = f"{univres}", color=0xfaf4c0)
+        embed = discord.Embed(title=f"🏫{founddict}", description = f"{univres}", color=0x7289da)
         await message.channel.send(embed=embed)
         
 
@@ -175,7 +175,7 @@ async def on_message(message):
       trans1 = translator.translate(text1, src='ko', dest='en')
       tran1 = trans1.text
       
-      embed = discord.Embed(title="📖한국어를 영어로 번역했어요", description = f"{tran1}", color=0xfaf4c0)
+      embed = discord.Embed(title="**📖한국어를 영어로 번역했어요**", description = f"{tran1}", color=0x7289da)
       embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/986620628687798282/997323776809246900")
       await message.channel.send(embed=embed)
       #await message.channel.send("번역결과: {}" .format(trans1.text))
@@ -187,7 +187,7 @@ async def on_message(message):
       trans2 = translator.translate(text1, src='ko', dest='ja')
       tran2 = trans2.text
       
-      embed = discord.Embed(title="📖한국어를 일본어로 번역했어요", description = f"{tran2}" ,color=0xfaf4c0)
+      embed = discord.Embed(title="**📖한국어를 일본어로 번역했어요**", description = f"{tran2}" ,color=0x7289da)
       embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/986620628687798282/997323776809246900")  
       await message.channel.send(embed=embed)
       #await message.channel.send("번역결과: {}" .format(trans2.text))
@@ -204,7 +204,7 @@ async def on_message(message):
       
       trans3 = translator.translate(text1, dest='ko')
       tran3 = trans3.text
-      embed = discord.Embed(title="📖번역결과", description = f"{tran3}" , color=0xfaf4c0)
+      embed = discord.Embed(title="**📖번역결과**", description = f"{tran3}" , color=0x7289da)
       embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/986620628687798282/997323776809246900")
       embed.set_footer(text = translator.detect(f"{text1}"), icon_url=message.author.avatar_url)
       await message.channel.send(embed=embed)
@@ -212,16 +212,16 @@ async def on_message(message):
          
   
     if message.content.startswith('!312안녕'):
-        embed = discord.Embed(title="EasterEgg_file_load_process", description = "Chatdroid_memory", color=0xfaf4c0)
+        embed = discord.Embed(title="**EasterEgg_file_load_process**", description = "Chatdroid_memory", color=0x7289da)
         #embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986281059345924167")
         await message.channel.send(embed=embed)
         await message.channel.send("https://media.discordapp.net/attachments/986620556675776532/986638305724620800/Easter_egg_312_1.jpg\nhttps://media.discordapp.net/attachments/986620556675776532/986639756333043753/Easter_egg_312_2.jpg")
         
         
     if message.content.startswith('!d6'):  
-        await message.channel.send("{}님이 주사위를 굴렸어요!" .format(message.author.mention))
+        await message.channel.send("**{}님이 주사위를 굴렸어요!**" .format(message.author.mention))
         dice = randint(1,6)
-        embed = discord.Embed(title="주사위 결과", description = f"🎲{dice}이(가) 나왔습니다!", color=0xfaf4c0)
+        embed = discord.Embed(title="주사위 결과", description = f"🎲{dice}이(가) 나왔습니다!", color=0x7289da)
         await message.channel.send(embed=embed)
 
         
@@ -242,7 +242,7 @@ async def on_message(message):
         elif wday == 6:
             timetble = '오늘은 일요일입니다!'
 
-        embed = discord.Embed(title="📝오늘의 시간표!", description=f"{timetble}\n\n\n```python\n오전 9시에 시간표가 갱신됩니다```", color = 0x62c1cc)
+        embed = discord.Embed(title="**📝오늘의 시간표!**", description=f"{timetble}\n\n\n```python\n오전 9시에 시간표가 갱신됩니다```", color = 0x7289da)
         embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
         await message.channel.send(embed=embed)
         #await message.channel.send("오전 9시에 시간표가 갱신됩니다")
@@ -283,7 +283,7 @@ async def on_message(message):
             #await message.channel.send('베타기능이에요')
             await message.channel.purge(limit=1)
             
-            embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color=0xfaf4c0)
+            embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color=0xff00)
 
             await message.channel.send(embed=embed)
         
@@ -311,7 +311,7 @@ async def on_message(message):
         await message.channel.purge(limit=1)
         show = message.content[4:]
         await message.channel.send("{}님이 메시지를 강조했어요" .format(message.author.mention))
-        embed = discord.Embed(description=f"{show}", color=0x72c1cc)
+        embed = discord.Embed(description=f"{show}", color=0xff00)
         await message.channel.send(embed=embed)
  
 
@@ -373,7 +373,7 @@ async def on_message(message):
         if dietre == "**검색에 실패하였습니다**\n\n**오타를 확인해보세요!**\n검색요령ex) ```!급식 20220921``` --> 2022년09월21일의 급식정보":
             titledate = "**⚠️존재하지 않는**"
         
-        embed=discord.Embed(color=0xff00, title= f"{titledate} **급식표**", description= f"{dietpr}\n\n\n```python\n오전 9시에 급식표가 갱신됩니다!```", timestamp=message.created_at)
+        embed=discord.Embed(color=0x7289da, title= f"{titledate} **급식표**", description= f"{dietpr}\n\n\n```python\n오전 9시에 급식표가 갱신됩니다!```", timestamp=message.created_at)
         #embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
     
@@ -385,7 +385,7 @@ async def on_message(message):
             await message.channel.purge(limit=1)
             await message.channel.purge(limit=int(amount))
 
-            embed = discord.Embed(title="메시지 삭제 알림", description="```디스코드 채팅 {}개가\n관리자 {}님의 요청으로 삭제되었습니다```".format(amount, message.author), color=0x000000)
+            embed = discord.Embed(title="**메시지 삭제 알림**", description="```디스코드 채팅 {}개가\n관리자 {}님의 요청으로 삭제되었습니다```".format(amount, message.author), color=0xff00)
             embed.set_footer(text="관리자에 의한 메시지 삭제")
             await message.channel.send(embed=embed)
         
@@ -523,9 +523,9 @@ async def on_message(message):
             
         else:
             setence = "논술전형을 실시하는 대학이 아니거나, 존재하지 않는 대학입니다.\n\n\n오타를 확인해보세요\n\n\n검색요령: ex) '한양대학교 에리카 검색시' ------> ```!논술 한양대(에리카)```\n\n!논술과 대학이름사이에 공백이 있어야 검색이 가능합니다.\n\n\n\n\n\n\n정보가 누락되었거나, 오류는 제보해주세요"
-            index = "```검색에 실패했습니다```"
+            index = "**검색에 실패했습니다**"
         
-        embed=discord.Embed(color=0xff22, title= f"🏫{index}", description= f"{setence}", timestamp=message.created_at)
+        embed=discord.Embed(color=0x7289da, title= f"🏫{index}", description= f"{setence}", timestamp=message.created_at)
         await message.channel.send(embed=embed) #출력
         
         
@@ -536,7 +536,7 @@ async def on_message(message):
             
             await message.channel.purge(limit=1)
             
-            embed=discord.Embed(color=0xff22, title= "이스터에그!", description= "행운이란 준비와 기회를 만났을 때 나타난다", timestamp=message.created_at)
+            embed=discord.Embed(color=0x7289da, title= "**이스터에그!**", description= "행운이란 준비와 기회를 만났을 때 나타난다", timestamp=message.created_at)
           
             await message.channel.send(embed=embed)
             await asyncio.sleep(1)
@@ -553,11 +553,11 @@ async def on_message(message):
                 await message.channel.send('{}님, 오늘은 조심하는게 좋겠어요..'.format(message.author.mention))
             if 99 < a <= 100:
             #이스터에그
-                embed=discord.Embed(color=0xff22, title= "이스터에그!", description= "행운이란 준비와 기회를 만났을 때 나타난다", timestamp=message.created_at)
+                embed=discord.Embed(color=0xff00, title= "**이스터에그!**", description= "행운이란 준비와 기회를 만났을 때 나타난다", timestamp=message.created_at)
           
                 await message.channel.send(embed=embed)
                 await asyncio.sleep(1)
-                await message.channel.send('{}님, 1%의 확률에 당첨되셨습니다!!!'.format(message.author.mention))
+                await message.channel.send('{}님, ANTI_CMD%의 확률로 당첨되셨습니다!!!'.format(message.author.mention))
             
             
             
@@ -571,7 +571,7 @@ async def on_message(message):
             #channel = await message.author.create_dm()
             noti = "\n\n\n**<Chatdroid 명령어>**\n\n**!급식** or **!급식** + 년/월/일 --> 급식정보를 제공합니다.\n\n**!논술** + 대학이름 --> 23년도 모든 논술실시대학의 논술전형정보를 제공합니다\n\n**!수시** + 대학이름 --> 34개대학의 인서울권 대학의 수시정보를 보여줍니다\n\n**!반란** + 욕하고 싶은 사람 --> 봇이 욕을 대신해줍니다!\n\n**!한일,!한영,!번역** + 번역하고자하는 내용 --> 번역을 해드립니다.\n\n**!ping** --> 봇의 레이턴시정보를 제공합니다\n\n**!전적** + 소환사이름 --> opgg사이트 바로가기를 보여줍니다.\n\n**!롤토** + 소환사이름 --> lolchess.gg사이트 바로가기를 보여줍니다.\n\n**!마법의 소라고둥님** or **!s** + 하고싶은질문 --> 마법의 소라고둥이 질문에 대해 답해줍니다.\n소라고둥의 답은 깊은 뜻을 가지고 있습니다.\n\n**!운세** --> 간단하게 오늘의 운을 시험해보세요!\n\n**!강조** + 문자내용 --> 메세지를 강조해드립니다, 설문조사홍보나 홍보활동을 강조해보세요!\n\n**!청소** + 숫자 --> 입력한 숫자만큼 메시지를 삭제합니다.(관리자만) 효과적으로 방을 관리하세요.\n\n**!d6** --> 주사위를 굴려요\n\n**!시간표** --> 오늘 시간표를 알려드립니다(오전9시에 업데이트됩니다.)\n\n임베드로 공지사항을 강조해 효과적인 공지사항을 제작하세요(관리자 전용)!!\n\n이용방법\n\n**!제목** --> 임베드의 제목을 정해요\n\n**!내용** --> 임베드의 내용을 정해요\n\n**!공지** --> 임베드를 출력해요\n\n\n\n개인서버에서 초대해 쓰고싶으면 지빈#1638으로 갠디코 주세요\n\n\n\n\n```Chatdroid.ver.2.0.0```"
             
-            embed=discord.Embed(color=0xff00, title= "📌도움말", description= f"{noti}", timestamp=message.created_at)
+            embed=discord.Embed(color=0x7289da, title= "📌도움말", description= f"{noti}", timestamp=message.created_at)
             await message.author.dm_channel.send(embed=embed)
             await message.channel.send("```python\nCheck your DM!```")
             
@@ -579,7 +579,7 @@ async def on_message(message):
             channel = await message.author.create_dm()
             noti = "\n\n\n**<Chatdroid 명령어>**\n\n**!급식** or **!급식** + 년/월/일 --> 급식정보를 제공합니다.\n\n**!논술** + 대학이름 --> 23년도 모든 논술실시대학의 논술전형정보를 제공합니다\n\n**!수시** + 대학이름 --> 34개대학의 인서울권 대학의 수시정보를 보여줍니다\n\n**!반란** + 욕하고 싶은 사람 --> 봇이 욕을 대신해줍니다!\n\n**!한일,!한영,!번역** + 번역하고자하는 내용 --> 번역을 해드립니다.\n\n**!ping** --> 봇의 레이턴시정보를 제공합니다\n\n**!전적** + 소환사이름 --> opgg사이트 바로가기를 보여줍니다.\n\n**!롤토** + 소환사이름 --> lolchess.gg사이트 바로가기를 보여줍니다.\n\n**!마법의 소라고둥님** or **!s** + 하고싶은질문 --> 마법의 소라고둥이 질문에 대해 답해줍니다.\n소라고둥의 답은 깊은 뜻을 가지고 있습니다.\n\n**!운세** --> 간단하게 오늘의 운을 시험해보세요!\n\n**!강조** + 문자내용 --> 메세지를 강조해드립니다, 설문조사홍보나 홍보활동을 강조해보세요!\n\n**!청소** + 숫자 --> 입력한 숫자만큼 메시지를 삭제합니다.(관리자만) 효과적으로 방을 관리하세요.\n\n**!d6** --> 주사위를 굴려요\n\n**!시간표** --> 오늘 시간표를 알려드립니다(오전9시에 업데이트됩니다.)\n\n임베드로 공지사항을 강조해 효과적인 공지사항을 제작하세요(관리자 전용)!!\n\n이용방법\n\n**!제목** --> 임베드의 제목을 정해요\n\n**!내용** --> 임베드의 내용을 정해요\n\n**!공지** --> 임베드를 출력해요\n\n\n\n개인서버에서 초대해 쓰고싶으면 지빈#1638으로 갠디코 주세요\n\n\n\n\n```Chatdroid.ver.2.0.0```"
             
-            embed=discord.Embed(color=0xff00, title= "📌도움말", description= f"{noti}", timestamp=message.created_at)
+            embed=discord.Embed(color=0x7289da, title= "**📌도움말**", description= f"{noti}", timestamp=message.created_at)
             await message.author.dm_channel.send(embed=embed)
             await message.channel.send("```python\nCheck your DM!```")
                 
@@ -617,7 +617,7 @@ async def on_message(message):
       img = soup.find("div", attrs={"id":"user-profile-bio-img"}).find("img").get('src') #소환사이미지 가져오기
       
       
-      embed = discord.Embed(title=f"**{msg}**님의 전적!🎮", description = f"**<OP.GG 바로가기>**\n**https://www.op.gg/summoners/kr/{msg}**", color=0xfaf4c0)
+      embed = discord.Embed(title=f"**{msg}**님의 전적!🎮", description = f"**<OP.GG 바로가기>**\n**https://www.op.gg/summoners/kr/{msg}**", color=0x7289da)
       embed.add_field(name="**<솔로랭크>**", value=f"```python\n{soloRankResult}```\n", inline=True)
       embed.add_field(name="**<자유랭크>**", value=f"```python\n{flexRankResult}```", inline=True)
       #embed.add_field(name="전적사이트 바로가기!", value=f"https://www.op.gg/summoners/kr/{msg}", inline=)
@@ -635,7 +635,7 @@ async def on_message(message):
             await client.change_presence(status=discord.Status.online)
             await client.change_presence(activity=discord.Game(name="!도움말"))
         else:
-            embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xfaf4c0)
+            embed = discord.Embed(title="**unauthenticated user error**", description = "```Invalid user```", color=0xff000)
             await message.channel.send(embed=embed)
         
     if message.content.startswith("!dndprtcl"):
@@ -645,7 +645,7 @@ async def on_message(message):
             await client.change_presence(status=discord.Status.dnd)
             await client.change_presence(activity=discord.Game(name="봇 점검"))
         else:
-            embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xfaf4c0)
+            embed = discord.Embed(title="**unauthenticated user error**", description = "```Invalid user```", color=0xff000)
             await message.channel.send(embed=embed)
         
         
@@ -656,7 +656,7 @@ async def on_message(message):
             await client.change_presence(activity=discord.Game(name="봇 업데이트"))
             await message.channel.send("update mode")
         else:
-            embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xfaf4c0)
+            embed = discord.Embed(title="**unauthenticated user error**", description = "```Invalid user```", color=0xff000)
             await message.channel.send(embed=embed)
         
     if message.content.startswith("!killprtcl"):        
@@ -706,7 +706,7 @@ async def on_message(message):
             amount = message.content[4:]
             await message.channel.purge(limit=1)
             await message.channel.purge(limit=int(amount))
-            embed = discord.Embed(title="Message_clean_cl", description="```메시지가 {message.author}에 의해 삭제되었습니다.\n이 메시지는 2초후 자동삭제 됩니다```" , color=0x000000)
+            embed = discord.Embed(title="**Sensored!**", description="```메시지가 비공개유저에 의해 삭제되었습니다.\n이 메시지는 2초후 자동삭제 됩니다```" , color=0x000000)
             embed.set_footer(text="```DevAccessAdminPrtcl```", icon_url = message.author.avatar_url)
             await message.channel.send(embed=embed)
             await asyncio.sleep(2)
@@ -714,7 +714,7 @@ async def on_message(message):
             
          
         else:
-           embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xfaf4c0)
+           embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xff000)
            await message.channel.send(embed=embed)
        
     
@@ -723,17 +723,17 @@ async def on_message(message):
        if message.author.id == 833697465319948361:
         
             
-           await message.channel.send('dev verified')
+           await message.channel.send('```dev id verified```')
            await message.channel.send(message.author)
            await asyncio.sleep(0.2)
            await message.channel.purge(limit=2)
             
-           embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color=0xfaf4c0)
+           embed = discord.Embed(title=f"{titi}", description=f"{scrip}", color=0xff000)
            await message.channel.send(embed=embed)
         
         
        else:
-          embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xfaf4c0)
+          embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xff000)
           await message.channel.send(embed=embed)
     
     
@@ -743,7 +743,7 @@ async def on_message(message):
                 await message.channel.purge(limit=1)
                 dvti = "DevAccessAdminPrtcl dvcl lst"
                 clst = "!onprtcl\n!dndprtcl\n!offprtcl\n!upprtcl\n!pnt\n!cls\n!devnoti"        
-                embed = discord.Embed(title=f"{dvti}", description = f"{clst}", color=0xfaf4c0)
+                embed = discord.Embed(title=f"{dvti}", description = f"{clst}", color=0xff000)
                 await message.author.dm_channel.send(embed=embed)
                 await message.channel.send("dev verified")
         
@@ -753,7 +753,7 @@ async def on_message(message):
                 await message.channel.purge(limit=1)
                 dvti = "```DevAccessAdminPrtcl dvcl lst```"
                 clst = "!onprtcl\n!dndprtcl\n!offprtcl\n!upprtcl\n!pnt\n!cls\n!devnoti"        
-                embed = discord.Embed(title=f"{dvti}", description = f"{clst}", color=0xfaf4c0)
+                embed = discord.Embed(title=f"{dvti}", description = f"{clst}", color=0xff000)
                 await message.author.dm_channel.send(embed=embed)
                 await message.channel.send("dev verified")
         
@@ -761,7 +761,7 @@ async def on_message(message):
             
         
         else:
-            embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xfaf4c0)
+            embed = discord.Embed(title="unauthenticated user error", description = "```Invalid user```", color=0xff000)
             await message.channel.send(embed=embed)
             
         
