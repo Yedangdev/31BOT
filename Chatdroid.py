@@ -706,7 +706,7 @@ async def on_message(message):
             amount = message.content[4:]
             await message.channel.purge(limit=1)
             await message.channel.purge(limit=int(amount))
-            embed = discord.Embed(title="**Sensored!**", description="```메시지가 비공개유저에 의해 삭제되었습니다.\n이 메시지는 2초후 자동삭제 됩니다```" , color=0x000000)
+            embed = discord.Embed(title="**Censored!**", description="```메시지가 비공개유저에 의해 삭제되었습니다.\n이 메시지는 2초후 자동삭제 됩니다```" , color=0x000000)
             embed.set_footer(text="```DevAccessAdminPrtcl```", icon_url = message.author.avatar_url)
             await message.channel.send(embed=embed)
             await asyncio.sleep(2)
