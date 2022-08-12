@@ -243,10 +243,10 @@ async def on_message(message):
         elif wday == 6:
             timetble = '오늘은 일요일입니다!'
 
-        embed = discord.Embed(title="**📝오늘의 시간표!**", description=f"{timetble}\n\n\n```python\n오전 9시에 시간표가 갱신됩니다```", color = 0x7289da)
+        embed = discord.Embed(title="**📃오늘의 시간표!**", description=f"{timetble}\n\n\n```python\n오전 9시에 시간표가 갱신됩니다```", color = 0x7289da)
         embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
         await message.channel.send(embed=embed)
-        #await message.channel.send("오전 9시에 시간표가 갱신됩니다")
+        await message.channel.send("항목 변경 감지\n2학기 시간표로 업데이트 되었습니다.\n**(수)요일,(목)요일**의 (미적)과 (여지)가 바뀌었습니다\n(영독작)이(심독작)으로 변경되었습니다.")
         
 
 
@@ -330,7 +330,7 @@ async def on_message(message):
         
 
     if message.content.startswith('!작성언어'):
-        await message.channel.send('저는 파이썬 기반으로 만들어졌어요!')
+        await message.channel.send('저는 파이썬으로 만들어졌어요!')
         
         
     if message.content.startswith('!급식'):
@@ -526,7 +526,7 @@ async def on_message(message):
             setence = "논술일반전형 논술70 + 학생부30 \n최저 없음"
             
         else:
-            setence = "논술전형을 실시하는 대학이 아니거나, 존재하지 않는 대학입니다.\n\n\n**오타를 확인해보세요**\n검색요령: ex) '한양대학교 에리카 검색시' ------> ```!논술 한양대(에리카)```\n\n!논술과 대학이름사이에 공백이 있어야 검색이 가능합니다.\n\n\n\n\n\n\n**정보가 누락되었거나, 오류는 제보해주세요**"
+            setence = "논술전형을 실시하는 대학이 아니거나, 존재하지 않는 대학입니다.\n\n\n**오타를 확인해보세요**\n검색요령: ex) '한양대학교 에리카 검색시' ------> **```!논술 한양대(에리카)```**\n\n!논술과 대학이름사이에 공백이 있어야 검색이 가능합니다.\n\n\n\n\n\n\n**정보가 누락되었거나, 오류는 제보해주세요**"
             index = "**검색에 실패했습니다**"
             #hexcdr= "0xff0000"
         
@@ -666,6 +666,7 @@ async def on_message(message):
         
     if message.content.startswith("!killprtcl"):        
         #await message.channel.send("```서비스 종료절차 실행```")
+        #await message.channel.send("타이머 셋팅")
         #await message.channel.send("```서비스 종료 5분전```")
         #await asyncio.sleep(300)
         #await message.channel.send("**서비스가 종료되었습니다**")
@@ -711,10 +712,10 @@ async def on_message(message):
             amount = message.content[4:]
             await message.channel.purge(limit=1)
             await message.channel.purge(limit=int(amount))
-            embed = discord.Embed(title="**Censored!**", description="```메시지가 비공개유저에 의해 삭제되었습니다.\n이 메시지는 2초후 자동삭제 됩니다```" , color=0x000000)
+            embed = discord.Embed(title="**Censored!**", description="```메시지가 비공개유저에 의해 삭제되었습니다.\n이 메시지는 3초후 자동삭제 됩니다```" , color=0x000000)
             embed.set_footer(text="```DevAccessAdminPrtcl```", icon_url = message.author.avatar_url)
             await message.channel.send(embed=embed)
-            await asyncio.sleep(2)
+            await asyncio.sleep(3)
             await message.channel.purge(limit=1)
             
          
