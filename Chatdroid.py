@@ -59,7 +59,7 @@ async def on_message(message):
 
     if message.content.startswith("테스트"):
         ch = client.get_channel(983342486812516413)
-        await ch.send ("{} | {}, User, Hello".format(ch.author, ch.author.mention))
+        await ch.send ("User, Hello")
     
     if message.content.startswith("!pntprtcl"):
         await message.channel.purge(limit=1)
