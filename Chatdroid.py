@@ -755,9 +755,9 @@ async def on_message(message):
         
             await message.channel.purge(limit=1)
             ver = "**2.0.0(31ver)**"
-            fix = "**<업데이트 내역>**\n\n**2학기 시간표로 업데이트 되었습니다.**\n\n**일부 기능들의 임베드 UI개선\n및 시인성 향상**\n\n\n```이 업데이트는 일부 서버에만 지원됩니다.```"   
+            fix = "**<업데이트 내역>**\n\n**2학기 시간표로 업데이트 되었습니다.**\n\n**일부 기능들의 임베드 UI개선\n및 시인성 향상**\n\n\n```python\n이 업데이트는 일부 서버에만 지원됩니다.```"   
             embed = discord.Embed(title=f"{ver}", description = f"{fix}", color = 0xff0000)
-            embed.set_footer(text=f"총 된 서버 수:{ch}")
+            embed.set_footer(text=f"감지된 서버 수:{ch}")
             embed.set_thumbnail(url="https://media.discordapp.net/attachments/984777197506162748/985181219329294376/Screenshot_20220610-224533_Samsung_Notes-removebg-preview.jpg")
             await message.channel.send(embed=embed)
         
