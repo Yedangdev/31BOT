@@ -618,10 +618,11 @@ async def on_message(message):
         
         rank4re = rank4re.replace(" ", "")
         
-        embed = discord.Embed(title=f"**{chess}**님의 전적!🎮", description = f"**<Lolchess.gg 바로가기>**\n**https://lolchess.gg/profile/kr/{chess}?save=true**", color=0xfaf4c0)
+        embed = discord.Embed(title=f"**{chess}**님의 전적!🎮", description = f"**<Lolchess.gg 바로가기>**\n**https://lolchess.gg/profile/kr/{chess}?save=true**", color=0x7289da)
         embed.add_field(name="**<Tier info>**", value = f"**{rank2}**", inline=True)
         embed.add_field(name=f"**<Other Tier>**", value = f"```python\n{rank4re}```", inline=True)
         embed.set_thumbnail(url=f"https:{rank}")
+        embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
         
 
