@@ -229,13 +229,13 @@ async def on_message(message):
     if message.content.startswith('!시간표'):
         wday = time.localtime().tm_wday
         if wday == 0:
-            timetble = '프로\n기하\n미적\n논술\n영독작\n물리2\n생명2'
+            timetble = '프로\n기하\n미적\n논술\n심독작\n물리2\n생명2'
         elif wday == 1:
-            timetble = '기하\n미적\n여지\n심국\n영독작\n생명2\n프로'
+            timetble = '기하\n미적\n여지\n심국\n심독작\n생명2\n프로'
         elif wday == 2:
-            timetble = '여지\n영독작\n프로\n미적\n생명2\n물리2\n논술'
+            timetble = '미적\n심독작\n프로\n여지\n생명2\n물리2\n논술'
         elif wday == 3:
-            timetble = '여지\n스포\n심국\n진로\n영독작\n물리2\n미적'
+            timetble = '미적\n스포\n심국\n진로\n심독작\n물리2\n여지'
         elif wday == 4:
             timetble = '자율3\n심국\n스포\n기하\n자봉\n동아'
         elif wday == 5:
