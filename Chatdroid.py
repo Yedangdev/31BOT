@@ -248,10 +248,10 @@ async def on_message(message):
         elif wday == 6:
             timetble = '오늘은 일요일입니다!'
 
-        embed = discord.Embed(title="**📃오늘의 시간표!**", description=f"{timetble}\n\n\n```python\n오전 9시에 시간표가 갱신됩니다```", color = 0x7289da)
+        embed = discord.Embed(title="**📃오늘의 시간표!**", description=f"{timetble}\n\n\n"+"[이곳을 눌러 전체시간표 열람](<https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png>)"+"```python\n오전 9시에 시간표가 갱신됩니다```", color = 0x7289da)
         embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
         await message.channel.send(embed=embed)
-        #await message.channel.send("항목 변경 감지\n2학기 시간표로 업데이트 되었습니다.\n**(수)요일,(목)요일**의 (미적)과 (여지)가 바뀌었습니다\n(영독작)이(심독작)으로 변경되었습니다.")
+        #await message.channel.send("https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png")
         
 
 
