@@ -57,16 +57,7 @@ async def on_message(message):
     
     
 
-    
-    if message.content.startswith("!pntprtcl"):
-        await message.channel.purge(limit=1)
-        ver = "**2.0.0(31ver)**"
-        fix = "**2학기 시간표로 업데이트 되었습니다.**\n\n**UI/UX개선**"   
-        embed = discord.Embed(title=f"{ver}", description = f"{fix}", color = 0xff0000)
-        embed.set_thumbnail(url="https://media.discordapp.net/attachments/984777197506162748/985181219329294376/Screenshot_20220610-224533_Samsung_Notes-removebg-preview.jpg")
-        await message.channel.send(embed=embed)
         
-
         
        
     
@@ -603,6 +594,36 @@ async def on_message(message):
             await message.channel.send("```python\nCheck your DM!```")
                 
 
+    if message.content.startswith("!롤토"):
+        chess = message.content[4:]
+        
+        await message.channel.send("```python\n시간이 조금 걸려요...```")
+        await asyncio.sleep(1.5)
+        await message.channel.purge(limit=2)
+        
+        headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}   
+        
+        url = f"https://lolchess.gg/profile/kr/{chess}?save=true"
+        res = requests.get(url,timeout = 25)    #파싱
+        res.raise_for_status()
+        
+        soup = BeautifulSoup(res.text, "lxml")
+        
+        rank = soup.find("div", {"class":"profile__tier__icon"}).find("img").get("src")
+        rank2 = soup.find("div", {"class":"profile__tier__icon"}).find("img").get("alt")
+        rank4 = soup.find_all("div", {"class":"tier-ranked-info__content"})        
+        
+        for rank4s in rank4:
+        	rank4re = rank4s.get_text()
+        
+        rank4re = rank4re.replace(" ", "")
+        
+        embed = discord.Embed(title=f"**{chess}**님의 전적!🎮", description = f"**<Lolchess.gg 바로가기>**\n**https://lolchess.gg/profile/kr/{chess}?save=true**", color=0xfaf4c0)
+        embed.add_field(name="**<Tier info>**", value = f"**{rank2}**", inline=True)
+        embed.add_field(name=f"**<Other Tier>**", value = f"```python\n{rank4re}```", inline=True)
+        embed.set_thumbnail(url=f"https:{rank}")
+        await message.channel.send(embed=embed)
+        
 
     if message.content.startswith('!전적'):
       
@@ -686,39 +707,7 @@ async def on_message(message):
         #await message.channel.send("**서비스가 종료되었습니다**")
         await client.change_presence(status=discord.Status.offline)
         #await asyncio.sleep(1000000)
-        
-    if message.content.startswith("!롤토"):
-        chess = message.content[4:]
-        
-        await message.channel.send("```python\n시간이 조금 걸려요...```")
-        await asyncio.sleep(1.5)
-        await message.channel.purge(limit=2)
-        
-        headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}   
-        
-        url = f"https://lolchess.gg/profile/kr/{chess}?save=true"
-        res = requests.get(url,timeout = 25)    #파싱
-        res.raise_for_status()
-        
-        soup = BeautifulSoup(res.text, "lxml")
-        
-        rank = soup.find("div", {"class":"profile__tier__icon"}).find("img").get("src")
-        rank2 = soup.find("div", {"class":"profile__tier__icon"}).find("img").get("alt")
-        rank4 = soup.find_all("div", {"class":"tier-ranked-info__content"})        
-        
-        for rank4s in rank4:
-        	rank4re = rank4s.get_text()
-        
-        rank4re = rank4re.replace(" ", "")
-        
-        embed = discord.Embed(title=f"**{chess}**님의 전적!🎮", description = f"**<Lolchess.gg 바로가기>**\n**https://lolchess.gg/profile/kr/{chess}?save=true**", color=0xfaf4c0)
-        embed.add_field(name="**<Tier info>**", value = f"**{rank2}**", inline=True)
-        embed.add_field(name=f"**<Other Tier>**", value = f"```python\n{rank4re}```", inline=True)
-        embed.set_thumbnail(url=f"https:{rank}")
-        await message.channel.send(embed=embed)
-        
-
-     
+           
  
     
     if message.content.startswith("!cls"):
@@ -727,7 +716,7 @@ async def on_message(message):
             await message.channel.purge(limit=1)
             await message.channel.purge(limit=int(amount))
             embed = discord.Embed(title="**Censored!**", description="```메시지가 비공개유저에 의해 삭제되었습니다.\n이 메시지는 3초후 자동삭제 됩니다```" , color=0x000000)
-            embed.set_footer(text="```DevAccessAdminPrtcl```", icon_url = message.author.avatar_url)
+            embed.set_footer(text="DevAccessAdminPrtcl", icon_url = message.author.avatar_url)
             await message.channel.send(embed=embed)
             await asyncio.sleep(3)
             await message.channel.purge(limit=1)
@@ -757,6 +746,19 @@ async def on_message(message):
           await message.channel.send(embed=embed)
     
     
+    if message.content.startswith("!pntprtcl"):
+        if message.author.id == 833697465319948361:
+            await message.channel.purge(limit=1)
+            ver = "**2.0.0(31ver)**"
+            fix = "**2학기 시간표로 업데이트 되었습니다.**\n**UI/UX개선**"   
+            embed = discord.Embed(title=f"{ver}", description = f"{fix}", color = 0xff0000)
+            embed.set_thumbnail(url="https://media.discordapp.net/attachments/984777197506162748/985181219329294376/Screenshot_20220610-224533_Samsung_Notes-removebg-preview.jpg")
+            await message.channel.send(embed=embed)
+        
+        else:
+            embed = discord.Embed(title="⚠️unauthenticated user error", description = "```Invalid user```", color=0xff000)
+            await message.channel.send(embed=embed)
+        
     if message.content.startswith("!dvcl"):
         if message.author.id == 833697465319948361:
             if message.author.dm_channel:
