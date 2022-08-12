@@ -23,15 +23,20 @@ async def on_ready():
     print('====================================')
     
     await client.change_presence(status=discord.Status.online) #온라인
-    #await client.change_presence(status=discord.Status.idle) #자리비움
-    #await client.change_presence(status=discord.Status.dnd) #다른용무
-    #await client.change_presence(status=discord.Status.offline) #오프라인
     
-    await client.change_presence(activity=discord.Game(name="!도움말"))
+    while not client.is_closed():
+        await client.change_presence(activity=discord.Game(name="!도움말"))
+        await asyncio.sleep(5)
+        ch = 0
+        for g in client.guilds:
+            ch += len(g.channels)
+        await client.change_presence(activity=discord.Game(name=f"캐시된 서버수:{ch}"))
+        await asyncio.sleep(5)
+        await client.change_presence(activity=discord.Game(name="업데이트 중에는 봇 사용이 불가능합니다"))
+        await asyncio.sleep(5)
+        
 
-    
-    
-
+        
 
 
 @client.event
