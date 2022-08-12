@@ -30,7 +30,7 @@ async def on_ready():
         ch = 0
         for g in client.guilds:
             ch += len(g.channels)
-        await client.change_presence(activity=discord.Game(name=f"캐시된 서버수:{ch}"))
+        await client.change_presence(activity=discord.Game(name=f"{ch}개의 채널에서 사용중"))
         await asyncio.sleep(5)
         await client.change_presence(activity=discord.Game(name="업데이트 중에는 봇 사용이 불가능합니다"))
         await asyncio.sleep(5)
