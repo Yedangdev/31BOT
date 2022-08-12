@@ -32,7 +32,16 @@ async def on_ready():
             ch += len(g.channels)
         await client.change_presence(activity=discord.Game(name=f"{ch}개의 채널에서 사용중"))
         await asyncio.sleep(5)
-        await client.change_presence(activity=discord.Game(name="업데이트 중에는 봇 사용이 불가능합니다"))
+        latancys = client.latency
+        lateninfo = round(latancys * 1000)
+        if lateninfo < 35:
+            botst = "정상"
+        if 35 < lateninfo < 60:
+            botst = "양호"
+        if lateninfo > 60:
+            botst = "트래픽 주의"
+        
+        await client.change_presence(activity=discord.Game(name=f"{lateninfo}ms {botst}"))
         await asyncio.sleep(5)
         
 
