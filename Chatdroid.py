@@ -58,7 +58,19 @@ async def on_message(message):
     
 
         
+    if message.content.startswith("!한강"):
+        headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}   
         
+        url = "https://hangang.ivlis.kr/aapi.php?type=dgr"
+        res = requests.get(url,timeout = 25)    #파싱
+        res.raise_for_status()
+        
+        soup = BeautifulSoup(res.text, "lxml")
+        temp = soup.get_text()
+        curse = "실천하라!"
+        embed = discord.Embed(title="**실시간 한강 수온**", description = f"{temp}\n\n\n{curse}", color=0x7289da)
+
+        await messgae.channel.send(embed=embed)
        
     
     if message.content.startswith("!명예개발자"):
