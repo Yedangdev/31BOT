@@ -67,8 +67,11 @@ async def on_message(message):
         
         soup = BeautifulSoup(res.text, "lxml")
         temp = soup.get_text()
-        curse = "실천하라!"
-        embed = discord.Embed(title="**실시간 한강 수온**", description = f"{temp}\n\n\n{curse}", color=0x7289da)
+        curse = ["자신의 하루를 마지막 날이라고 생각하라. -호라티우스", "해가 뜨지 않는 날은 절대 없다. -셀이아 박스터", "벽을 내려치느라 아까운 시간을 낭비하지말라 -할 에로드", "열정이 없다면 성취도 없다. -마이클 조던", "만약 어제 넘어졌다면 오늘은 일어서라 -H. G. Wells"]
+        randcr = randrange(0,4)
+        curre = curse[randcr]
+        
+        embed = discord.Embed(title="**실시간 한강 수온**", description = f"**{temp}**\n\n\n***{curre}***\n\n[](<>)", color=0x7289da)
 
         await message.channel.send(embed=embed)
        
