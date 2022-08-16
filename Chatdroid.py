@@ -71,8 +71,8 @@ async def on_message(message):
         randcr = randrange(0,4)
         curre = curse[randcr]
         
-        embed = discord.Embed(title="**실시간 한강 수온**", description = f"**{temp}**\n\n\n***{curre}***\n\n"+"\n[좋은 노래!(탭하여 이동)](<https://m.youtube.com/watch?v=5kbP23jYsNs&vl=ko>)", color=0x7289da)
-
+        embed = discord.Embed(title="**실시간 한강 수온**", description = "\n\n" + f"**{temp}**\n\n***{curre}***\n\n"+"\n[좋은 노래! 🔗](<https://m.youtube.com/watch?v=5kbP23jYsNs&vl=ko>)", color=0x7289da)
+        embed.set_footer(text = "출처: ivlis")
         await message.channel.send(embed=embed)
        
     
