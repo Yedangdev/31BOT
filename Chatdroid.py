@@ -362,7 +362,7 @@ async def on_message(message):
         dietdate = message.content[4:]
         
         if len(dietdate) == 0:
-            dietdate = datetime.today(timezone('Asia/Seoul')).strftime("%Y%m%d")
+            dietdate = datetime.now(timezone('Asia/Seoul')).strftime("%Y%m%d")
         
         headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}          
         url = f"https://open.neis.go.kr/hub/mealServiceDietInfo?ATPT_OFCDC_SC_CODE=J10&SD_SCHUL_CODE=7530849&MLSV_YMD={dietdate}"
@@ -385,7 +385,7 @@ async def on_message(message):
         
         dietpr = dietre.replace("<br/>", "\n")
         
-        if dietdate == datetime.today(timezone('Asia/Seoul')).strftime("%Y%m%d"):
+        if dietdate == datetime.now(timezone('Asia/Seoul')).strftime("%Y%m%d"):
             titledate = "🍴**오늘의**"
         
         else:
