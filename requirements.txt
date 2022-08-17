@@ -4,3 +4,4 @@ lxml==4.9.0
 requests==2.28.0
 bs4==0.0.1
 googletrans==3.1.0a0
+pytz
