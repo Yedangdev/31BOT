@@ -396,7 +396,7 @@ async def on_message(message):
             titledate = "**⚠️존재하지 않는**"
             #hexcde = "0x0xff0000"
         
-        embed=discord.Embed(color= 0x7289da, title= f"{titledate} **급식표**", description= f"{dietpr}\n\n\n```python\n오전 9시에 급식표가 갱신됩니다!```", timestamp=message.created_at)
+        embed=discord.Embed(color= 0x7289da, title= f"{titledate} **급식표**", description= f"{dietpr}\n\n\n```python\nUTC +9(KST)에 갱신됩니다```", timestamp=message.created_at)
         #embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
     
