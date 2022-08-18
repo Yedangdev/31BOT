@@ -247,7 +247,16 @@ async def on_message(message):
 
         
     if message.content.startswith('!시간표'):
-        wday = time.localtime().tm_wday
+        localset = datetime.now(timezone('Asia/Seoul')).strftime("%H")
+        utcset = datetime.now(timezone("utc")).strftime("%H")
+        prewday = time.localtime().tm_wday
+        if 0 <= int(localset) <= 8:
+            if int(utcset) - int(localset) == 15:
+                wday = prewday + 1    #시간 보정
+        else:
+            prewday = wday	
+        
+        
         if wday == 0:
             timetble = '프로\n기하\n미적\n논술\n심독작\n물리2\n생명2'
         elif wday == 1:
