@@ -259,21 +259,21 @@ async def on_message(message):
         
         
         if rewday == 0:
-            timetble = '프로\n기하\n미적\n논술\n심독작\n물리2\n생명2'
+            timetble = '**월요일**\n\n프로\n기하\n미적\n논술\n심독작\n물리2\n생명2'
         elif rewday == 1:
-            timetble = '기하\n미적\n여지\n심국\n심독작\n생명2\n프로'
+            timetble = '**화요일**\n\n기하\n미적\n여지\n심국\n심독작\n생명2\n프로'
         elif rewday == 2:
-            timetble = '미적\n심독작\n프로\n여지\n생명2\n물리2\n논술'
+            timetble = '**수요일**\n\n미적\n심독작\n프로\n여지\n생명2\n물리2\n논술'
         elif rewday == 3:
-            timetble = '미적\n스포\n심국\n진로\n심독작\n물리2\n여지'
+            timetble = '**목요일**\n\n미적\n스포\n심국\n진로\n심독작\n물리2\n여지'
         elif rewday == 4:
-            timetble = '자율3\n심국\n스포\n기하\n자봉\n동아'
+            timetble = '**금요일**\n\n자율3\n심국\n스포\n기하\n자봉\n동아'
         elif rewday == 5:
             timetble = '오늘은 토요일입니다!'
         elif rewday == 6:
             timetble = '오늘은 일요일입니다!'
 
-        embed = discord.Embed(title="**📃오늘의 시간표!**", description=f"{timetble}\n\n\n"+"[이곳을 눌러 전체시간표 열람](<https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png>)"+"```python\nKST 00:00에 갱신됩니다```", color = 0x7289da)
+        embed = discord.Embed(title="**📃오늘의 시간표!**", description=f"{timetble}\n\n\n"+"[이곳을 눌러 전체시간표 열람](<https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png>)"+"```python\nKST(00:00)에 갱신됩니다```", color = 0x7289da)
         embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
         await message.channel.send(embed=embed)
         #await message.channel.send("https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png")
@@ -406,7 +406,7 @@ async def on_message(message):
             titledate = "**⚠️존재하지 않는**"
             #hexcde = "0x0xff0000"
         
-        embed=discord.Embed(color= 0x7289da, title= f"{titledate} **급식표**", description= f"{dietpr}\n\n\n```python\nKST 00:00에 갱신됩니다```", timestamp=message.created_at)
+        embed=discord.Embed(color= 0x7289da, title= f"{titledate} **급식표**", description= f"{dietpr}\n\n\n```python\nKST(00:00)에 갱신됩니다```", timestamp=message.created_at)
         #embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
     
@@ -780,9 +780,9 @@ async def on_message(message):
         
             await message.channel.purge(limit=1)
             ver = "**2.0.0(31ver)**"
-            fix = "**<업데이트 내역>**\n\n**2학기 시간표로 업데이트 되었습니다.**\n\n**일부 기능들의 임베드 UI개선\n및 시인성 향상**\n\n\n```python\n이 업데이트는 일부 서버에만 지원됩니다.```"   
+            fix = "**<업데이트 내역>**\n\n**UTC기준(협정 세계시)에서 KST기준(한국 표준시)으로 변경**\n\n**급식, 시간표가 오전12시에 갱신됩니다.**"   
             embed = discord.Embed(title=f"{ver}", description = f"{fix}", color = 0xff0000)
-            embed.set_footer(text=f"감지된 서버 수:{ch}")
+            embed.set_footer(text=f"감지된 채널 수:{ch}")
             embed.set_thumbnail(url="https://media.discordapp.net/attachments/984777197506162748/985181219329294376/Screenshot_20220610-224533_Samsung_Notes-removebg-preview.jpg")
             await message.channel.send(embed=embed)
         
