@@ -249,30 +249,31 @@ async def on_message(message):
     if message.content.startswith('!시간표'):
         localset = datetime.now(timezone('Asia/Seoul')).strftime("%H")
         utcset = datetime.now(timezone("utc")).strftime("%H")
-        prewday = time.localtime().tm_wday
+        
+        wday = time.localtime().tm_wday
         if 0 <= int(localset) <= 8:
             if int(utcset) - int(localset) == 15:
-                wday = prewday + 1    #시간 보정
+                rewday = wday + 1    #시간 보정
         else:
-            prewday = wday	
+            rewday = wday	
         
         
-        if wday == 0:
+        if rewday == 0:
             timetble = '프로\n기하\n미적\n논술\n심독작\n물리2\n생명2'
-        elif wday == 1:
+        elif rewday == 1:
             timetble = '기하\n미적\n여지\n심국\n심독작\n생명2\n프로'
-        elif wday == 2:
+        elif rewday == 2:
             timetble = '미적\n심독작\n프로\n여지\n생명2\n물리2\n논술'
-        elif wday == 3:
+        elif rewday == 3:
             timetble = '미적\n스포\n심국\n진로\n심독작\n물리2\n여지'
-        elif wday == 4:
+        elif rewday == 4:
             timetble = '자율3\n심국\n스포\n기하\n자봉\n동아'
-        elif wday == 5:
+        elif rewday == 5:
             timetble = '오늘은 토요일입니다!'
-        elif wday == 6:
+        elif rewday == 6:
             timetble = '오늘은 일요일입니다!'
 
-        embed = discord.Embed(title="**📃오늘의 시간표!**", description=f"{timetble}\n\n\n"+"[이곳을 눌러 전체시간표 열람](<https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png>)"+"```python\n오전 9시에 시간표가 갱신됩니다```", color = 0x7289da)
+        embed = discord.Embed(title="**📃오늘의 시간표!**", description=f"{timetble}\n\n\n"+"[이곳을 눌러 전체시간표 열람](<https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png>)"+"```python\nKST 00:00에 갱신됩니다```", color = 0x7289da)
         embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
         await message.channel.send(embed=embed)
         #await message.channel.send("https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png")
@@ -405,7 +406,7 @@ async def on_message(message):
             titledate = "**⚠️존재하지 않는**"
             #hexcde = "0x0xff0000"
         
-        embed=discord.Embed(color= 0x7289da, title= f"{titledate} **급식표**", description= f"{dietpr}\n\n\n```python\nUTC +9(KST)에 갱신됩니다```", timestamp=message.created_at)
+        embed=discord.Embed(color= 0x7289da, title= f"{titledate} **급식표**", description= f"{dietpr}\n\n\n```python\nKST 00:00에 갱신됩니다```", timestamp=message.created_at)
         #embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
     
