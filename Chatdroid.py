@@ -360,7 +360,17 @@ async def on_message(message):
         
 
     if message.content.startswith('!작성언어'):
-        await message.channel.send('저는 파이썬으로 만들어졌어요!')
+        
+        latancys = client.latency
+        lateninfo = round(latancys * 1000)
+        
+        infobot = "**개발언어:**  Python3\n\n**모듈정보:** discord.py 1.7.3(구버전)\n\n**Cog수:** 구버전은 지원되지 않음\n\n**레이턴시: **{lateninfo}ms\n\n**서비스기한:** 2023년3월1일 종료 후 리뉴얼예정"
+        
+        embed = discord.Embed(title=f"봇 정보", description=f"{infobot}", color=0xff0000)
+        embed.set_thumbnail(url="https://media.discordapp.net/attachments/984777197506162748/985181219329294376/Screenshot_20220610-224533_Samsung_Notes-removebg-preview.jpg")
+        await message.channel.send(embed=embed)
+        
+        
         
         
     if message.content.startswith('!급식'):
