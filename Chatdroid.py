@@ -359,12 +359,12 @@ async def on_message(message):
         
         
 
-    if message.content.startswith('!작성언어'):
+    if message.content.startswith('!정보'):
         
         latancys = client.latency
         lateninfo = round(latancys * 1000)
         
-        infobot = "**개발언어:**  Python3\n\n**모듈정보:** discord.py 1.7.3(구버전)\n\n**Cog수:** 구버전은 지원되지 않음\n\n**레이턴시: **{lateninfo}ms\n\n**서비스기한:** 2023년3월1일 종료 후 리뉴얼예정"
+        infobot = f"**개발언어:**  Python3\n\n**모듈정보:** discord.py 1.7.3(구버전)\n\n**Cog수:** 구버전은 지원되지 않음\n\n**레이턴시: **{lateninfo}ms\n\n**서비스기한:** (2023년 3월 1일까지 지원), 서비스종료 이후 리뉴얼예정\n\n\n\n**<뉴비개발자들을 위한 도움>**\n\n**봇개발에 입문하는 개발자는 Chatdroid 소스코드자료를 요청할 수 있습니다**\n\n소스코드 요청은 공식서포트채널에서 요청할 수 있습니다.\n-단 소스코드는 Chatdroid(beta)의 소스코드로 2.0.0에서 지원하는 몇가지 기능이 빠져있는 소스코드입니다.\n-봇 토큰은 제공하지 않습니다.\n-해당 소스코드는 재배포가 가능합니다.(출처 밝힐 필요X, 단, 상업용도 사용은 일절금지)\n-소스코드는 Vscode에서 작성되었습니다."
         
         embed = discord.Embed(title=f"봇 정보", description=f"{infobot}", color=0xff0000)
         embed.set_thumbnail(url="https://media.discordapp.net/attachments/984777197506162748/985181219329294376/Screenshot_20220610-224533_Samsung_Notes-removebg-preview.jpg")
