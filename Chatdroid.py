@@ -253,7 +253,7 @@ async def on_message(message):
         wday = time.localtime().tm_wday
         if 0 <= int(localset) <= 8:
             if int(utcset) - int(localset) == 15:
-                if rewday == 6:
+                if wday == 6:
                     rewday = 0
                 else:
                     rewday = wday + 1    #시간 보정
