@@ -735,7 +735,7 @@ async def on_message(message):
             await client.change_presence(activity=discord.Game(name="봇 업데이트"))
             await message.channel.send("update mode")
         else:
-            embed = discord.Embed(title="**⚠️unauthenticated user error**", description = "```Invalid user```", color=0xff0000)
+            embed = discord.Embed(title="**⚠️unauthenticated user error**", description = "```Invalid user```\nID값이 일치하지 않아 사용이 차단되었습니다.", color=0xff0000)
             await message.channel.send(embed=embed)
         
     if message.content.startswith("!killprtcl"):        
@@ -762,7 +762,7 @@ async def on_message(message):
             
          
         else:
-           embed = discord.Embed(title="⚠️unauthenticated user error", description = "```Invalid user```", color=0xff0000)
+           embed = discord.Embed(title="⚠️unauthenticated user error", description = "```Invalid user```\nID값이 일치하지 않아 사용이 차단되었습니다.", color=0xff0000)
            await message.channel.send(embed=embed)
        
     
@@ -781,7 +781,7 @@ async def on_message(message):
         
         
        else:
-          embed = discord.Embed(title="⚠️unauthenticated user error", description = "```Invalid user```", color=0xff0000)
+          embed = discord.Embed(title="⚠️unauthenticated user error", description = "```Invalid user```\nID값이 일치하지 않아 사용이 차단되었습니다.", color=0xff0000)
           await message.channel.send(embed=embed)
     
     
@@ -800,7 +800,7 @@ async def on_message(message):
             await message.channel.send(embed=embed)
         
         else:
-            embed = discord.Embed(title="⚠️unauthenticated user error", description = "```Invalid user```", color=0xff000)
+            embed = discord.Embed(title="⚠️unauthenticated user error", description = "```Invalid user```\nID값이 일치하지 않아 사용이 차단되었습니다.", color=0xff000)
             await message.channel.send(embed=embed)
         
     if message.content.startswith("!dvcl"):
@@ -827,7 +827,7 @@ async def on_message(message):
             
         
         else:
-            embed = discord.Embed(title="⚠️unauthenticated user error", description = "```Invalid user```", color=0xff000)
+            embed = discord.Embed(title="⚠️unauthenticated user error", description = "```Invalid user```\nID값이 일치하지 않아 사용이 차단되었습니다.", color=0xff000)
             await message.channel.send(embed=embed)
             
         
