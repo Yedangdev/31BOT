@@ -717,36 +717,27 @@ async def on_message(message):
             embed = discord.Embed(title="**unauthenticated user error**", description = "```Invalid user```", color=0xff0000)
             await message.channel.send(embed=embed)
         
-    if message.content.startswith("!dndprtcl"):
+    if message.content.startswith("!byeprtcl"):
         if message.author.id == 833697465319948361:
         
-            await message.channel.send("dnd set")
+            await message.channel.send("잘가! 안녕!")
             await client.change_presence(status=discord.Status.dnd)
-            await client.change_presence(activity=discord.Game(name="봇 점검"))
+            
         else:
             embed = discord.Embed(title="**unauthenticated user error**", description = "```Invalid user```", color=0xff0000)
             await message.channel.send(embed=embed)
         
         
-    if message.content.startswith("!upprtcl"):
+    if message.content.startswith("!why"):
         if message.author.id == 833697465319948361:
-        
-            #await message.channel_presence(status=discord.Status.idle)
-            await client.change_presence(activity=discord.Game(name="봇 업데이트"))
-            await message.channel.send("update mode")
+                   
+            embed = discord.Embed(title="**서비스종료 전 공지**", description = "**Chatdroid는 5일 뒤 서비스종료 예정임을 공지합니다.**\n\n**<서비스종료를 하는 이유>**\n\n**구버전의 discord.py에서 작성되었기 때문**\n봇은 discord.py 1.7.3 버전으로 작성되었으나, 현재 discord.py 2.0.0까지 버전이 존재합니다. 따라서 단점이 굉장히 많습니다.\n\n**<단점들>**\n\n1. Cogs 미지원(봇 스크립트를 여러 파일과 연결해 개발할 수 있게 돕는것)\n2. 지원하지 않은 기능이 많음\n3. 1.의 이유로 관리가 매우힘듦\n4. discord.py의 불투명한 지원계획\n\n**<개발계획>**\n\ndiscord.py ext를 이용해 봇을 개발 중에 있습니다.\n(이곳에 사진 첨부)\n(코루틴 공부하려고 만드는거라 개발기간은 매우 길 예정)\n개발이 완료되면 한국 디스코드 리스트에 등록할 예정이고, 초대하여 봇을 사용할 수 있을겁니다\n기존 Chatdroid코드는 github에 오픈소스로 풀 예정입니다.\n코루틴, asyncio등을 공부하시는 분들에게는 유용한 자료일겁니다.\n\n\nThank you!", color=0xff0000)
+            await message.channel.send(embed=embed)
+            
         else:
             embed = discord.Embed(title="**⚠️unauthenticated user error**", description = "```Invalid user```\nID값이 일치하지 않아 사용이 차단되었습니다.", color=0xff0000)
             await message.channel.send(embed=embed)
-        
-    if message.content.startswith("!killprtcl"):        
-        #await message.channel.send("```서비스 종료절차 실행```")
-        #await message.channel.send("타이머 셋팅")
-        #await message.channel.send("```서비스 종료 5분전```")
-        #await asyncio.sleep(300)
-        #await message.channel.send("**서비스가 종료되었습니다**")
-        await client.change_presence(status=discord.Status.offline)
-        #await asyncio.sleep(1000000)
-           
+               
  
     
     if message.content.startswith("!cls"):
