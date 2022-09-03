@@ -719,9 +719,10 @@ async def on_message(message):
         
     if message.content.startswith("!byeprtcl"):
         if message.author.id == 833697465319948361:
-        
-            await message.channel.send("잘가! 안녕!")
-            #await client.close()
+            
+            
+            await message.channel.send("Bye, World!")
+            await client.close()
             
         else:
             embed = discord.Embed(title="**unauthenticated user error**", description = "```Invalid user```", color=0xff0000)
