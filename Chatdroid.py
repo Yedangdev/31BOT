@@ -721,7 +721,7 @@ async def on_message(message):
         if message.author.id == 833697465319948361:
         
             await message.channel.send("잘가! 안녕!")
-            await client.change_presence(status=discord.Status.dnd)
+            #await client.close()
             
         else:
             embed = discord.Embed(title="**unauthenticated user error**", description = "```Invalid user```", color=0xff0000)
