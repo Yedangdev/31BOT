@@ -719,11 +719,48 @@ async def on_message(message):
         
     if message.content.startswith("!byeprtcl"):
         if message.author.id == 833697465319948361:
+                    
+            def check(m):      
+                return m.author == message.author and m.channel == message.channel
+
+            embed=discord.Embed(color=0xff00, title= "ShutDownPrtcl", description= "**옵션1**  Chatdroid를 입력해 종료\n**옵션2**  아무 키를 눌러 취소\n\n**경고**\n서버와 연결을 종료하면 봇 내부에 저장된 변수들이 모두 초기화됩니다.")
+            await message.channel.send(embed=embed)
+    	
+    	   
+            try:
+                msg = await client.wait_for("message", check=check, timeout=30)
             
+                if msg.content == "Chatdroid":
+                    await message.channel.send("```서버와 연결종료를 선택하셨습니다.```")
+                    print("서버 종료 절차가 실행되었습니다.")
+                    await message.channel.send("```서버와 연결종료 절차를 실행합니다.```")
+                    print("종료절차 진입")
+               
+                    await message.channel.send("```오프라인으로 설정중...```")
+                    time.sleep(2)
+                
+                    await client.change_presence(status=discord.Status.offline) #오프라인    
+                    await message.channel.send("```봇이 절전상태에 진입했습니다,.```")
+                    print("1번 절차 성공")
+                
+                    await message.channel.send("```서버와 연결을 종료하는중...```")
+                    time.sleep(2)
+                    await message.channel.send("```Heroku와의 연결이 종료되었습니다.```")
+                    print("최종 단계 성공")
+                
+                    await message.channel.send("```봇이 정지되었습니다.```")
+                    print("봇이 정지되었습니다.")
+                    await client.close()
+                
+                               
             
-            await message.channel.send("Bye, World!")
-            await client.close()
-            
+                else:
+                    await message.channel.send("```서버와 연결종료를 취소하셨습니다.```")
+
+        
+            except asyncio.exceptions.TimeoutError:
+                await message.channel.send("시간이 초과되었습니다.\n재시도 해주세요.")
+
         else:
             embed = discord.Embed(title="**unauthenticated user error**", description = "```Invalid user```", color=0xff0000)
             await message.channel.send(embed=embed)
