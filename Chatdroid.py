@@ -167,11 +167,16 @@ async def on_message(message):
             bly = "씨발새끼야"                    
         if 30 <= be < 60:
             bly = "병신새끼야"              
-        if 60 <= be < 100:
+        if 60 <= be <= 99:
             bly = "씹련아"
+        if be == 100:
+            bly = "개씨발새끼야 나가 뒤져라 제발좀"
+        
         if message.author.id == 714351331464314932:
-            bly = "사용할 수 없습니다."
-            nme = f"{message.author.mention}는"
+            bly = "개새끼야"
+            nme = "임건우"
+        
+        
         if nme == "지빈":
             bly = f"{nme}에게 욕을 할 수 없습니다."
             nme = message.author.mention
@@ -588,7 +593,7 @@ async def on_message(message):
           
             await message.channel.send(embed=embed)
             await asyncio.sleep(1)
-            await message.channel.send('{}님, 1%의 확률에 당첨되셨습니다!!!'.format(message.author.mention))
+            await message.channel.send('{}님, 1%의 안티치트를 사용하셨습니다!!!'.format(message.author.mention))
          
         
         if b == "":
@@ -605,7 +610,7 @@ async def on_message(message):
           
                 await message.channel.send(embed=embed)
                 await asyncio.sleep(1)
-                await message.channel.send('{}님, ANTI_CMD%의 확률로 당첨되셨습니다!!!'.format(message.author.mention))
+                await message.channel.send('{}님, 1%의 확률로 당첨되셨습니다!!!'.format(message.author.mention))
             
             
             
@@ -769,7 +774,7 @@ async def on_message(message):
     if message.content.startswith("!why"):
         if message.author.id == 833697465319948361:
                    
-            embed = discord.Embed(title="**서비스종료 전 공지**", description = "**Chatdroid는 5일 뒤 서비스종료 예정임을 공지합니다.**\n\n**<서비스종료를 하는 이유>**\n\n**구버전의 discord.py에서 작성되었기 때문**\n봇은 discord.py 1.7.3 버전으로 작성되었으나, 현재 discord.py 2.0.0까지 버전이 존재합니다. 따라서 단점이 굉장히 많습니다.\n\n**<단점들>**\n\n1. Cogs 미지원(봇 스크립트를 여러 파일과 연결해 개발할 수 있게 돕는것)\n2. 지원하지 않은 기능이 많음\n3. 1.의 이유로 관리가 매우힘듦\n4. discord.py의 불투명한 지원계획\n\n**<개발계획>**\n\ndiscord.py ext를 이용해 봇을 개발 중에 있습니다.\n(이곳에 사진 첨부)\n(코루틴 공부하려고 만드는거라 개발기간은 매우 길 예정)\n개발이 완료되면 한국 디스코드 리스트에 등록할 예정이고, 초대하여 봇을 사용할 수 있을겁니다\n기존 Chatdroid코드는 github에 오픈소스로 풀 예정입니다.\n코루틴, asyncio등을 공부하시는 분들에게는 유용한 자료일겁니다.\n\n\nThank you!", color=0xff0000)
+            embed = discord.Embed(title="**서비스종료 전 공지**", description = "**Chatdroid는 5일 뒤 서비스종료 예정임을 공지합니다.**\n\n**<서비스종료를 하는 이유>**\n\n**구버전의 discord.py에서 작성되었기 때문**\ndiscord.py ext가 아니여서 코드가 ㅈㄴ지저분합니다. 따라서 단점이 굉장히 많습니다.\n\n**<단점들>**\n\n1. Cogs 미지원(봇 스크립트를 여러 파일과 연결해 개발할 수 있게 돕는것)\n2. 지원하지 않은 기능이 많음\n3. 1.의 이유로 관리가 매우힘듦\n4. discord.py의 불투명한 지원계획\n\n기존 Chatdroid코드는 github에 오픈소스로 풀 예정입니다.\n코루틴, 비동기를 입문하시는 분들에게는 아주 약간 도움이 될겁니다.\n\n\nThank you!", color=0xff0000)
             await message.channel.send(embed=embed)
             
         else:
