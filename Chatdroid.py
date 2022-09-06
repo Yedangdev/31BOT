@@ -254,36 +254,73 @@ async def on_message(message):
 
         
     if message.content.startswith('!시간표'):
-        localset = datetime.now(timezone('Asia/Seoul')).strftime("%H")
-        utcset = datetime.now(timezone("utc")).strftime("%H")
         
-        wday = time.localtime().tm_wday
-        if 0 <= int(localset) <= 8:
-            if int(utcset) - int(localset) == 15:
-                if wday == 6:
-                    rewday = 0
-                else:
-                    rewday = wday + 1    #시간 보정
-        else:
-            rewday = wday	
+        timesrch = message.content[5;]
+        if len(timesrch) == 0:
+            timetitle = "{timesrch}요일"
+            
+        if len(timesrch) == 0:
+            
+            timetiltle = "오늘의"
+            
+            localset = datetime.now(timezone('Asia/Seoul')).strftime("%H")
+            utcset = datetime.now(timezone("utc")).strftime("%H")
+        
+            wday = time.localtime().tm_wday
+            if 0 <= int(localset) <= 8:
+                if int(utcset) - int(localset) == 15:
+                    if wday == 6:
+                        rewday = 0
+                    else:
+                        rewday = wday + 1    #시간 보정
+            else:
+                rewday = wday	
         
         
-        if rewday == 0:
+            if rewday == 0:
+                timetble = '**월요일**\n\n프로\n기하\n미적\n논술\n심독작\n물리2\n생명2'
+            
+            elif rewday == 1:
+                timetble = '**화요일**\n\n기하\n미적\n여지\n심국\n심독작\n생명2\n프로'
+            
+            elif rewday == 2:
+                timetble = '**수요일**\n\n미적\n심독작\n프로\n여지\n생명2\n물리2\n논술'
+            
+            elif rewday == 3:
+                timetble = '**목요일**\n\n미적\n스포\n심국\n진로\n심독작\n물리2\n여지'
+            
+            elif rewday == 4:
+                timetble = '**금요일**\n\n자율3\n심국\n스포\n기하\n자봉\n동아'
+            
+            elif rewday == 5:
+                timetble = '오늘은 토요일입니다!'
+            
+            elif rewday == 6:
+                timetble = '오늘은 일요일입니다!'
+        
+        
+        if timesrch == "월":
             timetble = '**월요일**\n\n프로\n기하\n미적\n논술\n심독작\n물리2\n생명2'
-        elif rewday == 1:
+            
+        if timesrch == "화":
             timetble = '**화요일**\n\n기하\n미적\n여지\n심국\n심독작\n생명2\n프로'
-        elif rewday == 2:
+            
+        if timesrch == "수":
             timetble = '**수요일**\n\n미적\n심독작\n프로\n여지\n생명2\n물리2\n논술'
-        elif rewday == 3:
+            
+        if timesrch == "목":
             timetble = '**목요일**\n\n미적\n스포\n심국\n진로\n심독작\n물리2\n여지'
-        elif rewday == 4:
+             
+        if timesrch == "금":
             timetble = '**금요일**\n\n자율3\n심국\n스포\n기하\n자봉\n동아'
-        elif rewday == 5:
+            
+        if timesrch == "토":
             timetble = '오늘은 토요일입니다!'
-        elif rewday == 6:
+            
+        if timesrch == "일":
             timetble = '오늘은 일요일입니다!'
-
-        embed = discord.Embed(title="**📃오늘의 시간표!**", description=f"{timetble}\n\n\n"+"[이곳을 눌러 전체시간표 열람](<https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png>)"+"```python\nKST(00:00)에 갱신됩니다```", color = 0x7289da)
+        
+        embed = discord.Embed(title=f"**📃{timetitle}시간표**", description=f"{timetble}\n\n\n"+"[이곳을 눌러 전체시간표 열람](<https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png>)"+"```python\nKST(00:00)에 갱신됩니다```", color = 0x7289da)
         embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
         await message.channel.send(embed=embed)
         #await message.channel.send("https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png")
