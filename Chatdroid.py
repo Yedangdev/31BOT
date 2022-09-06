@@ -21,7 +21,9 @@ async def on_ready():
     print(client.user.name)
     print(client.user.id)
     print('====================================')
-    
+    update = datetime.now(timezone('Asia/Seoul')).strftime("%p%Y%m%d%H%M")
+    print()
+        
     await client.change_presence(status=discord.Status.online) #온라인
     
     while not client.is_closed():
