@@ -729,7 +729,7 @@ async def on_message(message):
             def check(m):      
                 return m.author == message.author and m.channel == message.channel
 
-            embed=discord.Embed(color=0xff00, title= "ShutDownPrtcl", description= "**옵션1**  Chatdroid를 입력해 종료\n**옵션2**  아무 키를 눌러 취소\n\n**경고**\n서버와 연결을 종료하면 봇 내부에 저장된 변수들이 모두 초기화됩니다.")
+            embed=discord.Embed(color=0xff0000, title= "**종료 프로토콜을 실행하시겠습니까?**", description= "**옵션1**  Chatdroid를 입력해 종료\n**옵션2**  아무 키를 눌러 취소\n\n**⚠️경고⚠️**\n서버와 연결을 종료하면 봇 내부에 저장된 변수들이 모두 초기화됩니다.")
             await message.channel.send(embed=embed)
     	
     	   
@@ -766,10 +766,10 @@ async def on_message(message):
         
             except asyncio.exceptions.TimeoutError:
                 await message.channel.purge(limit=1)
-                await message.channel.send("시간이 초과되었습니다.\n재시도 해주세요.")
+                await message.channel.send("```시간이 초과되었습니다.\n재시도 해주세요.```")
 
         else:
-            embed = discord.Embed(title="**unauthenticated user error**", description = "```Invalid user```", color=0xff0000)
+            embed = discord.Embed(title="**⚠️Master Caution!⚠️**", description = f"**보안 위협 감지**\n```미인증 유저가 개발자 명령어에 접근했습니다.```\n**{message.author.mention}**", color=0xff0000)
             await message.channel.send(embed=embed)
         
         
