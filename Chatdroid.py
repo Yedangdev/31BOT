@@ -255,7 +255,7 @@ async def on_message(message):
         
     if message.content.startswith('!시간표'):
         
-        timesrch = message.content[5;]
+        timesrch = message.content[5:]
             
             
             
