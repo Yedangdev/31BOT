@@ -256,12 +256,12 @@ async def on_message(message):
     if message.content.startswith('!시간표'):
         
         timesrch = message.content[5;]
-        if len(timesrch) == 0:
-            timetitle = "{timesrch}요일"
+            
+            
+            
             
         if len(timesrch) == 0:
             
-            timetiltle = "오늘의"
             
             localset = datetime.now(timezone('Asia/Seoul')).strftime("%H")
             utcset = datetime.now(timezone("utc")).strftime("%H")
@@ -320,7 +320,10 @@ async def on_message(message):
         if timesrch == "일":
             timetble = '오늘은 일요일입니다!'
         
-        embed = discord.Embed(title=f"**📃{timetitle}시간표**", description=f"{timetble}\n\n\n"+"[이곳을 눌러 전체시간표 열람](<https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png>)"+"```python\nKST(00:00)에 갱신됩니다```", color = 0x7289da)
+        else:
+            timetble = "None"
+        
+        embed = discord.Embed(title=f"**📃시간표**", description=f"{timetble}\n\n\n"+"[이곳을 눌러 전체시간표 열람](<https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png>)"+"```python\nKST(00:00)에 갱신됩니다```", color = 0x7289da)
         embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
         await message.channel.send(embed=embed)
         #await message.channel.send("https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png")
