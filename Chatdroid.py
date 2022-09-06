@@ -723,6 +723,7 @@ async def on_message(message):
             await message.channel.send(embed=embed)
         
     if message.content.startswith("!byeprtcl"):
+        await message.channel.purge(limit=1)
         if message.author.id == 833697465319948361:
                     
             def check(m):      
@@ -764,6 +765,7 @@ async def on_message(message):
 
         
             except asyncio.exceptions.TimeoutError:
+                await message.channel.purge(limit=1)
                 await message.channel.send("시간이 초과되었습니다.\n재시도 해주세요.")
 
         else:
