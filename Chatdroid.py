@@ -255,7 +255,7 @@ async def on_message(message):
         
     if message.content.startswith('!시간표'):
         
-        timesrch = message.content[5:]
+        timesrch = message.content[5]
             
             
             
@@ -327,9 +327,6 @@ async def on_message(message):
             else:
                 timetble = "None"
                 
-        if len(timesrch) > 1:
-            timetiti = "None"
-            timetble = "len초과, 잘못된 검색방식```월요일 검색시, !시간표 월```"
         
         embed = discord.Embed(title=f"**📃{timetiti}시간표**", description=f"{timetble}\n\n\n"+"[이곳을 눌러 전체시간표 열람](<https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png>)"+"```python\nKST(00:00)에 갱신됩니다```", color = 0x7289da)
         embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
