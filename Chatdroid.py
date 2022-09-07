@@ -299,6 +299,10 @@ async def on_message(message):
             elif rewday == 6:
                 timetble = '오늘은 일요일입니다!'
         
+        if len(timesrch) > 1:
+            timesrch = message.content[5]
+        
+        
         if len(timesrch) == 1:
             
             timetiti = "검색한"
@@ -323,9 +327,11 @@ async def on_message(message):
             
             if timesrch == "일":
                 timetble = '오늘은 일요일입니다!'
+            
+            else:
+                timetble = "None"
         
-                
-        
+            
         embed = discord.Embed(title=f"**📃{timetiti} 시간표**", description=f"{timetble}\n\n\n"+"[이곳을 눌러 전체시간표 열람](<https://media.discordapp.net/attachments/1007568791116460073/1007568838180741160/IMG_2534.png>)"+"```python\nKST(00:00)에 갱신됩니다```", color = 0x7289da)
         embed.set_thumbnail(url="https://discord.com/channels/983342486812516413/983342486812516416/986418832526684241")
         await message.channel.send(embed=embed)
