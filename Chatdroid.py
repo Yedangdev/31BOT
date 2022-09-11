@@ -818,7 +818,7 @@ async def on_message(message):
                 await message.channel.send("```시간이 초과되었습니다.\n재시도 해주세요.```")
 
         else:
-            embed = discord.Embed(title="**⚠️Master Caution!⚠️**", description = f"**보안 위협 감지**\n```미인증 유저가 개발자 명령어에 접근했습니다.```\n**{message.author.mention}**", color=0xff0000)
+            embed = discord.Embed(title="**⚠️Master Caution!⚠️**", description = f"**보안 위협 감지**\n```미인증 유저가 봇 관리 명령어에 접근했습니다.```\n**{message.author.mention}**", color=0xff0000)
             await message.channel.send(embed=embed)
         
         
@@ -912,7 +912,7 @@ async def on_message(message):
             
         
         else:
-            embed = discord.Embed(title="⚠️unauthenticated user error", description = "```Invalid user```\nID값이 일치하지 않아 사용이 차단되었습니다.", color=0xff000)
+            embed = discord.Embed(title="⚠️unauthenticated user error", description = "```Invalid user```\n열람이 불가능한 명령어입니다.", color=0xff000)
             await message.channel.send(embed=embed)
             
         
