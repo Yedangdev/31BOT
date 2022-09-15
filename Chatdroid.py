@@ -432,7 +432,18 @@ async def on_message(message):
         
     if message.content.startswith('!급식'):
         
-        await message.channel.send('```python\nneis api 로딩중...\n예상처리시간:3초```')
+        randnum = randint(1, 3)
+        
+        if randnum == 1:
+            what = "그거 아시나요? 급식기능은 PIXIV 크롤러를 변형하여 만들었답니다."
+            
+        if randnum == 2:
+            what = "그거 아시나요? 임건우는 로리콘입니다."
+        
+        if randnum == 3:
+            what = "그거 아시나요? 이 챗봇에는 100개가 넘는 가변인자가 있답니다. 병신이 따로없답니다"
+        
+        await message.channel.send('```python\nneis api 로딩중...\n{what}```')
         await asyncio.sleep(2.5)
         await message.channel.purge(limit=2)
               
