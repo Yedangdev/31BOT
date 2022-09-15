@@ -22,7 +22,7 @@ async def on_ready():
     print(client.user.id)
     print('====================================')
     update = datetime.now(timezone('Asia/Seoul')).strftime("%p%Y%m%d%H%M")
-    print()
+    print(update)
         
     await client.change_presence(status=discord.Status.online) #온라인
     
