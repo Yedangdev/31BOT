@@ -443,7 +443,7 @@ async def on_message(message):
         if randnum == 3:
             what = "그거 아시나요? 이 챗봇에는 100개가 넘는 가변인자가 있답니다. 병신이 따로없답니다"
         
-        await message.channel.send('```python\nneis api 로딩중...\n{what}```')
+        await message.channel.send(f'```python\nneis api 로딩중...\n{what}```')
         await asyncio.sleep(2.5)
         await message.channel.purge(limit=2)
               
