@@ -165,9 +165,11 @@ async def on_message(message):
         nme = message.content[4:]
         
         be = randint(1,100)
-        if 1 <= be < 30:
-            bly = "씨발새끼야"                    
-        if 30 <= be < 60:
+        if 1 <= be < 10:
+            bly = "씨발새끼야"       
+        if 10 <= be <50:
+            bly = "윤달은 신이야!!"
+        if 50 <= be < 60:
             bly = "병신새끼야"              
         if 60 <= be <= 99:
             bly = "씹련아"
