@@ -197,6 +197,20 @@ async def on_message(message):
             bly = f"{nme}에게 욕을 할 수 없습니다."
             nme = message.author.mention
             
+        if nme == "윤달":
+            bly = f"{nme}에게 욕을 할 수 없습니다."
+            nme = message.author.mention
+            
+        if nme == "지환":
+            bly = f"{nme}에게 욕을 할 수 없습니다."
+            nme = message.author.mention
+            
+        if nme == "":
+            bly = f"{nme}에게 욕을 할 수 없습니다."
+            nme = message.author.mention
+           
+        
+            
         await message.channel.send(f"**{nme} {bly}**")
     
     if message.content.startswith("!한영"):
