@@ -139,9 +139,8 @@ async def on_message(message):
     
     if message.content.startswith("!수시"):
         founddict = message.content[4:]
-        
-        
-        embed = discord.Embed(title=f"🏫{founddict}", description = "해당 서비스는 지원종료되었습니다. 이용해주셔서 감사합니다.", color = 0x7289da)
+               
+        embed = discord.Embed(title="검색실패", description = "EFT msg: 해당 서비스는 지원종료되었습니다. 이용해주셔서 감사합니다.", color = 0x7289da)
         await message.channel.send(embed=embed)
         
 
@@ -497,7 +496,7 @@ async def on_message(message):
 
     if message.content.startswith('!논술'):
         index = message.content[4:]     
-        embed=discord.Embed(color= 0x7289da, title= f"🏫{index}", description= "2022-10-31부로 해당 검색시스템은 종료되었습니다, 이용해주셔서 감사합니다.")
+        embed=discord.Embed(color= 0x7289da, title= "검색실패", description= "EFT msg: 해당 서비스는 종료되었습니다, 이용해주셔서 감사합니다.")
         await message.channel.send(embed=embed) #출력
         
         
@@ -749,7 +748,7 @@ async def on_message(message):
         
             await message.channel.purge(limit=1)
             ver = "**2.0.0(31ver)**"
-            fix = "**<업데이트 내역>**!논술, !수시, !제목, !내용, !공지 명령어는 2022-10-01부로 지원종료 되었습니다.**"   
+            fix = "**<2022/10/01 업데이트 내역>**\n\n- 봇 레이턴시 최적화\n- 스택 트레이싱 업데이트\n\n\n**<1차 지원종료 공지>**\n\n!논술, !수시, !제목, !내용, !공지 명령어는 2022-10-01부로 지원종료 되었습니다.**"   
             embed = discord.Embed(title=f"{ver}", description = f"{fix}", color = 0xff0000)
             embed.set_footer(text= "감지된 채널 수: {channel.num}")
             embed.set_thumbnail(url="https://media.discordapp.net/attachments/984777197506162748/985181219329294376/Screenshot_20220610-224533_Samsung_Notes-removebg-preview.jpg")
