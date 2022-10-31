@@ -27,12 +27,7 @@ async def on_ready():
     await client.change_presence(status=discord.Status.online) #온라인
     
     while not client.is_closed():
-        await client.change_presence(activity=discord.Game(name="!도움말"))
-        await asyncio.sleep(5)
-        ch = 0
-        for g in client.guilds:
-            ch += len(g.channels)
-        await client.change_presence(activity=discord.Game(name=f"{ch}개의 채널과 함께"))
+        await client.change_presence(activity=discord.Game(name="!도움말"))        
         await asyncio.sleep(5)
         latancys = client.latency
         lateninfo = round(latancys * 1000)
@@ -61,6 +56,7 @@ async def on_message(message):
 
         
     if message.content.startswith("!한강"):
+        
         headers = {'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'}   
         
         url = "https://hangang.ivlis.kr/aapi.php?type=dgr"
@@ -73,8 +69,10 @@ async def on_message(message):
         randcr = randrange(0,4)
         curre = curse[randcr]
         
+        
         embed = discord.Embed(title="**실시간 한강 수온**", description = f"**🌡{temp}**\n\n*{curre}*", color=0x7289da)     #+"\n[좋은 노래! 🔗](<https://m.youtube.com/watch?v=5kbP23jYsNs&vl=ko>)\n "
-        embed.set_footer(text = "출처: ivlis")
+        embed.set_footer(text = f"출처: ivlis")
+        
         await message.channel.send(embed=embed)
        
     
@@ -457,12 +455,13 @@ async def on_message(message):
             what = "그거 아시나요? 임건우는 로리콘입니다."
         
         if randnum == 3:
-            what = "그거 아시나요? 이 챗봇에는 100개가 넘는 가변인자가 있답니다. 병신이 따로없답니다"
+            what = "2023-03-01 서비스는 종료됩니다."
         
         await message.channel.send(f'```python\nneis api 로딩중...\n{what}```')
         await asyncio.sleep(2.5)
         await message.channel.purge(limit=2)
-              
+        
+        start = time.time()
         dietdate = message.content[4:]
         
         if len(dietdate) == 0:
@@ -499,9 +498,10 @@ async def on_message(message):
         if dietre == "**검색에 실패하였습니다**\n\n**오타를 확인해보세요!**\n검색요령ex) ```!급식 20220921``` --> 2022년09월21일의 급식정보":
             titledate = "**⚠️존재하지 않는**"
             #hexcde = "0x0xff0000"
+        end = time.time()
         
         embed=discord.Embed(color= 0x7289da, title= f"{titledate} **급식표**", description= f"{dietpr}\n\n\n```python\nKST(00:00)에 갱신됩니다```", timestamp=message.created_at)
-        #embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
+        embed.set_footer(text= f"{end - start:.5f}초 소요되었습니다.")
         await message.channel.send(embed=embed)
     
     if message.content.startswith ("!청소"):
